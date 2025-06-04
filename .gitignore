@@ -1,5 +1,6 @@
 # Environment files
 .env
+
 node_modules/
 
 # Build artifacts
@@ -25,3 +26,7 @@ __pycache__/
 # OS generated files
 .DS_Store
 Thumbs.db
+=======
+node_modules    
+*.DS_Store
+
