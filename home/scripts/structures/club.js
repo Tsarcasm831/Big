@@ -16,7 +16,8 @@ export function createClub(scene, clubConfig) {
     if (scale) group.scale.set(scale.x, scale.y, scale.z);
     // Rotate club 90° clockwise around Y axis
     group.rotation.y = -Math.PI / 2;
-    loadModel('/assets/static/diamonds.glb')
+    const url = new URL('assets/static/diamonds.glb', document.baseURI);
+    loadModel(url)
         .then(gltf => {
             const obj = gltf.scene;
             obj.name = 'ClubModel';
