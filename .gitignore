@@ -1,2 +1,27 @@
+# Environment files
 .env
-node_modules    
+node_modules/
+
+# Build artifacts
+build/
+dist/
+coverage/
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.swp
+*~
+tmp/
+temp/
+
+# Caches
+.cache/
+__pycache__/
+*.py[cod]
+
+# OS generated files
+.DS_Store
+Thumbs.db
