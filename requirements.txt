@@ -1,6 +1,11 @@
-python==3.13
-leaflet==1.9.4
-leaflet-routing-machine==latest
 flask==3.0.0
 flask-cors==4.0.0
 requests==2.31.0
+gradio_client
+openai
+speechrecognition
+pillow
+numpy
+opencv-python
+ursina
+pygltflib
