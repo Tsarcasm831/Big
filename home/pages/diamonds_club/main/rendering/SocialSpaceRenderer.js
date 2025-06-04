@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import { createLoader } from '../../../../scripts/loaderFactory.js';
 import { slotThemes } from '../../constants/slotThemes.js';
-import { CSS3DRenderer, CSS3DObject } from 'three/addons/renderers/CSS3DRenderer.js';
+import { CSS3DObject } from 'three/addons/renderers/CSS3DRenderer.js';
 
 /**
  * Mixin for rendering and scene logic
@@ -13,15 +13,13 @@ export default function applyRendering(instance) {
   instance.renderer.domElement.style.top = '0';
   instance.renderer.domElement.style.left = '0';
   instance.renderer.domElement.style.pointerEvents = 'none';
-  // Initialize and overlay CSS3DRenderer for HTML UI
-  instance.cssRenderer = new CSS3DRenderer();
-  instance.cssRenderer.setSize(window.innerWidth, window.innerHeight);
-  instance.cssRenderer.domElement.style.position = 'absolute';
-  instance.cssRenderer.domElement.style.top = '0';
-  instance.cssRenderer.domElement.style.left = '0';
-  instance.cssRenderer.domElement.style.pointerEvents = 'auto';
-  // Append CSS3D layer
-  instance.css3dContainer.appendChild(instance.cssRenderer.domElement);
+  // Reuse CSS3DRenderer created by the core and apply overlay styling
+  if (instance.cssRenderer) {
+    instance.cssRenderer.domElement.style.position = 'absolute';
+    instance.cssRenderer.domElement.style.top = '0';
+    instance.cssRenderer.domElement.style.left = '0';
+    instance.cssRenderer.domElement.style.pointerEvents = 'auto';
+  }
 
   instance.addLighting = function() {
     // Add a single chandelier that provides all the room lighting
@@ -636,10 +634,4 @@ export default function applyRendering(instance) {
     }
   };
 
-  instance.onWindowResize = function() {
-    instance.camera.aspect = window.innerWidth / window.innerHeight;
-    instance.camera.updateProjectionMatrix();
-    instance.renderer.setSize(window.innerWidth, window.innerHeight);
-    instance.cssRenderer.setSize(window.innerWidth, window.innerHeight);
-  };
 }
