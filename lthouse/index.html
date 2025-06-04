@@ -1,0 +1,38 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lord Tsarcasm's House - Interactive 3D Demo</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://cdn.jsdelivr.net/npm/three@0.157.0/build/three.module.js",
+                "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.157.0/examples/jsm/"
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="game-container">
+        <canvas id="game-canvas"></canvas>
+        <div id="loading-screen">
+            <h1>Lord Tsarcasm's House</h1>
+            <div class="loader"></div>
+            <p>Loading the depths of sarcasm...</p>
+            <p>Click to start after loading</p>
+        </div>
+        <div id="interaction-prompt" class="hidden">Press E to interact</div>
+        <div id="sarcasm-message" class="hidden"></div>
+        <div id="pause-menu" class="hidden">
+            <h2>Paused</h2>
+            <button id="resume-btn">Resume</button>
+            <button id="fullscreen-btn">Toggle Fullscreen</button>
+            <button id="exit-btn">Exit Demo</button>
+        </div>
+    </div>
+    <script src="main.js" type="module"></script>
+</body>
+</html>
