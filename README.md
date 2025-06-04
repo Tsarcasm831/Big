@@ -1,5 +1,7 @@
 # any new models must be compressed using compress_glbs.js
 
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+=======
 ## Git LFS Assets
 
 Large media files are stored using [Git LFS](https://git-lfs.com/). After cloning the repository install Git LFS and pull the assets:
@@ -83,3 +85,4 @@ Launch the dialogue service used by NPC interactions:
 cd home/scripts/dialogue_backend
 python app.py
 ```
+
