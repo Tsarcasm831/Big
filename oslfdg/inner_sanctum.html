@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inner Sanctum :: The Resonant Echo</title>
+    <link rel="stylesheet" href="tenets.style.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <div id="void-background"></div>
+
+    <svg style="display: none;">
+        <!-- Shared SVG Definitions -->
+        <defs>
+            <symbol id="core-symbol-shape" viewBox="0 0 100 100">
+                <title>Resonant Symbol Core</title>
+                <g id="symbol-core">
+                     <circle cx="50" cy="50" r="10" fill="none" stroke="#aaa" stroke-width="0.5"/>
+                     <path d="M 50,30 A 20 20 0 1 1 50,70 A 20 20 0 1 1 50,30 Z M 50,35 A 15 15 0 1 0 50,65 A 15 15 0 1 0 50,35 Z" fill="none" stroke="#888" stroke-width="0.3"/>
+                     <line x1="50" y1="20" x2="50" y2="80" stroke="#666" stroke-width="0.2"/>
+                     <line x1="20" y1="50" x2="80" y2="50" stroke="#666" stroke-width="0.2"/>
+                     <circle cx="50" cy="50" r="30" fill="none" stroke="#555" stroke-width="0.1"/>
+                     <circle cx="50" cy="50" r="40" fill="none" stroke="#444" stroke-width="0.1"/>
+                </g>
+            </symbol>
+            <symbol id="lock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                <title>Locked Content</title>
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+            </symbol>
+        </defs>
+    </svg>
+
+    <div id="tenets-container">
+        <header id="tenets-header">
+             <nav class="page-tree" aria-label="Site Sections">
+                <ul>
+                     <li>
+                        <a href="threshold.html" class="page-tree-link" data-tooltip="Return to Threshold">
+                            Threshold
+                        </a>
+                    </li>
+                    <li>
+                        <a href="tenets.html" class="page-tree-link" data-tooltip="View Tenets">
+                           The First Tenets
+                        </a>
+                    </li>
+                    <li>
+                        <a href="whispers.html" class="page-tree-link" data-tooltip="Enter Chamber">
+                            Chamber of Whispers
+                        </a>
+                    </li>
+                     <li>
+                        <a href="inner_sanctum.html" class="page-tree-link active" aria-current="page" data-tooltip="Current Location">
+                           Inner Sanctum
+                        </a>
+                    </li>
+                    <li>
+                        <a href="archives.html" class="page-tree-link locked" data-tooltip="Requires Deeper Resonance">
+                             <svg class="page-tree-icon locked" aria-hidden="true"><use href="#lock-icon"/></svg>
+                            The Archives
+                        </a>
+                    </li>
+                     <li>
+                        <a href="misdirection-pages/adept_trials/adept_trials.html" class="page-tree-link locked" data-tooltip="Seek Understanding">
+                             <svg class="page-tree-icon locked" aria-hidden="true"><use href="#lock-icon"/></svg>
+                            Adept Trials
+                        </a>
+                    </li>
+                    <li>
+                        <a href="mettle.html" class="page-tree-link locked" data-tooltip="Contribution Required">
+                             <svg class="page-tree-icon locked" aria-hidden="true"><use href="#lock-icon"/></svg>
+                            Prove Mettle
+                        </a>
+                    </li>
+                     <li>
+                        <a href="#" class="page-tree-link locked admin" data-tooltip="Restricted Access">
+                             <svg class="page-tree-icon locked" aria-hidden="true"><use href="#lock-icon"/></svg>
+                            Admin
+                        </a>
+                     </li>
+                </ul>
+            </nav>
+            <aside class="user-status">
+                <span id="user-identifier">Resonant ID: #734A</span> | <span id="user-rank">Status: Neophyte</span>
+            </aside>
+        </header>
+
+        <main id="tenets-main">
+            <h1 class="tenets-title">Inner Sanctum</h1>
+            <hr class="title-rule">
+
+            <article class="tenet">
+                <p>The frequency aligns. Welcome, seeker, to the Inner Sanctum.</p>
+                <p>This space is reserved for deeper contemplation and the echoes of those who have progressed further along the path. Here, the signals are clearer, the patterns more intricate.</p>
+                <p>Observe. Listen. Contribute when resonance dictates.</p>
+                <p>(Content for the Inner Sanctum will be revealed in time...)</p>
+            </article>
+
+             <nav class="tenet-navigation" aria-label="Navigation">
+                <a href="whispers.html">&laquo; Return to Whispers</a>
+                <a href="archives.html">Proceed to Archives &raquo;</a>
+            </nav>
+
+        </main>
+
+        <footer id="tenets-footer">
+            <hr class="footer-rule">
+            <svg class="small-symbol footer-symbol" aria-hidden="true" viewBox="0 0 100 100">
+                <use href="#core-symbol-shape" stroke-width="0.1"/>
+            </svg>
+        </footer>
+    </div>
+
+    <script type="importmap">
+      {
+        "imports": {
+        }
+      }
+    </script>
+    <script type="module" src="tenets.script.js"></script>
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FDG Network :: Internal</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <style>
+      /* Expand portal container for better alignment with minigame */
+      #portal-container {
+        max-width: 1200px;
+        margin: 0 auto 32px auto;
+        background: rgba(28, 32, 40, 0.98);
+        border-radius: 18px;
+        box-shadow: 0 2px 32px rgba(0,0,0,0.35);
+        padding: 32px 32px 16px 32px;
+      }
+      #portal-main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        box-sizing: border-box;
+      }
+      .portal-title {
+        font-size: 2.6em;
+        margin-bottom: 0.6em;
+        color: #e8e8fa;
+        text-align: center;
+        letter-spacing: 1.5px;
+        text-shadow: 0 2px 10px #222;
+      }
+      .instruction-text {
+        font-size: 1.15em;
+        margin-bottom: 0.7em;
+        color: #bfc7d5;
+        text-align: center;
+      }
+      .title-rule {
+        width: 70%;
+        border: none;
+        border-top: 2px solid #444;
+        margin: 0 auto 2em auto;
+      }
+      /* Unify minigame and portal visually */
+      #minigame-window {
+        margin: 0 auto 0 auto;
+        max-width: 98vw;
+        background: transparent;
+        border-radius: 0;
+        box-shadow: none;
+        padding: 0;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      #minigame-window h2 {
+        color: #ffcc66;
+        margin-bottom: 1.4vw;
+        font-family: 'Press Start 2P', monospace;
+        letter-spacing: 1.5px;
+        font-size: 2vw;
+        text-shadow: 1px 2px 8px #222;
+        background: none;
+        border-radius: 0;
+        padding: 0;
+      }
+      #minigame-window iframe {
+        width: 90vw;
+        height: 70vh;
+        min-width: 320px;
+        min-height: 300px;
+        max-width: 1280px;
+        max-height: 900px;
+        border: 2px solid #444;
+        border-radius: 10px;
+        background: #111;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+        margin-bottom: 1vw;
+      }
+      #minigame-window > div { font-size: 1.1vw; }
+      @media (max-width: 900px) {
+        #portal-container { max-width: 98vw; padding: 12px 2vw; }
+        #portal-main { padding: 0; }
+        #minigame-window iframe { width: 98vw; height: 50vw; }
+      }
+    </style>
+</head>
+<body>
+    <div id="void-background"></div>
+
+    <div id="portal-container">
+        <header id="portal-header">
+            <div class="system-title">
+                <span style="font-size: 1.5em; margin-right: 10px;">🌐</span>
+                <span>FDG Internal Network</span>
+            </div>
+            <aside class="user-status">
+                <span id="user-identifier">Resonant ID: #LOADING...</span> | <span id="user-rank">Status: Operative</span>
+            </aside>
+        </header>
+
+        <main id="portal-main">
+            <h1 class="portal-title">Federal Democratic Government Portal</h1>
+            <hr class="title-rule">
+
+            <p class="instruction-text">Access Confirmed. Welcome, Operative.</p>
+            <p>FDG Internal Systems Online.</p>
+            <!-- Add FDG-specific content here -->
+
+            <!-- Overworld Minigame Window Start -->
+            <section id="minigame-window">
+                <h2>World Map</h2>
+                <iframe src="fdg/worldmap/index.html" title="World Map" allowfullscreen></iframe>
+                <div>Interact with the world map above!</div>
+            </section>
+            <!-- Overworld Minigame Window End -->
+
+            <nav class="tenet-navigation" style="margin-top: 40px; justify-content: center;">
+                <a href="osl-fdg_index.html" class="auth-button" style="text-decoration: none; background-color: rgba(180, 80, 80, 0.3); border-color: rgba(180, 80, 80, 0.5); color: #ffcccc;">Logout</a>
+            </nav>
+        </main>
+
+        <footer id="portal-footer">
+            <span style="font-size: 1.2em; margin-right: 5px;">🌐</span>
+            <span class="footer-text">Federal Democratic Government - Secure Channel</span>
+        </footer>
+    </div>
+
+    <script type="importmap">
+      {
+        "imports": {
+           "../userDatabase.js": "../userDatabase.js"
+        }
+      }
+    </script>
+    <script type="module">
+        import { initializeUser, getUserIdentifier } from '../userDatabase.js';
+        document.addEventListener('DOMContentLoaded', () => {
+             const userId = initializeUser();
+            const userIdentifierDisplay = document.getElementById('user-identifier');
+            const userRankDisplay = document.getElementById('user-rank');
+             if (userIdentifierDisplay && userId) {
+                userIdentifierDisplay.textContent = `Resonant ID: #${userId}`;
+            } else if (userIdentifierDisplay) {
+                userIdentifierDisplay.textContent = `Resonant ID: #UNKNOWN`;
+            }
+             if (userRankDisplay) userRankDisplay.textContent = `Status: Operative`;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSL::FDG Network :: Admin Overwatch</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <div id="void-background"></div>
+
+    <div id="portal-container" style="max-width: 800px;">
+        <header id="portal-header">
+            <div class="system-title">
+                <img src="../assets/logo.jpg" alt="OSL Logo" style="height: 28px; width: auto; filter: var(--logo-filter);">
+                <span style="margin: 0 5px;">&</span>
+                <span style="font-size: 1.5em; margin-right: 10px;">🌐</span>
+                <span>OSL::FDG Overwatch</span>
+            </div>
+            <aside class="user-status">
+                <span id="user-identifier">Resonant ID: #LOADING...</span> | <span id="user-rank">Status: Overseer</span>
+            </aside>
+        </header>
+
+        <main id="portal-main">
+            <h1 class="portal-title">Combined Operations Portal</h1>
+            <hr class="title-rule">
+
+            <p class="instruction-text">Administrative Access Confirmed. Welcome, Overseer.</p>
+            <p>OSL & FDG Systems Linked.</p>
+
+            <div style="margin-top: 20px; padding: 15px; background: rgba(0,0,0,0.1); border: 1px solid var(--border-subtle); border-radius: 3px;">
+                <h3 style="margin-top: 0; color: var(--accent-color);">System Notices</h3>
+                <ul>
+                    <li>Anomaly reported Sector 7G. OSL unit dispatched.</li>
+                    <li>FDG resource allocation pending approval.</li>
+                    <li>Network stability: 99.8%</li>
+                </ul>
+            </div>
+
+            <nav class="tenet-navigation" style="margin-top: 40px; justify-content: center;">
+                <a href="osl-fdg_index.html" class="auth-button" style="text-decoration: none; background-color: rgba(180, 80, 80, 0.3); border-color: rgba(180, 80, 80, 0.5); color: #ffcccc;">Logout</a>
+            </nav>
+        </main>
+
+        <footer id="portal-footer">
+            <img src="../assets/logo.jpg" alt="OSL Footer Logo" class="footer-logo">
+            <span style="font-size: 1.2em; margin: 0 5px;">🌐</span>
+            <span class="footer-text">OSL::FDG - Unified Secure Channel :: ADMIN</span>
+        </footer>
+    </div>
+
+    <script type="importmap">
+        {
+            "imports": {
+                "../userDatabase.js": "../userDatabase.js"
+            }
+        }
+    </script>
+    <script type="module">
+        import { initializeUser, getUserIdentifier } from '../userDatabase.js';
+        document.addEventListener('DOMContentLoaded', () => {
+            const userId = initializeUser();
+            const userIdentifierDisplay = document.getElementById('user-identifier');
+            const userRankDisplay = document.getElementById('user-rank');
+            if (userIdentifierDisplay && userId) {
+                userIdentifierDisplay.textContent = `Resonant ID: #${userId}`;
+            } else if (userIdentifierDisplay) {
+                userIdentifierDisplay.textContent = `Resonant ID: #UNKNOWN`;
+            }
+            const isAdmin = sessionStorage.getItem('isAdmin') === 'true';
+            if (userRankDisplay) userRankDisplay.textContent = isAdmin ? `Status: Overseer` : 'Status: Agent/Operative'; 
+        });
+    </script>
+</body>
+</html>

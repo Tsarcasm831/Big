@@ -1,0 +1,219 @@
+/* factions-aliens.css - Shared styles for alien factions */
+
+/* Alien Race Grid Styles */
+.alien-race-item {
+    background: rgba(20, 20, 30, 0.95);
+    border: 2px solid #A0A;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 10px;
+    text-align: center;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 0 10px rgba(170, 0, 170, 0.3);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.alien-race-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(170, 0, 170, 0.5);
+}
+
+.alien-race-icon {
+    width: 128px;
+    height: 128px;
+    object-fit: contain;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.alien-race-name {
+    font-weight: bold;
+    color: #A0A;
+    margin-bottom: 5px;
+    font-size: 1.2em;
+}
+
+.alien-race-description {
+    font-size: 0.9em;
+    margin-bottom: 15px;
+    line-height: 1.4;
+}
+
+.view-details-button {
+    background: #A0A;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-top: auto;
+}
+
+.view-details-button:hover {
+    background: #c0c;
+}
+
+/* Alien Details Modal Styles */
+.alien-details-modal {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 10; /* Higher than other elements in the container */
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.alien-details-modal.show {
+    display: flex;
+}
+
+.alien-details-modal .modal-content {
+    background: rgba(20, 20, 30, 0.95);
+    border: 2px solid #A0A;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 900px;
+    max-height: 90%;
+    overflow-y: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    color: white;
+    position: relative;
+    box-shadow: 0 0 20px rgba(170, 0, 170, 0.5);
+    margin: auto;
+}
+
+.alien-details-modal .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.alien-details-modal .left-column {
+    flex: 1;
+    padding-right: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.alien-details-modal .right-column {
+    flex: 2;
+    overflow-y: auto;
+    padding-left: 20px;
+    border-left: 1px solid rgba(170, 0, 170, 0.5);
+}
+
+.alien-details-modal .alien-image {
+    width: 100%;
+    max-height: 300px;
+    object-fit: contain;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.alien-details-modal .model-container {
+    width: 100%;
+    height: 300px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    background-color: #222; /* Lighter background for better contrast */
+    position: relative;
+    overflow: hidden;
+    box-shadow: inset 0 0 30px rgba(170, 0, 170, 0.3); /* Subtle inner glow */
+    border: 1px solid rgba(170, 0, 170, 0.3); /* Subtle border */
+}
+
+.alien-details-modal h2 {
+    color: #A0A;
+    margin-top: 0;
+    border-bottom: 1px solid #A0A;
+    padding-bottom: 10px;
+}
+
+.alien-details-modal h3 {
+    color: #A0A;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.alien-details-modal p {
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.alien-details-modal .basic-info {
+    margin-bottom: 20px;
+}
+
+.alien-details-modal .details-section {
+    margin-top: 20px;
+}
+
+.alien-details-modal .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.alien-details-modal .stat-item {
+    background: rgba(50, 50, 70, 0.5);
+    padding: 10px;
+    border-radius: 5px;
+    position: relative;
+}
+
+.alien-details-modal .stat-name {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #A0A;
+}
+
+.alien-details-modal .stat-value {
+    font-size: 1.2em;
+    margin-bottom: 5px;
+}
+
+.alien-details-modal .stat-bar {
+    height: 5px;
+    background: #A0A;
+    border-radius: 2px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .alien-details-modal .modal-content {
+        flex-direction: column;
+    }
+    
+    .alien-details-modal .left-column,
+    .alien-details-modal .right-column {
+        padding: 0;
+        border: none;
+    }
+    
+    .alien-details-modal .right-column {
+        margin-top: 20px;
+    }
+    
+    .alien-details-modal .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

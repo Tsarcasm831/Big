@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin :: The Resonant Echo</title>
+    <link rel="stylesheet" href="tenets.style.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <div id="void-background"></div>
+
+    <svg style="display: none;">
+        <!-- Shared SVG Definitions -->
+        <defs>
+            <symbol id="core-symbol-shape" viewBox="0 0 100 100">
+                <title>Resonant Symbol Core</title>
+                <g id="symbol-core">
+                     <circle cx="50" cy="50" r="10" fill="none" stroke="#aaa" stroke-width="0.5"/>
+                     <path d="M 50,30 A 20 20 0 1 1 50,70 A 20 20 0 1 1 50,30 Z M 50,35 A 15 15 0 1 0 50,65 A 15 15 0 1 0 50,35 Z" fill="none" stroke="#888" stroke-width="0.3"/>
+                     <line x1="50" y1="20" x2="50" y2="80" stroke="#666" stroke-width="0.2"/>
+                     <line x1="20" y1="50" x2="80" y2="50" stroke="#666" stroke-width="0.2"/>
+                     <circle cx="50" cy="50" r="30" fill="none" stroke="#555" stroke-width="0.1"/>
+                     <circle cx="50" cy="50" r="40" fill="none" stroke="#444" stroke-width="0.1"/>
+                </g>
+            </symbol>
+            <symbol id="lock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                <title>Locked Content</title>
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+            </symbol>
+             <symbol id="logout-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <title>Logout</title>
+                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line>
+            </symbol>
+        </defs>
+    </svg>
+
+    <div id="tenets-container">
+        <header id="tenets-header">
+             <nav class="page-tree" aria-label="Site Sections">
+                <ul>
+                    <li>
+                        <a href="threshold.html" class="page-tree-link" data-tooltip="Return to Threshold">
+                            Threshold
+                        </a>
+                    </li>
+                    <li>
+                        <a href="tenets.html" class="page-tree-link" data-tooltip="View Tenets">
+                           The First Tenets
+                        </a>
+                    </li>
+                    <li>
+                        <a href="whispers.html" class="page-tree-link" data-tooltip="Enter Chamber">
+                            Chamber of Whispers
+                        </a>
+                    </li>
+                     <li>
+                        <a href="#" class="page-tree-link locked" data-tooltip="Requires Rank: Adept">
+                            <svg class="page-tree-icon locked" aria-hidden="true"><use href="#lock-icon"/></svg>
+                            Inner Sanctum
+                        </a>
+                    </li>
+                    <li>
+                        <a href="archives.html" class="page-tree-link locked" data-tooltip="Requires Deeper Resonance">
+                             <svg class="page-tree-icon locked" aria-hidden="true"><use href="#lock-icon"/></svg>
+                            The Archives
+                        </a>
+                    </li>
+                     <li>
+                        <a href="misdirection-pages/adept_trials/adept_trials.html" class="page-tree-link locked" data-tooltip="Seek Understanding">
+                             <svg class="page-tree-icon locked" aria-hidden="true"><use href="#lock-icon"/></svg>
+                            Adept Trials
+                        </a>
+                    </li>
+                    <li>
+                        <a href="mettle.html" class="page-tree-link locked" data-tooltip="Contribution Required">
+                             <svg class="page-tree-icon locked" aria-hidden="true"><use href="#lock-icon"/></svg>
+                            Prove Mettle
+                        </a>
+                    </li>
+                     <!-- Admin link - state managed by script -->
+                     <li>
+                        <a href="admin.html" class="page-tree-link admin active" aria-current="page" data-tooltip="Admin Panel">
+                             <!-- Icon potentially added/removed by script -->
+                            Admin
+                        </a>
+                     </li>
+                </ul>
+            </nav>
+            <aside class="user-status">
+                <span id="user-identifier">Resonant ID: #UNKNOWN</span> | <span id="user-rank">Status: Neophyte</span>
+            </aside>
+        </header>
+
+        <main id="tenets-main">
+
+             <!-- Access Gate -->
+            <div id="admin-access-gate" class="admin-section">
+                <h1 class="tenets-title">Admin Access Required</h1>
+                <hr class="title-rule">
+                <p class="instruction-text">Enter the administrative override code.</p>
+                <div class="admin-login-form">
+                    <label for="admin-code-input" class="visually-hidden">Admin Code:</label>
+                    <input type="password" id="admin-code-input" class="admin-input" placeholder="Enter Code">
+                    <button id="admin-submit-button" class="admin-button">Authenticate</button>
+                </div>
+                <p id="admin-error-message" class="admin-feedback error" style="display: none;">Invalid Code.</p>
+            </div>
+
+            <!-- Admin Content (Initially Hidden) -->
+            <div id="admin-content" class="admin-section" style="display: none;">
+                <h1 class="tenets-title">Admin Panel</h1>
+                <hr class="title-rule">
+
+                <section class="admin-module">
+                    <h2 class="admin-module-title">System Status</h2>
+                    <ul class="admin-info-list">
+                        <li><strong>Resonance Stability:</strong> Optimal</li>
+                        <li><strong>Active Connections:</strong> 734</li>
+                        <li><strong>Whisper Volume (24h):</strong> Moderate</li>
+                        <li><strong>Last Purge Cycle:</strong> 8h ago</li>
+                    </ul>
+                </section>
+
+                <hr class="admin-separator">
+
+                <section class="admin-module">
+                    <h2 class="admin-module-title">User Management (Placeholder)</h2>
+                    <p class="instruction-text">Functionality pending integration.</p>
+                    <div class="admin-table-container">
+                         <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>Resonant ID</th>
+                                    <th>Status</th>
+                                    <th>Last Active</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>#734A</td>
+                                    <td>Neophyte</td>
+                                    <td>Now</td>
+                                    <td><button class="admin-button-small" disabled>View</button> <button class="admin-button-small" disabled>Mute</button></td>
+                                </tr>
+                                 <tr>
+                                    <td>#11B8</td>
+                                    <td>Adept</td>
+                                    <td>2h ago</td>
+                                    <td><button class="admin-button-small" disabled>View</button> <button class="admin-button-small" disabled>Mute</button></td>
+                                </tr>
+                                 <tr>
+                                    <td>#C90F</td>
+                                    <td>Neophyte</td>
+                                    <td>1d ago</td>
+                                    <td><button class="admin-button-small" disabled>View</button> <button class="admin-button-small" disabled>Mute</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <hr class="admin-separator">
+
+                 <section class="admin-module">
+                    <h2 class="admin-module-title">Content Moderation (Placeholder)</h2>
+                     <p class="instruction-text">Review queue is empty.</p>
+                </section>
+            </div>
+
+        </main>
+
+        <footer id="tenets-footer">
+            <hr class="footer-rule">
+            <svg class="small-symbol footer-symbol" aria-hidden="true" viewBox="0 0 100 100">
+                <use href="#core-symbol-shape" stroke-width="0.1"/>
+            </svg>
+        </footer>
+    </div>
+
+    <script type="importmap">
+      {
+        "imports": {
+           "./userDatabase.js": "./userDatabase.js"
+        }
+      }
+    </script>
+    <script type="module">
+      import { initializeUser } from './userDatabase.js';
+      document.addEventListener('DOMContentLoaded', () => {
+        const userId = initializeUser(window.OSL_CURRENT_TIME || '2025-04-14T15:35:15-06:00');
+        const userIdentifierDisplay = document.getElementById('user-identifier');
+        const userRankDisplay = document.getElementById('user-rank');
+        if (userIdentifierDisplay && userId) {
+          userIdentifierDisplay.textContent = `Resonant ID: #${userId}`;
+        }
+        if (userRankDisplay) {
+          userRankDisplay.textContent = `Status: Neophyte`;
+        }
+      });
+    </script>
+    <!-- Load the new admin script -->
+    <script type="module" src="admin.script.js"></script>
+</body>
+</html>

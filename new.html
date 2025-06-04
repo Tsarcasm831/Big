@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Map Adventure Game with FDG & H.I.V.E. Territories and Animated Movement</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css">
+
+  <style>
+    /* Reset & full-screen map */
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      font-family: Arial, sans-serif;
+    }
+    #map {
+      height: 100%;
+      width: 100%;
+    }
+    /* Game title bar */
+    #game-title {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(0,0,0,0.8);
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+      font-size: 24px;
+      z-index: 1000;
+    }
+    /* Factions dropdown container */
+    #factions-container {
+      display: inline-block;
+      position: relative;
+      margin-left: 20px;
+    }
+    /* Stylish toggle button for Factions */
+    #factions-button {
+      background: linear-gradient(45deg, #555, #222);
+      color: #fff;
+      border: 1px solid #444;
+      padding: 5px 15px;
+      cursor: pointer;
+      font-size: 16px;
+      border-radius: 4px;
+      transition: background 0.3s;
+    }
+    #factions-button:hover {
+      background: linear-gradient(45deg, #666, #333);
+    }
+    /* Top-level dropdown */
+    #factions-dropdown {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: #fefefe;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      min-width: 150px;
+      z-index: 1200;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      padding: 5px;
+    }
+    #factions-dropdown > .submenu-link {
+      display: block;
+      padding: 6px 10px;
+      color: #333;
+      text-decoration: none;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    #factions-dropdown > .submenu-link:hover {
+      background: #eee;
+    }
+    /* Submenu container for multi-level dropdown */
+    .submenu {
+      position: relative;
+    }
+    .submenu-content {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 100%;
+      background: #fefefe;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      min-width: 180px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      padding: 5px;
+    }
+    .submenu-title {
+      display: block;
+      padding: 6px 10px;
+      color: #333;
+      text-decoration: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .submenu-title:hover {
+      background: #eee;
+    }
+    .submenu:hover > .submenu-content {
+      display: block;
+    }
+    .submenu-item {
+      position: relative;
+      margin-left: 5px;
+      margin-right: 5px;
+      padding: 2px 0;
+    }
+    .division-title {
+      display: block;
+      padding: 4px 10px;
+      color: #333;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .division-title:hover {
+      background: #eee;
+    }
+
+    /* Time-of-day display at bottom */
+    #time-display {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(0,0,0,0.8);
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+      font-size: 20px;
+      z-index: 1000;
+    }
+    /* Bottom buttons panel */
+    #bottom-buttons {
+      position: fixed;
+      bottom: 40px;
+      left: 0;
+      width: 100%;
+      background: rgba(0,0,0,0.8);
+      text-align: center;
+      padding: 5px 0;
+      z-index: 1000;
+    }
+    #bottom-buttons button {
+      background-color: #7D7D7D; 
+      border: 2px solid #4B4B4B; 
+      color: white;
+      padding: 5px 10px;
+      margin: 0 5px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    #bottom-buttons button:nth-child(2) {
+      background-color: #6B8E23; 
+    }
+    #bottom-buttons button:nth-child(3) {
+      background-color: #4682B4; 
+    }
+    #bottom-buttons button:nth-child(4) {
+      background-color: #A0522D; 
+    }
+    #bottom-buttons button:nth-child(5) {
+      background-color: #8B4513; 
+    }
+    #bottom-buttons button:nth-child(6) {
+      background-color: #2E8B57; 
+    }
+    #bottom-buttons button:nth-child(7) {
+      background-color: #FFD700; 
+      color: black;
+    }
+    #bottom-buttons button:nth-child(8) {
+      background-color: #6A5ACD; 
+    }
+    #bottom-buttons button:nth-child(9) {
+      background-color: #B22222; 
+    }
+    /* Event popup styling */
+    .event-popup {
+      text-align: center;
+    }
+    .event-popup h3 {
+      margin: 0 0 10px;
+      font-size: 18px;
+    }
+    .event-popup p {
+      margin: 0 0 10px;
+    }
+    .event-popup button {
+      margin: 5px;
+      padding: 5px 10px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    /* H.I.V.E. border label styling */
+    .border-label {
+      background: rgba(255,255,255,0.8);
+      color: black;
+      padding: 2px 4px;
+      border-radius: 3px;
+      font-size: 12px;
+    }
+
+    /*
+      Make the black-horse icon appear white or blue by using CSS filters.
+      (We apply these filters to the marker icon's <img> by className.)
+    */
+    .leaflet-marker-icon.white-horse {
+      /* Invert + brighten the black silhouette => white silhouette */
+      filter: invert(1) brightness(2);
+    }
+    .leaflet-marker-icon.blue-horse {
+      /* Hue-rotate the black silhouette => bluish silhouette */
+      filter: hue-rotate(200deg) saturate(4) brightness(1.2);
+    }
+  </style>
+</head>
+<body>
+  <div id="game-title">
+    Map Adventure Game
+    <!-- Factions container with stylish dropdown -->
+    <div id="factions-container">
+      <button id="factions-button">Factions &#9662;</button>
+      <div id="factions-dropdown">
+        <a class="submenu-link" href="#" data-faction="hive">H.I.V.E.</a>
+        <a class="submenu-link" href="#" data-faction="fdg">FDG</a>
+        <a class="submenu-link" href="#" data-faction="allies">Allies</a>
+
+        <!-- Aliens multi-level dropdown -->
+        <div class="submenu">
+          <a class="submenu-title">Aliens &#9656;</a>
+          <div class="submenu-content">
+            <!-- 1) Anthromorph Race -->
+            <div class="submenu-item">
+              <a class="submenu-title">Anthromorph Race</a>
+              <div class="submenu-content">
+                <div class="submenu-item">
+                  <a class="division-title">Division 1</a>
+                  <div class="submenu-content">
+                    <a>Troop</a>
+                    <a>Grunt</a>
+                    <a>Sentry</a>
+                    <a>Brawler</a>
+                    <a>Juggernaut</a>
+                    <a>Titan</a>
+                  </div>
+                </div>
+                <div class="submenu-item">
+                  <a class="division-title">Division 2</a>
+                  <div class="submenu-content">
+                    <a>Troop</a>
+                    <a>Grunt</a>
+                    <a>Sentry</a>
+                    <a>Brawler</a>
+                    <a>Juggernaut</a>
+                    <a>Titan</a>
+                  </div>
+                </div>
+                <div class="submenu-item">
+                  <a class="division-title">Division 3</a>
+                  <div class="submenu-content">
+                    <a>Troop</a>
+                    <a>Grunt</a>
+                    <a>Sentry</a>
+                    <a>Brawler</a>
+                    <a>Juggernaut</a>
+                    <a>Titan</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- 2) Avianos Race -->
+            <div class="submenu-item">
+              <a class="submenu-title">Avianos Race</a>
+              <div class="submenu-content">
+                <div class="submenu-item">
+                  <a class="division-title">Division 1</a>
+                  <div class="submenu-content">
+                    <a>Troop</a>
+                    <a>Sky Guard</a>
+                    <a>Windstriker</a>
+                    <a>Thunderwing</a>
+                    <a>Stormrider</a>
+                    <a>Tempest</a>
+                  </div>
+                </div>
+                <div class="submenu-item">
+                  <a class="division-title">Division 2</a>
+                  <div class="submenu-content">
+                    <a>Troop</a>
+                    <a>Sky Guard</a>
+                    <a>Windstriker</a>
+                    <a>Thunderwing</a>
+                    <a>Stormrider</a>
+                    <a>Tempest</a>
+                  </div>
+                </div>
+                <div class="submenu-item">
+                  <a class="division-title">Division 3</a>
+                  <div class="submenu-content">
+                    <a>Troop</a>
+                    <a>Sky Guard</a>
+                    <a>Windstriker</a>
+                    <a>Thunderwing</a>
+                    <a>Stormrider</a>
+                    <a>Tempest</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- 3) Behemoth Race -->
+            <div class="submenu-item">
+              <a class="submenu-title">Behemoth Race</a>
+              <div class="submenu-content">
+                <div class="submenu-item">
+                  <a class="division-title">Division 1</a>
+                  <div class="submenu-content">
+                    <a>Troop</a>
+                    <a>Crusher</a>
+                    <a>Mauler</a>
+                    <a>Titan</a>
+                    <a>Colossus</a>
+                    <a>Goliath</a>
+                  </div>
+                </div>
+                <div class="submenu-item">
+                  <a class="division-title">Division 2</a>
+                  <div class="submenu-content">
+                    <a>Troop</a>
+                    <a>Crusher</a>
+                    <a>Mauler</a>
+                    <a>Titan</a>
+                    <a>Colossus</a>
+                    <a>Goliath</a>
+                  </div>
+                </div>
+                <div class="submenu-item">
+                  <a class="division-title">Division 3</a>
+                  <div class="submenu-content">
+                    <a>Troop</a>
+                    <a>Crusher</a>
+                    <a>Mauler</a>
+                    <a>Titan</a>
+                    <a>Colossus</a>
+                    <a>Goliath</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- 4) Chiropteran Race -->
+            <div class="submenu-item">
+              <a class="submenu-title">Chiropteran Race</a>
+              <div class="submenu-content">
+                <div class="submenu-item">
+                  <a class="division-title">Division 1</a>
+                  <div class="submenu-content">
+                    <a>Troop</a>
+                    <a>Fury</a>
+                    <a>Screech</a>
+                    <a>Claw</a>
+                    <a>Nightwing</a>
+                    <a>Predator</a>
+                  </div>
+                </div>
+                <div class="submenu-item">
+                  <a class="division-title">Division 2</a>
+                  <div class="submenu-content">
+                    <a>Troop</a>
+                    <a>Fury</a>
+                    <a>Screech</a>
+                    <a>Claw</a>
+                    <a>Nightwing</a>
+                    <a>Predator</a>
+                  </div>
+                </div>
+                <div class="submenu-item">
+                  <a class="division-title">Division 3</a>
+                  <div class="submenu-content">
+                    <a>Troop</a>
+                    <a>Fury</a>
+                    <a>Screech</a>
+                    <a>Claw</a>
+                    <a>Nightwing</a>
+                    <a>Predator</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- 5) Dengar Race -->
+            <div class="submenu-item">
+              <a class="submenu-title">Dengar Race</a>
+              <div class="submenu-content">
+                <div class="submenu-item">
+                  <a class="division-title">Division 1</a>
+                  <div class="submenu-content">
+                    <a>Troop</a>
+                    <a>Fang</a>
+                    <a>Hunter</a>
+                    <a>Pursuer</a>
+                    <a>Predator</a>
+                    <a>Ravage</a>
+                  </div>
+                </div>
+                <div class="submenu-item">
+                  <a class="division-title">Division 2</a>
+                  <div class="submenu-content">
+                    <a>Troop</a>
+                    <a>Fang</a>
+                    <a>Hunter</a>
+                    <a>Pursuer</a>
+                    <a>Predator</a>
+                    <a>Ravage</a>
+                  </div>
+                </div>
+                <div class="submenu-item">
+                  <a class="division-title">Division 3</a>
+                  <div class="submenu-content">
+                    <a>Troop</a>
+                    <a>Fang</a>
+                    <a>Hunter</a>
+                    <a>Pursuer</a>
+                    <a>Predator</a>
+                    <a>Ravage</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- 6) Kilrathi Race -->
+            <div class="submenu-item">
+              <a class="submenu-title">Kilrathi Race</a>
+              <div class="submenu-content">
+                <div class="submenu-item">
+                  <a class="division-title">Division 1</a>
+                  <div class="submenu-content">
+                    <a>Troop</a>
+                    <a>Warrior</a>
+                    <a>Predator</a>
+                    <a>Enforcer</a>
+                    <a>Berserker</a>
+                    <a>Alpha</a>
+                  </div>
+                </div>
+                <div class="submenu-item">
+                  <a class="division-title">Division 2</a>
+                  <div class="submenu-content">
+                    <a>Troop</a>
+                    <a>Warrior</a>
+                    <a>Predator</a>
+                    <a>Enforcer</a>
+                    <a>Berserker</a>
+                    <a>Alpha</a>
+                  </div>
+                </div>
+                <div class="submenu-item">
+                  <a class="division-title">Division 3</a>
+                  <div class="submenu-content">
+                    <a>Troop</a>
+                    <a>Warrior</a>
+                    <a>Predator</a>
+                    <a>Enforcer</a>
+                    <a>Berserker</a>
+                    <a>Alpha</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- 7) Shal'Rah Prime Race -->
+            <div class="submenu-item">
+              <a class="submenu-title">Shal'Rah Prime Race</a>
+              <div class="submenu-content">
+                <div class="submenu-item">
+                  <a class="division-title">Division 1</a>
+                  <div class="submenu-content">
+                    <a>Troop</a>
+                    <a>Drone</a>
+                    <a>Elite Drone</a>
+                    <a>Officer</a>
+                    <a>Hornet</a>
+                    <a>Stinger</a>
+                  </div>
+                </div>
+                <div class="submenu-item">
+                  <a class="division-title">Division 2</a>
+                  <div class="submenu-content">
+                    <a>Troop</a>
+                    <a>Drone</a>
+                    <a>Elite Drone</a>
+                    <a>Officer</a>
+                    <a>Hornet</a>
+                    <a>Stinger</a>
+                  </div>
+                </div>
+                <div class="submenu-item">
+                  <a class="division-title">Division 3</a>
+                  <div class="submenu-content">
+                    <a>Troop</a>
+                    <a>Drone</a>
+                    <a>Elite Drone</a>
+                    <a>Officer</a>
+                    <a>Hornet</a>
+                    <a>Stinger</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- 8) Tal'Ehn Race -->
+            <div class="submenu-item">
+              <a class="submenu-title">Tal'Ehn Race</a>
+              <div class="submenu-content">
+                <div class="submenu-item">
+                  <a class="division-title">Division 1</a>
+                  <div class="submenu-content">
+                    <a>Troop</a>
+                    <a>Warlock</a>
+                    <a>Acolyte</a>
+                    <a>Invoker</a>
+                    <a>Magister</a>
+                    <a>Archmage</a>
+                  </div>
+                </div>
+                <div class="submenu-item">
+                  <a class="division-title">Division 2</a>
+                  <div class="submenu-content">
+                    <a>Troop</a>
+                    <a>Warlock</a>
+                    <a>Acolyte</a>
+                    <a>Invoker</a>
+                    <a>Magister</a>
+                    <a>Archmage</a>
+                  </div>
+                </div>
+                <div class="submenu-item">
+                  <a class="division-title">Division 3</a>
+                  <div class="submenu-content">
+                    <a>Troop</a>
+                    <a>Warlock</a>
+                    <a>Acolyte</a>
+                    <a>Invoker</a>
+                    <a>Magister</a>
+                    <a>Archmage</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- 9) Talorian Race -->
+            <div class="submenu-item">
+              <a class="submenu-title">Talorian Race</a>
+              <div class="submenu-content">
+                <div class="submenu-item">
+                  <a class="division-title">Division 1</a>
+                  <div class="submenu-content">
+                    <a>Troop</a>
+                    <a>Diplomat</a>
+                    <a>Advisor</a>
+                    <a>Emissary</a>
+                    <a>Envoy</a>
+                    <a>Prime Ambassador</a>
+                  </div>
+                </div>
+                <div class="submenu-item">
+                  <a class="division-title">Division 2</a>
+                  <div class="submenu-content">
+                    <a>Troop</a>
+                    <a>Diplomat</a>
+                    <a>Advisor</a>
+                    <a>Emissary</a>
+                    <a>Envoy</a>
+                    <a>Prime Ambassador</a>
+                  </div>
+                </div>
+                <div class="submenu-item">
+                  <a class="division-title">Division 3</a>
+                  <div class="submenu-content">
+                    <a>Troop</a>
+                    <a>Diplomat</a>
+                    <a>Advisor</a>
+                    <a>Emissary</a>
+                    <a>Envoy</a>
+                    <a>Prime Ambassador</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- 10) T'ana'Rhe Race -->
+            <div class="submenu-item">
+              <a class="submenu-title">T'ana'Rhe Race</a>
+              <div class="submenu-content">
+                <div class="submenu-item">
+                  <a class="division-title">Division 1</a>
+                  <div class="submenu-content">
+                    <a>Troop</a>
+                    <a>Merchant</a>
+                    <a>Trader</a>
+                    <a>Soldier</a>
+                    <a>Warrior</a>
+                    <a>Fury</a>
+                  </div>
+                </div>
+                <div class="submenu-item">
+                  <a class="division-title">Division 2</a>
+                  <div class="submenu-content">
+                    <a>Troop</a>
+                    <a>Merchant</a>
+                    <a>Trader</a>
+                    <a>Soldier</a>
+                    <a>Warrior</a>
+                    <a>Fury</a>
+                  </div>
+                </div>
+                <div class="submenu-item">
+                  <a class="division-title">Division 3</a>
+                  <div class="submenu-content">
+                    <a>Troop</a>
+                    <a>Merchant</a>
+                    <a>Trader</a>
+                    <a>Soldier</a>
+                    <a>Warrior</a>
+                    <a>Fury</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- 11) Vyraxus Race -->
+            <div class="submenu-item">
+              <a class="submenu-title">Vyraxus Race</a>
+              <div class="submenu-content">
+                <div class="submenu-item">
+                  <a class="division-title">Division 1</a>
+                  <div class="submenu-content">
+                    <a>Troop</a>
+                    <a>Reptoid</a>
+                    <a>Lizard Warrior</a>
+                    <a>Tactical Soldier</a>
+                    <a>Warleader</a>
+                    <a>Alpha Hunter</a>
+                  </div>
+                </div>
+                <div class="submenu-item">
+                  <a class="division-title">Division 2</a>
+                  <div class="submenu-content">
+                    <a>Troop</a>
+                    <a>Reptoid</a>
+                    <a>Lizard Warrior</a>
+                    <a>Tactical Soldier</a>
+                    <a>Warleader</a>
+                    <a>Alpha Hunter</a>
+                  </div>
+                </div>
+                <div class="submenu-item">
+                  <a class="division-title">Division 3</a>
+                  <div class="submenu-content">
+                    <a>Troop</a>
+                    <a>Reptoid</a>
+                    <a>Lizard Warrior</a>
+                    <a>Tactical Soldier</a>
+                    <a>Warleader</a>
+                    <a>Alpha Hunter</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- 12) Xithrian Race -->
+            <div class="submenu-item">
+              <a class="submenu-title">Xithrian Race</a>
+              <div class="submenu-content">
+                <div class="submenu-item">
+                  <a class="division-title">Division 1</a>
+                  <div class="submenu-content">
+                    <a>Troop</a>
+                    <a>Scholar</a>
+                    <a>Researcher</a>
+                    <a>Scientist</a>
+                    <a>Academic</a>
+                    <a>Master Scholar</a>
+                  </div>
+                </div>
+                <div class="submenu-item">
+                  <a class="division-title">Division 2</a>
+                  <div class="submenu-content">
+                    <a>Troop</a>
+                    <a>Scholar</a>
+                    <a>Researcher</a>
+                    <a>Scientist</a>
+                    <a>Academic</a>
+                    <a>Master Scholar</a>
+                  </div>
+                </div>
+                <div class="submenu-item">
+                  <a class="division-title">Division 3</a>
+                  <div class="submenu-content">
+                    <a>Troop</a>
+                    <a>Scholar</a>
+                    <a>Researcher</a>
+                    <a>Scientist</a>
+                    <a>Academic</a>
+                    <a>Master Scholar</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- End of Aliens -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="map"></div>
+
+  <div id="bottom-buttons">
+    <button style="background-color: #7D7D7D; border: 2px solid #4B4B4B; color: white;">Home</button>
+    <button style="background-color: #6B8E23; border: 2px solid #4B4B4B; color: white;">Armory</button>
+    <button style="background-color: #4682B4; border: 2px solid #4B4B4B; color: white;">Squad Management</button>
+    <button style="background-color: #A0522D; border: 2px solid #4B4B4B; color: white;">Martha's Pub</button>
+    <button style="background-color: #8B4513; border: 2px solid #4B4B4B; color: white;">Bestiary</button>
+    <button style="background-color: #2E8B57; border: 2px solid #4B4B4B; color: white;">Noah's Wasteland Supply</button>
+    <button style="background-color: #FFD700; border: 2px solid #4B4B4B; color: black;">Bill's Car Lot</button>
+    <button style="background-color: #6A5ACD; border: 2px solid #4B4B4B; color: white;">Spyder's Tech Hub</button>
+    <button style="background-color: #B22222; border: 2px solid #4B4B4B; color: white;">Hospital</button>
+  </div>
+
+  <div id="time-display"></div>
+
+  <div id="move-confirmation-dialog"
+       style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%);
+              background:white; border:1px solid black; padding:20px; z-index:2000;">
+    <h3>Confirm Move</h3>
+    <p>Do you want to move there?</p>
+    <button id="confirm-move">Yes</button>
+    <button id="cancel-move">No</button>
+  </div>
+  
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Toggle the factions dropdown
+      const factionsButton = document.getElementById('factions-button');
+      const factionsDropdown = document.getElementById('factions-dropdown');
+      factionsButton.addEventListener('click', function(e) {
+        e.stopPropagation();
+        factionsDropdown.style.display = (factionsDropdown.style.display === 'block') ? 'none' : 'block';
+      });
+      document.addEventListener('click', function(e) {
+        if (!document.getElementById('factions-container').contains(e.target)) {
+          factionsDropdown.style.display = 'none';
+        }
+      });
+
+      // Initialize the map with all zoom animations disabled
+      var map = L.map('map', {
+        zoomAnimation: false,
+        fadeAnimation: false,
+        markerZoomAnimation: false
+      }).setView([40.1673, -105.1019], 10);
+
+      var osmLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap contributors'
+      });
+      var satelliteLayer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+        attribution: 'Imagery &copy; Esri'
+      });
+      var topoLayer = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://opentopomap.org">OpenTopoMap</a> contributors'
+      });
+      osmLayer.addTo(map);
+      var baseMaps = {
+        "OpenStreetMap": osmLayer,
+        "Satellite": satelliteLayer,
+        "Topographic": topoLayer
+      };
+      L.control.layers(baseMaps).addTo(map);
+
+      // "The wall": red dashed polyline
+      var wallCoords = [
+        [31.0, -105.616],
+        [41.0, -105.616],
+        [41.0, -104.0],
+        [49.0, -104.0]
+      ];
+      L.polyline(wallCoords, {color: 'red', weight: 4, dashArray: '10, 10'}).addTo(map);
+
+      // FDG territory
+      var fdgCoords = [
+        [32.5, -117.1],
+        [33.7, -118.2],
+        [34.0, -120.0],
+        [36.8, -121.8],
+        [38.5, -123.0],
+        [41.0, -124.2],
+        [43.8, -124.2],
+        [46.0, -124.0],
+        [49.0, -124.7],
+        [49.0, -104.0],
+        [41.0, -104.0],
+        [41.0, -105.616],
+        [31.0, -105.616]
+      ];
+      var fdgPolygon = L.polygon(fdgCoords, {
+        color: 'darkgreen',
+        fillColor: 'darkgreen',
+        fillOpacity: 0.5
+      }).addTo(map);
+
+      // FDG logo (fixed 80×80, no zoom animation)
+      var fdgBounds = fdgPolygon.getBounds();
+      var fdgCenter = fdgBounds.getCenter();
+      var fdgLogoImg = new Image();
+      fdgLogoImg.onload = function() {
+        var canvas = document.createElement('canvas');
+        var ctx = canvas.getContext('2d');
+        canvas.width = 80;
+        canvas.height = 80;
+        ctx.drawImage(fdgLogoImg, 0, 0, 80, 80);
+        var fdgLogoIcon = L.divIcon({
+          html: '<div style="width:80px;height:80px;background:rgba(255,255,255,0.8);display:flex;align-items:center;justify-content:center;">'
+              + '<img src="' + canvas.toDataURL() + '" style="max-width:100%;max-height:100%;" alt="FDG Logo"></div>',
+          className: '',
+          iconSize: [80,80]
+        });
+        L.marker(fdgCenter, {
+          icon: fdgLogoIcon,
+          interactive: false
+        }).addTo(map);
+      };
+      fdgLogoImg.crossOrigin = "anonymous";
+      fdgLogoImg.src = "https://file.garden/Zy7B0LkdIVpGyzA1/2DSprites/FGD.webp";
+
+      // H.I.V.E. border and territory
+      var hiveBorderCoords = [
+        [49.0, -95.20],
+        [47.21, -95.20],
+        [45.0, -93.0],
+        [43.0, -91.0],
+        [38.63, -90.20],
+        [35.15, -90.05],
+        [29.95, -90.07]
+      ];
+      var hiveBorder = L.polyline(hiveBorderCoords, {color: 'yellow', weight: 4}).addTo(map);
+      hiveBorder.bindTooltip("H.I.V.E. Border", {permanent: true, className: "border-label", offset: [0, -10]});
+
+      var hiveCoords = [
+        [49.0, -95.20],
+        [47.21, -95.20],
+        [45.0, -93.0],
+        [43.0, -91.0],
+        [38.63, -90.20],
+        [35.15, -90.05],
+        [29.95, -90.07],
+        [29.95, -85.0],
+        [35.0, -75.0],
+        [40.0, -70.0],
+        [45.0, -66.0],
+        [49.0, -65.0],
+        [49.0, -95.20]
+      ];
+      var hivePolygon = L.polygon(hiveCoords, {
+        color: 'yellow',
+        fillColor: 'yellow',
+        fillOpacity: 0.5
+      }).addTo(map);
+
+      // H.I.V.E. logo (fixed 80×80, same approach as FDG)
+      var hiveBounds = hivePolygon.getBounds();
+      var hiveCenter = hiveBounds.getCenter();
+      var hiveLogoImg = new Image();
+      hiveLogoImg.onload = function() {
+        var canvas = document.createElement('canvas');
+        var ctx = canvas.getContext('2d');
+        canvas.width = 80;
+        canvas.height = 80;
+        ctx.drawImage(hiveLogoImg, 0, 0, 80, 80);
+        var hiveLogoIcon = L.divIcon({
+          html: '<div style="width:80px;height:80px;background:rgba(255,255,255,0.8);display:flex;align-items:center;justify-content:center;">'
+              + '<img src="' + canvas.toDataURL() + '" style="max-width:100%;max-height:100%;" alt="HIVE Logo"></div>',
+          className: '',
+          iconSize: [80,80]
+        });
+        L.marker(hiveCenter, {
+          icon: hiveLogoIcon,
+          interactive: false
+        }).addTo(map);
+      };
+      hiveLogoImg.crossOrigin = "anonymous";
+      hiveLogoImg.src = "https://file.garden/Zy7B0LkdIVpGyzA1/2DSprites/HIVE.webp";
+
+      // Player marker at Longmont (~[40.1568, -105.1040])
+      var playerIcon = L.icon({
+        iconUrl: 'https://cdn-icons-png.flaticon.com/512/194/194938.png',
+        iconSize: [32,32],
+        iconAnchor: [16,16]
+      });
+      var playerMarker = L.marker([40.1568, -105.1040], {icon: playerIcon, draggable: true}).addTo(map);
+
+      // Home marker using a house icon
+      var houseIcon = L.icon({
+        iconUrl: 'https://cdn-icons-png.flaticon.com/512/25/25694.png',
+        iconSize: [32, 32],
+        iconAnchor: [16, 32]
+      });
+      var houseMarker = L.marker([40.1568, -105.1040], {icon: houseIcon}).addTo(map);
+      houseMarker.bindPopup('<b>Return Home</b>');
+      houseMarker.on('click', function() {
+        map.setView([40.1568, -105.1040], map.getZoom());
+        confirmMove(40.1568, -105.1040);
+      });
+
+      // White-horse marker at Invesco Field
+      var whiteHorseIcon = L.icon({
+        iconUrl: 'https://cdn-icons-png.flaticon.com/512/1816/1816589.png',
+        iconSize: [32, 32],
+        iconAnchor: [16, 16],
+        className: 'white-horse'
+      });
+      L.marker([39.7439, -105.0201], {icon: whiteHorseIcon})
+        .addTo(map)
+        .bindPopup("White Horse at Invesco Field");
+
+      // Blue-horse marker at DIA
+      var blueHorseIcon = L.icon({
+        iconUrl: 'https://cdn-icons-png.flaticon.com/512/1816/1816589.png',
+        iconSize: [32, 32],
+        iconAnchor: [16, 16],
+        className: 'blue-horse'
+      });
+      L.marker([39.8561, -104.6737], {icon: blueHorseIcon})
+        .addTo(map)
+        .bindPopup("Blue Horse at DIA");
+
+      // Movement logic
+      var moving = false, moveTotalTicks = 0, currentTick = 0;
+      var deltaLat = 0, deltaLng = 0, moveDestGlobal = null;
+
+      // Confirm-move function
+      function confirmMove(destLat, destLng) {
+        var dialog = document.getElementById('move-confirmation-dialog');
+        dialog.style.display = 'block';
+        document.getElementById('confirm-move').onclick = function() {
+          var moveStart = playerMarker.getLatLng();
+          var distanceMiles = getDistanceInMiles(moveStart.lat, moveStart.lng, destLat, destLng);
+          moveTotalTicks = Math.ceil(distanceMiles / 5);
+          if (moveTotalTicks < 1) moveTotalTicks = 1;
+          deltaLat = (destLat - moveStart.lat) / moveTotalTicks;
+          deltaLng = (destLng - moveStart.lng) / moveTotalTicks;
+          moving = true;
+          currentTick = 0;
+          moveDestGlobal = [destLat, destLng];
+          dialog.style.display = 'none';
+        };
+        document.getElementById('cancel-move').onclick = function() {
+          dialog.style.display = 'none';
+        };
+      }
+
+      // Home button click
+      document.querySelector('#bottom-buttons button:nth-child(1)').addEventListener('click', function() {
+        map.setView([40.1568, -105.1040], map.getZoom());
+        confirmMove(40.1568, -105.1040);
+      });
+
+      // Clicking on map to move
+      map.on('click', function(e) {
+        confirmMove(e.latlng.lat, e.latlng.lng);
+      });
+
+      // Haversine formula to get distance in miles
+      function getDistanceInMiles(lat1, lon1, lat2, lon2) {
+        function toRad(x) { return x * Math.PI / 180; }
+        var R = 3958.8; // radius of Earth in miles
+        var dLat = toRad(lat2 - lat1);
+        var dLon = toRad(lon2 - lon1);
+        var a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+                Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) *
+                Math.sin(dLon/2) * Math.sin(dLon/2);
+        var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+        return R * c;
+      }
+
+      // Game time & movement ticks (1 second = 1 in-game minute)
+      var gameTime = new Date();
+      gameTime.setHours(12, 0, 0, 0);
+
+      function updateGameTime() {
+        // Advance game time by 1 minute each second
+        gameTime.setMinutes(gameTime.getMinutes() + 1);
+        var hours = gameTime.getHours();
+        var minutes = gameTime.getMinutes();
+        var ampm = (hours >= 12) ? 'PM' : 'AM';
+        hours = hours % 12;
+        hours = hours ? hours : 12;
+        var minutesStr = (minutes < 10) ? ('0' + minutes) : minutes;
+        document.getElementById('time-display').textContent = hours + ':' + minutesStr + ' ' + ampm;
+
+        // If moving, move step by step
+        if (moving && moveDestGlobal) {
+          if (currentTick < moveTotalTicks) {
+            var newLat = playerMarker.getLatLng().lat + deltaLat;
+            var newLng = playerMarker.getLatLng().lng + deltaLng;
+            playerMarker.setLatLng([newLat, newLng]);
+            currentTick++;
+          } else {
+            // Arrived
+            playerMarker.setLatLng(moveDestGlobal);
+            moving = false;
+          }
+        }
+      }
+      updateGameTime();
+      setInterval(updateGameTime, 1000);
+
+      // Random events in Colorado east of the wall
+      var eventIcon = L.icon({
+        iconUrl: 'https://cdn-icons-png.flaticon.com/512/684/684908.png',
+        iconSize: [32,32],
+        iconAnchor: [16,16]
+      });
+      function spawnEvent() {
+        var lat = Math.random() * (41 - 37) + 37;
+        var lng = Math.random() * ((-102) - (-105.616)) + (-105.616);
+        var eventId = 'event-' + Date.now() + '-' + Math.floor(Math.random() * 1000);
+        var eventMarker = L.marker([lat, lng], {icon: eventIcon}).addTo(map);
+        var popupContent = `
+          <div class="event-popup" id="${eventId}">
+            <h3>Random Event</h3>
+            <p>An event has occurred here.</p>
+            <button id="${eventId}-action1">Action 1</button>
+            <button id="${eventId}-action2">Action 2</button>
+            <button id="${eventId}-close">Close</button>
+          </div>
+        `;
+        // We do NOT force-open the popup:
+        eventMarker.bindPopup(popupContent);
+
+        eventMarker.on('popupopen', function() {
+          document.getElementById(`${eventId}-action1`).addEventListener('click', function() {
+            alert('Action 1 triggered!');
+          });
+          document.getElementById(`${eventId}-action2`).addEventListener('click', function() {
+            alert('Action 2 triggered!');
+          });
+          document.getElementById(`${eventId}-close`).addEventListener('click', function() {
+            map.removeLayer(eventMarker);
+          });
+        });
+
+        // Remove event after 60 seconds (1 in-game hour)
+        setTimeout(function() {
+          if (map.hasLayer(eventMarker)) {
+            map.removeLayer(eventMarker);
+          }
+        }, 60000);
+      }
+      function spawnAndSchedule() {
+        spawnEvent();
+        scheduleNextEvent();
+      }
+      function scheduleNextEvent() {
+        var nextDelay = Math.random() * 30000 + 20000;
+        setTimeout(spawnAndSchedule, nextDelay);
+      }
+      spawnAndSchedule();
+    });
+  </script>
+</body>
+</html>

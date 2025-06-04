@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSL::FDG Access Portal :: The Resonant Echo</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <div id="void-background"></div>
+
+    <svg style="display: none;">
+        <defs>
+            <symbol id="skull-shield-logo" viewBox="0 0 200 200">
+                <path d="M50,10 L150,10 L170,50 L100,190 L30,50 Z" fill="#111" stroke="#555" stroke-width="2"/>
+                <circle cx="100" cy="80" r="30" fill="#ccc"/>
+            </symbol>
+        </defs>
+    </svg>
+
+    <div id="portal-container">
+        <header id="portal-header">
+            <div class="system-title">
+                <!-- Corrected logo path -->
+                <img src="../assets/logo.jpg" alt="OSL Logo" style="height: 28px; width: auto; filter: var(--logo-filter);">
+                <span>OSL::FDG Network</span>
+            </div>
+            <aside class="user-status">
+                <span id="user-identifier">Resonant ID: #LOADING...</span> | <span id="user-rank">Status: Candidate</span>
+            </aside>
+        </header>
+
+        <main id="portal-main">
+            <h1 class="portal-title">Access Portal</h1>
+            <hr class="title-rule">
+
+            <p class="instruction-text">Enter assigned credentials to proceed.</p>
+
+            <form class="auth-form" id="auth-form">
+                <div class="form-group">
+                    <label for="auth-username">Agent Identifier:</label>
+                    <input type="text" id="auth-username" name="username" class="auth-input" placeholder="e.g., agent-test" required autocomplete="username">
+                </div>
+                <div class="form-group">
+                    <label for="auth-password">Authentication Code:</label>
+                    <input type="password" id="auth-password" name="password" class="auth-input" required autocomplete="current-password">
+                </div>
+
+                <button type="button" id="auth-submit-button" class="auth-button">Authenticate</button>
+
+                <p id="auth-feedback" class="auth-feedback"></p>
+            </form>
+
+        </main>
+
+        <footer id="portal-footer">
+             <!-- Corrected logo path -->
+            <img src="../assets/logo.jpg" alt="OSL Footer Logo" class="footer-logo">
+            <span class="footer-text">Order of St. Leopold :: Federal Democratic Government - Secure Access Layer</span>
+        </footer>
+    </div>
+
+    <script type="importmap">
+      {
+        "imports": {
+           "../userDatabase.js": "../userDatabase.js",
+           "../localDatabase.js": "../localDatabase.js"
+        }
+      }
+    </script>
+    <script type="module" src="script.js"></script>
+
+</body>
+</html>

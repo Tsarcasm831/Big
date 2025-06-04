@@ -1,0 +1,59 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+#scene-container {
+  position: relative;
+  width: 100%;
+  height: 100%; /* Changed from 100vh to inherit popup height */
+}
+
+#three-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+#close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #ccc;
+  border: 1px solid #888;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  z-index: 10;
+}
+
+#close-btn:hover {
+  background: #ddd;
+}
+
+#home-menu {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 10;
+}
+
+#home-menu button {
+  padding: 5px 10px;
+  background: #4682b4;
+  border: 1px solid #4b4b4b;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#home-menu button:hover {
+  background: #5a9bd4;
+}

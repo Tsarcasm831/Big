@@ -1,0 +1,232 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sci-Fi Holographic Control Panel</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.157.0/build/three.module.js",
+          "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.157.0/examples/jsm/",
+          "gsap": "https://cdn.jsdelivr.net/npm/gsap@3.12.2/index.js"
+        }
+      }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <div class="hexagon"></div>
+                <span class="glitch-text" data-text="NEXUS-7">NEXUS-7</span>
+            </div>
+            <div class="status-bar">
+                <div class="status-item">
+                    <span class="label">SYS STATUS</span>
+                    <span class="value online">ONLINE</span>
+                </div>
+                <div class="status-item">
+                    <span class="label">SECTOR</span>
+                    <span class="value">BETA-12</span>
+                </div>
+                <div class="status-item">
+                    <span class="label">SECURITY</span>
+                    <span class="value security-level">LVL 4</span>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <section class="left-panel">
+                <div class="panel-section">
+                    <h3>SYSTEM DIAGNOSTICS</h3>
+                    <div class="metric">
+                        <span class="metric-label">Core Power</span>
+                        <div class="progress-container">
+                            <div class="progress-bar" id="core-power"></div>
+                            <span class="percentage" id="core-power-value">87%</span>
+                        </div>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">Thermal Regulation</span>
+                        <div class="progress-container">
+                            <div class="progress-bar" id="thermal-reg"></div>
+                            <span class="percentage" id="thermal-reg-value">64%</span>
+                        </div>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">Shield Integrity</span>
+                        <div class="progress-container">
+                            <div class="progress-bar" id="shield-integrity"></div>
+                            <span class="percentage" id="shield-integrity-value">92%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel-section">
+                    <h3>GRAVITATIONAL FIELDS</h3>
+                    <div class="gravity-grid">
+                        <div class="gravity-cell" data-strength="1"></div>
+                        <div class="gravity-cell" data-strength="3"></div>
+                        <div class="gravity-cell" data-strength="2"></div>
+                        <div class="gravity-cell" data-strength="5"></div>
+                        <div class="gravity-cell" data-strength="4"></div>
+                        <div class="gravity-cell" data-strength="2"></div>
+                        <div class="gravity-cell" data-strength="6"></div>
+                        <div class="gravity-cell" data-strength="3"></div>
+                        <div class="gravity-cell" data-strength="1"></div>
+                    </div>
+                    <div class="gravity-readout">
+                        <span id="gravity-value">1.02G</span>
+                        <span class="unit">STANDARD</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="center-panel">
+                <div class="control-group">
+                    <div class="holo-controls">
+                        <button class="control-btn" data-mode="standard">STANDARD</button>
+                        <button class="control-btn" data-mode="xray">X-RAY</button>
+                        <button class="control-btn" data-mode="energy">ENERGY</button>
+                        <button class="control-btn" data-mode="eco">ECO</button>
+                        <button class="control-btn" data-mode="boost">BOOST</button>
+                    </div>
+                    <div class="structure-selector">
+                        <button class="structure-btn active" data-structure="station">STATION</button>
+                        <button class="structure-btn" data-structure="satellite">SATELLITE</button>
+                        <button class="structure-btn" data-structure="base">BASE</button>
+                        <button class="structure-btn" data-structure="farhaven">FARHAVEN</button>
+                    </div>
+                </div>
+                <div class="hologram-container">
+                    <div id="hologram-scene"></div>
+                    <div class="scan-line"></div>
+                    <div class="hologram-glow"></div>
+                    <div class="holo-noise"></div>
+                </div>
+                <div class="holo-info">
+                    <div class="info-item">
+                        <span class="info-label">STRUCTURE</span>
+                        <span class="info-value" id="structure-name">NOVA STATION</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">COORDINATES</span>
+                        <span class="info-value">X:2156 Y:8732 Z:4290</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">STABILITY</span>
+                        <span class="info-value" id="stability-value">98.7%</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="right-panel">
+                <div class="panel-section">
+                    <h3>ELECTROMAGNETIC READINGS</h3>
+                    <canvas id="em-graph"></canvas>
+                    <div class="em-stats">
+                        <div class="em-stat">
+                            <span class="em-label">ALPHA</span>
+                            <span class="em-value" id="alpha-value">4.2 mV</span>
+                        </div>
+                        <div class="em-stat">
+                            <span class="em-label">BETA</span>
+                            <span class="em-value" id="beta-value">12.7 mV</span>
+                        </div>
+                        <div class="em-stat">
+                            <span class="em-label">GAMMA</span>
+                            <span class="em-value" id="gamma-value">0.4 mV</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel-section">
+                    <h3>SECTOR ANALYSIS</h3>
+                    <div class="sector-map">
+                        <div class="sector-grid">
+                            <!-- Grid cells will be generated by JS -->
+                        </div>
+                        <div class="sector-highlight"></div>
+                    </div>
+                    <div class="sector-stats">
+                        <div class="sector-stat">
+                            <span class="sector-label">ANOMALIES</span>
+                            <span class="sector-value" id="anomalies-value">3</span>
+                        </div>
+                        <div class="sector-stat">
+                            <span class="sector-label">ACTIVITY</span>
+                            <span class="sector-value" id="activity-value">MODERATE</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel-section">
+                    <h3>ENVIRONMENT DATA</h3>
+                    <div class="env-stats">
+                        <div class="env-stat">
+                            <span class="env-label">TEMPERATURE</span>
+                            <span class="env-value" id="temp-value">22.3°C</span>
+                        </div>
+                        <div class="env-stat">
+                            <span class="env-label">PRESSURE</span>
+                            <span class="env-value" id="pressure-value">1.05 ATM</span>
+                        </div>
+                        <div class="env-stat">
+                            <span class="env-label">OXYGEN</span>
+                            <span class="env-value" id="oxygen-value">21.2%</span>
+                        </div>
+                        <div class="env-stat">
+                            <span class="env-label">RADIATION</span>
+                            <span class="env-value" id="radiation-value">0.32 µSv</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="system-controls">
+                <button class="sys-btn" id="power-btn">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,5A7,7 0 0,1 19,12A7,7 0 0,1 12,19A7,7 0 0,1 5,12A7,7 0 0,1 12,5M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9Z" />
+                    </svg>
+                    <span>POWER</span>
+                </button>
+                <button class="sys-btn" id="anomaly-btn">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M13,13H11V7H13M13,17H11V15H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" />
+                    </svg>
+                    <span>ANOMALY</span>
+                </button>
+                <button class="sys-btn" id="security-btn">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1M12,5A3,3 0 0,1 15,8A3,3 0 0,1 12,11A3,3 0 0,1 9,8A3,3 0 0,1 12,5Z" />
+                    </svg>
+                    <span>SECURITY</span>
+                </button>
+            </div>
+            <div class="terminal">
+                <div class="terminal-header">
+                    <span>SYSTEM TERMINAL</span>
+                    <span class="terminal-status">READY</span>
+                </div>
+                <div class="terminal-content" id="terminal-content">
+                    > System initialized
+                    > Loading security protocols...
+                    > Establishing connection to main grid...
+                    > Connection established
+                    > Awaiting command input...
+                </div>
+            </div>
+        </footer>
+
+        <div class="glitch-overlay"></div>
+        <div class="scan-lines"></div>
+    </div>
+
+    <script type="module" src="script.js"></script>
+    <script src="translator.js"></script>
+</body>
+</html>

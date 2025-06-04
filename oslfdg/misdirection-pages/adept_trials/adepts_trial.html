@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adept Trials :: The Resonant Echo</title>
+    <link rel="stylesheet" href="../../tenets.style.css">
+    <link rel="icon" href="../../favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <div id="void-background"></div>
+
+    <svg style="display: none;">
+        <!-- Shared SVG Definitions -->
+        <defs>
+            <symbol id="core-symbol-shape" viewBox="0 0 100 100">
+                <title>Resonant Symbol Core</title>
+                <g id="symbol-core">
+                     <circle cx="50" cy="50" r="10" fill="none" stroke="#aaa" stroke-width="0.5"/>
+                     <path d="M 50,30 A 20 20 0 1 1 50,70 A 20 20 0 1 1 50,30 Z M 50,35 A 15 15 0 1 0 50,65 A 15 15 0 1 0 50,35 Z" fill="none" stroke="#888" stroke-width="0.3"/>
+                     <line x1="50" y1="20" x2="50" y2="80" stroke="#666" stroke-width="0.2"/>
+                     <line x1="20" y1="50" x2="80" y2="50" stroke="#666" stroke-width="0.2"/>
+                     <circle cx="50" cy="50" r="30" fill="none" stroke="#555" stroke-width="0.1"/>
+                     <circle cx="50" cy="50" r="40" fill="none" stroke="#444" stroke-width="0.1"/>
+                </g>
+            </symbol>
+            <symbol id="lock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                <title>Locked Content</title>
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+            </symbol>
+        </defs>
+    </svg>
+
+    <div id="tenets-container">
+        <header id="tenets-header">
+             <nav class="page-tree" aria-label="Site Sections">
+                <ul>
+                    <li>
+                        <a href="threshold.html" class="page-tree-link" data-tooltip="Return to Threshold">
+                            Threshold
+                        </a>
+                    </li>
+                    <li>
+                        <a href="tenets.html" class="page-tree-link" data-tooltip="View Tenets">
+                           The First Tenets
+                        </a>
+                    </li>
+                    <li>
+                        <a href="whispers.html" class="page-tree-link" data-tooltip="Enter Chamber">
+                            Chamber of Whispers
+                        </a>
+                    </li>
+                     <li>
+                        <a href="#" class="page-tree-link locked" data-tooltip="Requires Rank: Adept">
+                            <svg class="page-tree-icon locked" aria-hidden="true"><use href="#lock-icon"/></svg>
+                            Inner Sanctum
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="page-tree-link locked" data-tooltip="Requires Deeper Resonance">
+                             <svg class="page-tree-icon locked" aria-hidden="true"><use href="#lock-icon"/></svg>
+                            The Archives
+                        </a>
+                    </li>
+                     <li>
+                        <!-- This link should remain locked visually and marked as active -->
+                        <a href="#" class="page-tree-link locked active" aria-current="page" data-tooltip="Seek Understanding">
+                             <svg class="page-tree-icon locked" aria-hidden="true"><use href="#lock-icon"/></svg>
+                            Adept Trials
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="page-tree-link locked" data-tooltip="Contribution Required">
+                             <svg class="page-tree-icon locked" aria-hidden="true"><use href="#lock-icon"/></svg>
+                            Prove Mettle
+                        </a>
+                    </li>
+                     <li>
+                        <a href="#" class="page-tree-link locked admin" data-tooltip="Restricted Access">
+                             <svg class="page-tree-icon locked" aria-hidden="true"><use href="#lock-icon"/></svg>
+                            Admin
+                        </a>
+                     </li>
+                </ul>
+            </nav>
+            <aside class="user-status">
+                <span id="user-identifier">Resonant ID: #UNKNOWN</span> | <span id="user-rank">Status: Neophyte</span>
+            </aside>
+        </header>
+
+        <main id="tenets-main">
+            <h1 class="tenets-title">Adept Trials</h1>
+            <hr class="title-rule">
+
+            <!-- Access Denied Section (Initially Visible) -->
+            <article id="access-denied-content" class="tenet">
+                <p>Access denied. The path to mastery involves challenge. The Adept Trials are not yet available to you.</p>
+                <p>True understanding is tested, not merely declared. When you have sufficiently integrated the First Tenets and navigated the Chamber of Whispers, the nature of these trials may become clear. They demand more than passive observation; they require active engagement and application of learned principles.</p>
+                <p>Continue to <strong class="highlight-seek">Seek Understanding</strong> in the spaces provided.</p>
+            </article>
+
+            <!-- Access Granted Section (Initially Hidden) -->
+            <article id="access-granted-content" class="tenet" style="display: none;">
+                 <p class="success-message">Access sequence recognized. Authorization granted.</p>
+                <p>The veil thins. You have demonstrated... curiosity. The next layer awaits.</p>
+                <div class="navigation-button-container">
+                    <a href="osl-fdg/osl-fdg_index.html" id="proceed-button" class="styled-button">Proceed to the Next Layer</a>
+                </div>
+            </article>
+
+            <nav class="tenet-navigation" aria-label="Navigation">
+                <a href="whispers.html">&laquo; Return to Whispers</a>
+                <!-- Add link to next section if applicable, or remove -->
+            </nav>
+
+        </main>
+
+        <footer id="tenets-footer">
+            <hr class="footer-rule">
+            <svg class="small-symbol footer-symbol" aria-hidden="true" viewBox="0 0 100 100">
+                <use href="#core-symbol-shape" stroke-width="0.1"/>
+            </svg>
+        </footer>
+    </div>
+
+    <script type="importmap">
+      {
+        "imports": {
+           "./userDatabase.js": "../../userDatabase.js"
+        }
+      }
+    </script>
+    <script type="module">
+      import { initializeUser } from '../../userDatabase.js';
+      document.addEventListener('DOMContentLoaded', () => {
+        const userId = initializeUser(window.OSL_CURRENT_TIME || '2025-04-14T15:35:15-06:00');
+        const userIdentifierDisplay = document.getElementById('user-identifier');
+        const userRankDisplay = document.getElementById('user-rank');
+        if (userIdentifierDisplay && userId) {
+          userIdentifierDisplay.textContent = `Resonant ID: #${userId}`;
+        }
+        if (userRankDisplay) {
+          userRankDisplay.textContent = `Status: Neophyte`;
+        }
+      });
+    </script>
+    <!-- Keep tenets.script.js for header nav logic -->
+    <script type="module" src="../../tenets.script.js"></script>
+    <!-- Add new script for this page's specific logic -->
+    <script type="module" src="adept_trials.script.js"></script>
+</body>
+</html>

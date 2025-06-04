@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Squad Management Test</title>
+    <link rel="stylesheet" href="styles/squad_management.css">
+    <!-- Three.js and related libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/examples/js/loaders/DRACOLoader.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4682B4;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <button id="test-button">Open Squad Management</button>
+
+    <script>
+        console.log('Test page loaded');
+        
+        // Create a basic listener for the button
+        document.getElementById('test-button').addEventListener('click', function() {
+            console.log('Test button clicked, dispatching openSquadManagement event');
+            document.dispatchEvent(new CustomEvent('openSquadManagement'));
+        });
+    </script>
+    
+    <script src="scripts/squad_management.js"></script>
+</body>
+</html>

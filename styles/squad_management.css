@@ -1,0 +1,382 @@
+/* Squad Management Screen Styles - Enhanced Sci-Fi Aesthetic */
+
+#squad-management-screen {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: linear-gradient(135deg, rgba(0, 10, 20, 0.9), rgba(20, 30, 40, 0.9)), url('../assets/icons/sci-fi-bg.png') no-repeat center/cover;
+    color: #fff !important;
+    font-family: 'Orbitron', sans-serif !important;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 9999 !important;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.squad-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: linear-gradient(to right, rgba(30, 40, 50, 0.9), rgba(50, 60, 70, 0.9));
+    border-bottom: 2px solid #4a90e2;
+    box-shadow: 0 2px 10px rgba(74, 144, 226, 0.5);
+}
+
+.squad-header h1 {
+    margin: 0;
+    color: #4a90e2;
+    font-size: 24px;
+    text-shadow: 0 0 5px rgba(74, 144, 226, 0.7);
+}
+
+#squad-back-button {
+    background: rgba(40, 50, 60, 0.8);
+    color: #fff;
+    border: 1px solid #4a90e2;
+    padding: 5px 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Orbitron', sans-serif;
+    z-index: 10000;
+}
+
+#squad-back-button:hover {
+    background: #4a90e2;
+    box-shadow: 0 0 10px rgba(74, 144, 226, 0.7);
+}
+
+.squad-content {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+    background: rgba(10, 20, 30, 0.5);
+}
+
+/* Left Panel */
+.squad-left-panel {
+    width: 25%;
+    background: linear-gradient(to bottom, rgba(20, 30, 40, 0.9), rgba(30, 40, 50, 0.9));
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #4a90e2;
+    padding: 10px;
+    box-shadow: 2px 0 10px rgba(74, 144, 226, 0.3);
+}
+
+.menu-options {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.menu-item {
+    background: rgba(40, 50, 60, 0.8);
+    color: #ccc;
+    border: none;
+    border-left: 3px solid transparent;
+    padding: 10px 15px;
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+}
+
+.menu-item:hover {
+    background: rgba(60, 70, 80, 0.8);
+    color: #fff;
+    box-shadow: 0 0 5px rgba(74, 144, 226, 0.5);
+}
+
+.menu-item.selected {
+    background: rgba(60, 80, 100, 0.8);
+    color: #fff;
+    border-left: 3px solid #4a90e2;
+}
+
+.menu-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    background-size: contain;
+    display: inline-block;
+    flex-shrink: 0;
+}
+
+.overview-icon { background: url('../assets/icons/overview.png') no-repeat center; background-size: contain; }
+.equipment-icon { background: url('../assets/icons/equipment.png') no-repeat center; background-size: contain; }
+.skills-icon { background: url('../assets/icons/skillsandabilities.png') no-repeat center; background-size: contain; }
+.training-icon { background: url('../assets/icons/training.png') no-repeat center; background-size: contain; }
+.missions-icon { background: url('../assets/icons/missions.png') no-repeat center; background-size: contain; }
+.customize-icon { background: url('../assets/icons/customize.png') no-repeat center; background-size: contain; }
+
+.option-description {
+    margin-top: 20px;
+    padding: 10px;
+    background: rgba(30, 40, 50, 0.7);
+    border: 1px solid rgba(74, 144, 226, 0.3);
+    font-size: 14px;
+    color: #aaa;
+    border-radius: 5px;
+}
+
+/* Center Panel */
+.squad-center-panel {
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(20, 25, 30, 0.7);
+}
+
+.character-model {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.character-placeholder {
+    width: 280px;
+    height: 400px;
+    background: rgba(50, 60, 70, 0.5);
+    border: 2px solid #4a90e2;
+    position: relative;
+    transition: opacity 0.3s ease;
+    box-shadow: 0 0 15px rgba(74, 144, 226, 0.4);
+}
+
+.character-placeholder::after {
+    content: "SOLDIER MODEL";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #4a90e2;
+    font-size: 16px;
+    text-shadow: 0 0 5px rgba(74, 144, 226, 0.7);
+}
+
+.character-navigation {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px 20px;
+}
+
+.character-navigation button {
+    background: rgba(40, 50, 60, 0.8);
+    color: #fff;
+    border: 1px solid #4a90e2;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    z-index: 10000;
+}
+
+.character-navigation button:hover {
+    background: #4a90e2;
+    box-shadow: 0 0 10px rgba(74, 144, 226, 0.7);
+}
+
+/* Right Panel */
+.squad-right-panel {
+    width: 40%;
+    background: linear-gradient(to bottom, rgba(25, 35, 45, 0.9), rgba(35, 45, 55, 0.9));
+    padding: 15px;
+    overflow-y: auto;
+    border-left: 1px solid #4a90e2;
+    box-shadow: -2px 0 10px rgba(74, 144, 226, 0.3);
+}
+
+.soldier-info {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.soldier-rank-name {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(74, 144, 226, 0.5);
+}
+
+.rank-icon {
+    width: 30px;
+    height: 30px;
+    background: url('../assets/icons/rank.png') no-repeat center/contain;
+    border-radius: 50%;
+    box-shadow: 0 0 5px rgba(74, 144, 226, 0.7);
+    margin-right: 10px;
+}
+
+.soldier-rank-name h2 {
+    margin: 0;
+    font-size: 18px;
+    color: #fff;
+    text-shadow: 0 0 3px rgba(255, 255, 255, 0.5);
+}
+
+.soldier-status-grid {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.status-section {
+    flex: 1;
+    background: rgba(40, 50, 60, 0.6);
+    padding: 10px;
+    text-align: center;
+    border: 1px solid rgba(74, 144, 226, 0.3);
+    border-radius: 5px;
+}
+
+.status-header {
+    font-size: 12px;
+    color: #4a90e2;
+    margin-bottom: 5px;
+}
+
+.status-value {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.status-value.available { color: #5cb85c; }
+.status-value.wounded { color: #d9534f; }
+
+.soldier-stats-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 15px;
+    background: rgba(40, 50, 60, 0.6);
+    border: 1px solid rgba(74, 144, 226, 0.3);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.stats-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.stat-label { color: #aaa; }
+.stat-value { color: #fff; font-weight: bold; }
+
+.soldier-abilities {
+    background: rgba(40, 50, 60, 0.6);
+    border: 1px solid rgba(74, 144, 226, 0.3);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.soldier-abilities h3 {
+    margin: 0 0 10px 0;
+    font-size: 16px;
+    color: #4a90e2;
+    text-align: center;
+    text-shadow: 0 0 3px rgba(74, 144, 226, 0.5);
+}
+
+.ability-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 5px;
+    padding: 5px;
+    background: rgba(60, 70, 80, 0.5);
+    border-left: 3px solid #4a90e2;
+    position: relative;
+    transition: background 0.2s ease;
+}
+
+.ability-item:hover {
+    background: rgba(80, 90, 100, 0.5);
+}
+
+.ability-item:hover::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-size: 12px;
+    white-space: nowrap;
+    z-index: 10001;
+}
+
+.ability-icon {
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    margin-right: 8px;
+    background-size: contain !important;
+    border-radius: 3px;
+}
+
+.ability-icon.demolition { background: url('../assets/icons/combat.png') no-repeat center; }
+.ability-icon.grenade { background: url('../assets/icons/grenade.png') no-repeat center; }
+.ability-icon.shredder { background: url('../assets/icons/shredder.png') no-repeat center; }
+
+/* Ability specific icons */
+.launch-grenade-icon { background: url('../assets/icons/grenade.png') no-repeat center, #d9534f; background-size: 80%; }
+.shredder-icon { background: url('../assets/icons/shredder.png') no-repeat center, #f0ad4e; background-size: 80%; }
+.demolition-icon { background: url('../assets/icons/combat.png') no-repeat center, #5cb85c; background-size: 80%; }
+.run-gun-icon { background: url('../assets/icons/run-gun.png') no-repeat center, #1E90FF; background-size: 80%; }
+.light-em-up-icon { background: url('../assets/icons/light-em-up.png') no-repeat center, #FF8C00; background-size: 80%; }
+.ability-icon.suppression-icon { background: url('../assets/icons/combat.png') no-repeat center, #9370DB; background-size: 80%; }
+.haywire-protocol-icon { background: url('../assets/icons/haywire.png') no-repeat center, #00CED1; background-size: 80%; }
+.combat-protocol-icon { background: url('../assets/icons/combat.png') no-repeat center, #FF4500; background-size: 80%; }
+.scanning-protocol-icon { background: url('../assets/icons/scanning.png') no-repeat center, #32CD32; background-size: 80%; }
+/* New special character abilities */
+.master-tactician-icon { background: url('../assets/icons/overview.png') no-repeat center, #4682B4; background-size: 80%; }
+.deadpan-strike-icon { background: url('../assets/icons/combat.png') no-repeat center, #DC143C; background-size: 80%; }
+.sardonic-blast-icon { background: url('../assets/icons/skillsandabilities.png') no-repeat center, #9932CC; background-size: 80%; }
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .squad-content {
+        flex-direction: column;
+    }
+    .squad-left-panel, .squad-center-panel, .squad-right-panel {
+        width: 100%;
+    }
+    .squad-center-panel {
+        order: -1;
+    }
+    .character-placeholder {
+        width: 80%;
+        height: 300px;
+    }
+}
+
+#character-display {
+    width: 100%;
+    height: 400px; /* Adjust as needed */
+    background-color: #333;
+}
+
+#character-display p {
+    color: white;
+    text-align: center;
+    padding: 20px;
+}

@@ -1,0 +1,93 @@
+/* Archives Collection Styles */
+
+.archive-book {
+  background-color: var(--archive-book-bg);
+  border: 1px solid var(--archive-book-border);
+  border-radius: 8px;
+  padding: 24px;
+  max-width: 900px;
+  margin: 40px auto;
+}
+
+.archive-book-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.archive-book-icon svg {
+  width: 48px;
+  height: 48px;
+  color: var(--archive-book-icon-color);
+  margin-right: 16px;
+}
+
+.archive-book-title {
+  font-size: 2em;
+  margin: 0;
+  color: var(--archive-book-title-color);
+}
+
+/* Book entries container - collapsed by default */
+.archive-book-entries {
+  display: none;
+}
+
+.archive-book.expanded .archive-book-entries {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.archive-entry {
+  background-color: var(--archive-book-open-bg);
+  border: 1px solid var(--archive-book-content-border);
+  border-radius: 6px;
+  padding: 16px;
+  cursor: pointer;
+}
+
+.archive-entry .entry-title {
+  font-size: 1.3em;
+  margin: 0 0 8px;
+  font-weight: bold;
+  color: var(--archive-book-title-color);
+}
+
+.archive-entry .entry-summary {
+  font-style: italic;
+  margin: 0 0 12px;
+  color: var(--text-primary);
+  display: none;
+}
+
+.archive-entry .entry-body {
+  margin: 0 0 12px;
+  line-height: 1.6;
+  color: var(--text-primary);
+  display: none;
+}
+
+.archive-entry .entry-keywords {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  display: none;
+}
+
+.archive-entry .entry-keywords li {
+  background-color: var(--archive-book-hover-bg);
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 0.85em;
+  color: var(--text-primary);
+}
+
+.archive-entry.expanded .entry-summary,
+.archive-entry.expanded .entry-body,
+.archive-entry.expanded .entry-keywords {
+  display: block;
+}

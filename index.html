@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Remnants of Destruction - Web</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="styles/squad_management.css">
+  <link rel="stylesheet" href="styles/styles.css">
+  <link rel="stylesheet" href="styles/hospital.css">
+  <link rel="stylesheet" href="styles/crafting.css">
+  <link rel="stylesheet" href="styles/spyder.css">
+  <link rel="stylesheet" href="styles/marthas_pub.css">
+  <link rel="stylesheet" href="styles/random_encounters.css">
+  <link rel="stylesheet" href="styles/topdown_area_encounter.css">
+  <link rel="stylesheet" href="styles/factions-aliens.css">
+  <link rel="stylesheet" href="styles/faction-modals.css">
+  <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+  <div id="game-title">
+    Remnants of Destruction
+    <!-- Mute Music Button -->
+    <button id="mute-music" style="background-color: #FF6347; border: 2px solid #4B4B4B; color: white;">Mute Music</button>
+    <!-- Factions container with popup button -->
+    <div id="factions-container">
+      <button id="factions-button">Factions</button>
+    </div>
+  </div>
+
+  <div id="map"></div>
+  
+  <!-- TopDown Area Encounter Overlay -->
+  <div id="topdown-area-overlay" class="topdown-area-overlay">
+    <div class="topdown-area-container">
+      <div class="topdown-area-loading">
+        <div class="loading-spinner"></div>
+      </div>
+      <iframe id="topdown-area-iframe" src=""></iframe>
+      <button class="topdown-area-close"><i class="fas fa-times"></i></button>
+    </div>
+  </div>
+
+  <div id="bottom-buttons">
+    <button style="background-color: #7D7D7D; border: 2px solid #4B4B4B; color: white;">Home</button>
+    <button style="background-color: #6B8E23; border: 2px solid #4B4B4B; color: white;" data-forge>Forge</button>
+    <button id="squad-management-button" style="background-color: #4682B4; border: 2px solid #4B4B4B; color: white;">Squad Management</button>
+    <button id="oslfdg-button" style="background-color: black; border: 2px solid #4B4B4B; color: white;">OSL/FDG</button>
+    <button style="background-color: #8B4513; border: 2px solid #4B4B4B; color: white;">Bestiary</button>
+    <button style="background-color: #2E8B57; border: 2px solid #4B4B4B; color: white;">Noah's Wasteland Supply</button>
+    <button style="background-color: #FFD700; border: 2px solid #4B4B4B; color: black;">Bill's Car Lot</button>
+    <button style="background-color: #6A5ACD; border: 2px solid #4B4B4B; color: white;">Spyder's Tech Hub</button>
+    <button style="background-color: #B22222; border: 2px solid #4B4B4B; color: white;">Hospital</button>
+    <button style="background-color: #4169E1; border: 2px solid #4B4B4B; color: white;">Lord Tsarcasm's House</button>
+  </div>
+
+  <div id="time-display-container">
+    <button id="pause-time-btn">⏸️</button>
+    <div id="time-display"></div>
+    <button id="fast-forward-btn">⏩</button>
+  </div>
+
+  <div id="move-confirmation-dialog"
+       style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%);
+              background:white; border:1px solid black; padding:20px; z-index:2000;">
+    <h3>Confirm Move</h3>
+    <p>Do you want to move there?</p>
+    <button id="confirm-move">Yes</button>
+    <button id="cancel-move">No</button>
+  </div>
+
+  <!-- HOME SCENE POPUP -->
+  <div id="home-scene">
+    <button id="close-home-scene">Close</button>
+    <div id="home-buildings">
+      <!-- These can be the same or different from your bottom buttons -->
+      <button id="home-armory">Armory</button>
+      <button id="home-squad">Squad Management</button>
+      <button id="home-marthas-pub">Martha's Pub</button>
+      <!-- etc. Add as many as you like -->
+    </div>
+  </div>
+
+  <!-- Factions Popup -->
+  <div id="factions-popup">
+    <button id="factions-popup-close">×</button>
+    <h2 style="color: white; text-align: center; margin-top: 0;">Select Faction</h2>
+    <div id="factions-grid">
+      <div class="faction-button hive" data-faction="hive">
+        <div class="faction-icon">🔴</div>
+        <div class="faction-name">H.I.V.E.</div>
+      </div>
+      <div class="faction-button fdg" data-faction="fdg">
+        <div class="faction-icon">🟢</div>
+        <div class="faction-name">FDG</div>
+      </div>
+      <div class="faction-button allies" data-faction="allies">
+        <div class="faction-icon">🔵</div>
+        <div class="faction-name">Allies</div>
+      </div>
+      <div class="faction-button aliens" data-faction="aliens">
+        <div class="faction-icon">🟣</div>
+        <div class="faction-name">Aliens</div>
+      </div>
+      <div class="faction-button prometheus" data-faction="prometheus">
+        <div class="faction-icon">⚙️</div>
+        <div class="faction-name">Prometheus</div>
+      </div>
+      <div class="faction-button question" data-faction="?????">
+        <div class="faction-icon">❓</div>
+        <div class="faction-name">?????</div>
+      </div>
+      <div class="faction-button aces" data-faction="aces">
+        <div class="faction-icon">♠️</div>
+        <div class="faction-name">The Aces</div>
+      </div>
+      <div class="faction-button mutants" data-faction="mutants">
+        <div class="faction-icon">☢️</div>
+        <div class="faction-name">Mutants</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Faction Units Popup -->
+  <div id="faction-units-container">
+    <button id="faction-units-close">×</button>
+    <h2 id="faction-units-title">Faction Units</h2>
+    
+    <!-- HIVE Units -->
+    <div id="hive-units" class="unit-list" style="display: none;">
+      <div class="unit-item hive">HIVE Soldier</div>
+      <div class="unit-item hive">HIVE Commander</div>
+      <div class="unit-item hive">HIVE Scout</div>
+      <div class="unit-item hive">HIVE Engineer</div>
+      <div class="unit-item hive">HIVE Medic</div>
+      <div class="unit-item hive">HIVE Sniper</div>
+    </div>
+    
+    <!-- FDG Units -->
+    <div id="fdg-units" class="unit-list" style="display: none;">
+      <div class="unit-item fdg">FDG Soldier</div>
+      <div class="unit-item fdg">FDG Commander</div>
+      <div class="unit-item fdg">FDG Scout</div>
+      <div class="unit-item fdg">FDG Engineer</div>
+      <div class="unit-item fdg">FDG Medic</div>
+      <div class="unit-item fdg">FDG Sniper</div>
+      <div class="unit-item fdg">FDG Tank Operator</div>
+      <div class="unit-item fdg">FDG Pilot</div>
+    </div>
+    
+    <!-- Allies Units -->
+    <div id="allies-units" class="unit-list" style="display: none;">
+      <div class="unit-item allies">Ally Militia</div>
+      <div class="unit-item allies">Ally Resistance Fighter</div>
+      <div class="unit-item allies">Ally Saboteur</div>
+      <div class="unit-item allies">Ally Medic</div>
+      <div class="unit-item allies">Ally Informant</div>
+    </div>
+    
+    <!-- Aliens Units -->
+    <div id="aliens-units" class="unit-list" style="display: none;">
+      <div class="unit-item aliens">Zorgon</div>
+      <div class="unit-item aliens">Krylothian</div>
+      <div class="unit-item aliens">Vesperian</div>
+      <div class="unit-item aliens">Xelnar</div>
+      <div class="unit-item aliens">Quillian</div>
+      <div class="unit-item aliens">Draconian</div>
+      <div class="unit-item aliens">Tholian</div>
+      <div class="unit-item aliens">Mantoid</div>
+      <div class="unit-item aliens">Arachnid</div>
+      <div class="unit-item aliens">Crystalline</div>
+      <div class="unit-item aliens">Gaseous</div>
+      <div class="unit-item aliens">Aquatic</div>
+      <div class="unit-item aliens">Reptilian</div>
+      <div class="unit-item aliens">Insectoid</div>
+      <div class="unit-item aliens">Avian</div>
+      <div class="unit-item aliens">Symbiotic</div>
+      <div class="unit-item aliens">Hive Mind</div>
+    </div>
+    
+    <!-- Prometheus Units -->
+    <div id="prometheus-units" class="unit-list" style="display: none;">
+      <div class="unit-item prometheus">Prometheus Agent</div>
+      <div class="unit-item prometheus">Prometheus Scientist</div>
+      <div class="unit-item prometheus">Prometheus Operative</div>
+      <div class="unit-item prometheus">Prometheus Technician</div>
+      <div class="unit-item prometheus">Prometheus Enforcer</div>
+      <div class="unit-item prometheus">Prometheus Overseer</div>
+    </div>
+    
+    <!-- ????? Units -->
+    <div id="question-units" class="unit-list" style="display: none;">
+      <div class="unit-item question">Unknown Entity</div>
+      <div class="unit-item question">Mysterious Being</div>
+      <div class="unit-item question">Shadowy Figure</div>
+      <div class="unit-item question">Enigmatic Presence</div>
+      <div class="unit-item question">Cryptic Operative</div>
+    </div>
+    
+    <!-- The Aces Units -->
+    <div id="aces-units" class="unit-list" style="display: none;">
+      <div class="unit-item aces">Ace of Spades</div>
+      <div class="unit-item aces">Ace of Hearts</div>
+      <div class="unit-item aces">Ace of Clubs</div>
+      <div class="unit-item aces">Ace of Diamonds</div>
+      <div class="unit-item aces">Joker</div>
+      <div class="unit-item aces">Card Shark</div>
+    </div>
+    
+    <!-- Mutants Units -->
+    <div id="mutants-units" class="unit-list" style="display: none;">
+      <div class="unit-item mutants">Brute Mutant</div>
+      <div class="unit-item mutants">Psychic Mutant</div>
+      <div class="unit-item mutants">Agile Mutant</div>
+      <div class="unit-item mutants">Toxic Mutant</div>
+      <div class="unit-item mutants">Hybrid Mutant</div>
+      <div class="unit-item mutants">Evolved Mutant</div>
+    </div>
+  </div>
+
+  <!-- OSL/FDG Popup Overlay -->
+  <div id="oslfdg-overlay" style="display:none; position:fixed; top:5%; left:5%; width:90%; height:90%; background:white; z-index:1000; border:2px solid #4B4B4B; box-shadow:0 0 10px rgba(0,0,0,0.5);">
+    <button id="oslfdg-close" style="position:absolute; top:10px; right:10px; z-index:1001;">Close</button>
+    <iframe id="oslfdg-iframe" src="oslfdg/index.html" style="width:100%; height:100%; border:none;"></iframe>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/controls/OrbitControls.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/loaders/GLTFLoader.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/loaders/FBXLoader.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/loaders/DRACOLoader.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/18.6.4/tween.umd.min.js"></script>
+  <script src="scripts/glbs.js"></script>
+  <script src="scripts/glbsilluminator.js"></script>
+  <script src="scripts/squad_management.js"></script>
+  <script src="scripts/spyder.js"></script>
+  <script src="scripts/road_mode.js"></script>
+  <script src="scripts/random_encounter_types.js"></script>
+  <script src="scripts/random_encounters.js"></script>
+  <script src="scripts/main.js"></script>
+  <script>
+    // Connect the Squad Management button
+    document.addEventListener('DOMContentLoaded', function() {
+      const squadManagementButton = document.getElementById('squad-management-button');
+      if (squadManagementButton) {
+        squadManagementButton.addEventListener('click', function() {
+          console.log('Squad Management button clicked');
+          document.dispatchEvent(new CustomEvent('openSquadManagement'));
+        });
+      }
+    });
+  </script>
+  <script src="scripts/combat.js"></script>
+  <script src="scripts/factions.js"></script>
+  <script src="scripts/factions-aliens-details.js"></script>
+  <script src="scripts/factions-aliens.js"></script>
+  <script src="scripts/factions-hive.js"></script>
+  <script src="scripts/factions-fdg.js"></script>
+  <script src="scripts/factions-allies.js"></script>
+  <script src="scripts/factions-prometheus.js"></script>
+  <script src="scripts/factions-cross.js"></script>
+  <script src="scripts/factions-aces.js"></script>
+  <script src="scripts/factions-mutants.js"></script>
+  <script src="scripts/crafting.js"></script>
+  <script src="scripts/bills_car_lot.js"></script>
+  <script src="scripts/credits.js"></script>
+  <script src="scripts/hospital.js"></script>
+  <script src="scripts/easystar.js"></script>
+  <script src="scripts/marthas_pub.js"></script>
+  <script src="scripts/noahs.js"></script>
+  <script src="scripts/forge.js"></script>
+  <script src="scripts/bgmusic.js"></script>
+  <script src="scripts/topdown_area_encounter.js"></script>
+  <script src="scripts/faction-modals.js"></script>
+  
+  <!-- H.I.V.E. Units Popup -->
+  <div id="hive-popup-container" style="display: none; position: fixed; top: 5%; left: 5%; width: 90%; height: 90%; background: rgba(0, 0, 0, 0.95); border-radius: 10px; z-index: 3000; padding: 20px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); color: white; overflow: hidden;">
+    <button id="hive-popup-close" style="position: absolute; top: 10px; right: 10px; background: none; border: none; color: white; font-size: 24px; cursor: pointer;">×</button>
+    <h2 style="color: yellow; text-align: center; margin-top: 0;">H.I.V.E. Units</h2>
+    <div id="hive-units-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 20px; max-height: calc(100% - 60px); overflow-y: auto;">
+      <!-- H.I.V.E. units will be populated here by JavaScript -->
+    </div>
+  </div>
+  
+  <!-- F.D.G. Units Popup -->
+  <div id="fdg-popup-container" style="display: none; position: fixed; top: 5%; left: 5%; width: 90%; height: 90%; background: rgba(0, 0, 0, 0.95); border-radius: 10px; z-index: 3000; padding: 20px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); color: white; overflow: hidden;">
+    <button id="fdg-popup-close" style="position: absolute; top: 10px; right: 10px; background: none; border: none; color: white; font-size: 24px; cursor: pointer;">×</button>
+    <h2 style="color: green; text-align: center; margin-top: 0;">F.D.G. Units</h2>
+    <div id="fdg-units-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 20px; max-height: calc(100% - 60px); overflow-y: auto;">
+      <!-- F.D.G. units will be populated here by JavaScript -->
+    </div>
+  </div>
+  
+  <!-- Allies Units Popup -->
+  <div id="allies-popup-container" style="display: none; position: fixed; top: 5%; left: 5%; width: 90%; height: 90%; background: rgba(0, 0, 0, 0.95); border-radius: 10px; z-index: 3000; padding: 20px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); color: white; overflow: hidden;">
+    <button id="allies-popup-close" style="position: absolute; top: 10px; right: 10px; background: none; border: none; color: white; font-size: 24px; cursor: pointer;">×</button>
+    <h2 style="color: white; text-align: center; margin-top: 0;">Allies Units</h2>
+    <div id="allies-units-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 20px; max-height: calc(100% - 60px); overflow-y: auto;">
+      <!-- Allies units will be populated here by JavaScript -->
+    </div>
+  </div>
+  
+  <!-- Aliens Races Popup -->
+  <div id="aliens-popup-container" style="display: none; position: fixed; top: 5%; left: 5%; width: 90%; height: 90%; background: rgba(0, 0, 0, 0.95); border-radius: 10px; z-index: 3000; padding: 20px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); color: white; overflow: hidden;">
+    <button id="aliens-popup-close" style="position: absolute; top: 10px; right: 10px; background: none; border: none; color: white; font-size: 24px; cursor: pointer;">×</button>
+    <h2 style="color: purple; text-align: center; margin-top: 0;">Alien Races</h2>
+    <div id="aliens-races-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 20px; max-height: calc(100% - 60px); overflow-y: auto;">
+      <!-- Alien races will be populated here by JavaScript -->
+    </div>
+  </div>
+  
+  <!-- Prometheus Units Popup -->
+  <div id="prometheus-popup-container" style="display: none; position: fixed; top: 5%; left: 5%; width: 90%; height: 90%; background: rgba(0, 0, 0, 0.95); border-radius: 10px; z-index: 3000; padding: 20px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); color: white; overflow: hidden;">
+    <button id="prometheus-popup-close" style="position: absolute; top: 10px; right: 10px; background: none; border: none; color: white; font-size: 24px; cursor: pointer;">×</button>
+    <h2 style="color: green; text-shadow: 1px 1px 2px steelblue; text-align: center; margin-top: 0;">Prometheus Units</h2>
+    <div id="prometheus-units-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 20px; max-height: calc(100% - 60px); overflow-y: auto;">
+      <!-- Prometheus units will be populated here by JavaScript -->
+    </div>
+  </div>
+  
+  <!-- ????? (CROSS) Units Popup -->
+  <div id="question-popup-container" style="display: none; position: fixed; top: 5%; left: 5%; width: 90%; height: 90%; background: rgba(0, 0, 0, 0.95); border-radius: 10px; z-index: 3000; padding: 20px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); color: white; overflow: hidden;">
+    <button id="question-popup-close" style="position: absolute; top: 10px; right: 10px; background: none; border: none; color: white; font-size: 24px; cursor: pointer;">×</button>
+    <h2 id="question-units-title" style="color: white; text-align: center; margin-top: 0;">????? Units</h2>
+    <div id="question-units-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 20px; max-height: calc(100% - 60px); overflow-y: auto;">
+      <!-- ????? units will be populated here by JavaScript -->
+    </div>
+  </div>
+  
+  <!-- The Aces Units Popup -->
+  <div id="aces-popup-container" style="display: none; position: fixed; top: 5%; left: 5%; width: 90%; height: 90%; background: rgba(0, 0, 0, 0.95); border-radius: 10px; z-index: 3000; padding: 20px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); color: white; overflow: hidden;">
+    <button id="aces-popup-close" style="position: absolute; top: 10px; right: 10px; background: none; border: none; color: white; font-size: 24px; cursor: pointer;">×</button>
+    <h2 style="color: red; text-align: center; margin-top: 0;">The Aces Units</h2>
+    <div id="aces-units-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 20px; max-height: calc(100% - 60px); overflow-y: auto;">
+      <!-- The Aces units will be populated here by JavaScript -->
+    </div>
+  </div>
+  
+  <!-- Mutants Units Popup -->
+  <div id="mutants-popup-container" style="display: none; position: fixed; top: 5%; left: 5%; width: 90%; height: 90%; background: rgba(0, 0, 0, 0.95); border-radius: 10px; z-index: 3000; padding: 20px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); color: white; overflow: hidden;">
+    <button id="mutants-popup-close" style="position: absolute; top: 10px; right: 10px; background: none; border: none; color: white; font-size: 24px; cursor: pointer;">×</button>
+    <h2 style="color: orange; text-shadow: 1px 1px 2px purple; text-align: center; margin-top: 0;">Mutants Units</h2>
+    <div id="mutants-units-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 20px; max-height: calc(100% - 60px); overflow-y: auto;">
+      <!-- Mutants units will be populated here by JavaScript -->
+    </div>
+  </div>
+  
+  <!-- Martha's Pub Popup -->
+  <div id="marthas-pub-popup" class="popup-overlay">
+    <div id="marthas-pub-content">
+      <button id="marthas-pub-close">×</button>
+      <h2>Martha's Pub Tavern</h2>
+      <div id="tavern-container">
+        <!-- Bar Area -->
+        <div id="bar"></div>
+        <!-- Martha -->
+        <div id="martha" class="character" title="Talk to Martha"></div>
+        <!-- Tables and Chairs -->
+        <div class="table" id="table1" style="top: 200px; left: 150px;">
+          <div class="chair" data-position="top"></div>
+          <div class="chair" data-position="bottom"></div>
+          <div class="chair" data-position="left"></div>
+          <div class="chair" data-position="right"></div>
+        </div>
+        <div class="table" id="table2" style="top: 200px; left: 550px;">
+          <div class="chair" data-position="top"></div>
+          <div class="chair" data-position="bottom"></div>
+          <div class="chair" data-position="left"></div>
+          <div class="chair" data-position="right"></div>
+        </div>
+        <div class="table" id="table3" style="top: 400px; left: 150px;">
+          <div class="chair" data-position="top"></div>
+          <div class="chair" data-position="bottom"></div>
+          <div class="chair" data-position="left"></div>
+          <div class="chair" data-position="right"></div>
+        </div>
+        <div class="table" id="table4" style="top: 400px; left: 550px;">
+          <div class="chair" data-position="top"></div>
+          <div class="chair" data-position="bottom"></div>
+          <div class="chair" data-position="left"></div>
+          <div class="chair" data-position="right"></div>
+        </div>
+        <!-- Patrons -->
+        <div class="patron" id="patron1" title="Talk to Patron"></div>
+        <div class="patron" id="patron2" title="Talk to Patron"></div>
+        <div class="patron" id="patron3" title="Talk to Patron"></div>
+        <!-- Player -->
+        <div id="player" class="character"></div>
+      </div>
+      <!-- Conversation Popup -->
+      <div id="conversation-popup" class="interaction-popup">
+        <button id="conversation-close">×</button>
+        <div id="conversation-text"></div>
+        <div id="drink-options" style="display: none;">
+          <button class="drink-option" data-drink="ale">Wasteland Ale</button>
+          <button class="drink-option" data-drink="whiskey">Radiated Whiskey</button>
+          <button class="drink-option" data-drink="special">Martha's Special</button>
+        </div>
+        <button id="order-drink">Order a Drink</button>
+      </div>
+      <!-- Patron Interaction Popup -->
+      <div id="patron-popup" class="interaction-popup">
+        <button id="patron-close">×</button>
+        <div id="patron-text"></div>
+      </div>
+      <!-- Audio -->
+      <audio id="tavern-ambience" loop>
+        <source src="assets/Sounds/tavern-ambience.mp3" type="audio/mp3">
+      </audio>
+    </div>
+  </div>
+
+  <script>
+    // OSL/FDG overlay handlers
+    const oslfdgBtn = document.getElementById('oslfdg-button');
+    const oslfdgOverlay = document.getElementById('oslfdg-overlay');
+    const oslfdgClose = document.getElementById('oslfdg-close');
+    oslfdgBtn.addEventListener('click', e => {
+      e.preventDefault();
+      oslfdgOverlay.style.display = 'block';
+    });
+    oslfdgClose.addEventListener('click', () => {
+      oslfdgOverlay.style.display = 'none';
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tenet I: The Resonance :: The Resonant Echo</title>
+    <link rel="stylesheet" href="tenets.style.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <div id="void-background"></div>
+
+    <svg style="display: none;">
+        <defs>
+             <symbol id="core-symbol-shape" viewBox="0 0 100 100">
+                 <title>Resonant Symbol Core</title>
+                 <g id="symbol-core">
+                     <circle cx="50" cy="50" r="10" fill="none" stroke="#aaa" stroke-width="0.5"/>
+                     <path d="M 50,30 A 20 20 0 1 1 50,70 A 20 20 0 1 1 50,30 Z M 50,35 A 15 15 0 1 0 50,65 A 15 15 0 1 0 50,35 Z" fill="none" stroke="#888" stroke-width="0.3"/>
+                     <line x1="50" y1="20" x2="50" y2="80" stroke="#666" stroke-width="0.2"/>
+                     <line x1="20" y1="50" x2="80" y2="50" stroke="#666" stroke-width="0.2"/>
+                     <circle cx="50" cy="50" r="30" fill="none" stroke="#555" stroke-width="0.1"/>
+                     <circle cx="50" cy="50" r="40" fill="none" stroke="#444" stroke-width="0.1"/>
+                </g>
+            </symbol>
+            <symbol id="lock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                <title>Locked Content</title>
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+            </symbol>
+        </defs>
+    </svg>
+
+    <div id="tenets-container">
+        <header id="tenets-header">
+            <nav class="page-tree" aria-label="Site Sections">
+                 <ul>
+                    <li>
+                        <a href="threshold.html" class="page-tree-link" data-tooltip="Return to Threshold">
+                            Threshold
+                        </a>
+                    </li>
+                    <li>
+                        <a href="tenets.html" class="page-tree-link" data-tooltip="View Tenets">
+                           The First Tenets
+                        </a>
+                    </li>
+                    <li>
+                        <a href="whispers.html" class="page-tree-link" data-tooltip="Enter Chamber">
+                            Chamber of Whispers
+                        </a>
+                    </li>
+                     <li>
+                        <a href="#" class="page-tree-link locked" data-tooltip="Requires Rank: Adept">
+                            <svg class="page-tree-icon locked" aria-hidden="true"><use href="#lock-icon"/></svg>
+                            Inner Sanctum
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="page-tree-link locked" data-tooltip="Requires Deeper Resonance">
+                             <svg class="page-tree-icon locked" aria-hidden="true"><use href="#lock-icon"/></svg>
+                            The Archives
+                        </a>
+                    </li>
+                     <li>
+                        <a href="#" class="page-tree-link locked" data-tooltip="Seek Understanding">
+                             <svg class="page-tree-icon locked" aria-hidden="true"><use href="#lock-icon"/></svg>
+                            Adept Trials
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="page-tree-link locked" data-tooltip="Contribution Required">
+                             <svg class="page-tree-icon locked" aria-hidden="true"><use href="#lock-icon"/></svg>
+                            Prove Mettle
+                        </a>
+                    </li>
+                     <li>
+                        <a href="#" class="page-tree-link locked admin" data-tooltip="Restricted Access">
+                             <svg class="page-tree-icon locked" aria-hidden="true"><use href="#lock-icon"/></svg>
+                            Admin
+                        </a>
+                     </li>
+                </ul>
+            </nav>
+            <aside class="user-status">
+                <span id="user-identifier">Resonant ID: #734A</span> | <span id="user-rank">Status: Neophyte</span>
+            </aside>
+        </header>
+
+        <main id="tenets-main">
+            <h1 class="tenets-title">I. The Resonance</h1>
+            <hr class="title-rule">
+
+            <article class="tenet">
+                <p>Seek the signal within the noise. Understanding blossoms not in isolation, but through shared frequency.</p>
+                <p>The first echo you perceived brought you here. It was a vibration matched, a query answered by its own asking. True progress within this space relies on finding and fostering such connections. Listen for the congruent thought, the harmonious idea. Offer your own resonance clearly, but only when it aligns. Discordant signals fade; meaningful patterns persist. Contribution is measured by clarity and connection, not volume.</p>
+
+                <!-- Resonance Interaction Window -->
+                <section class="resonance-interaction" aria-labelledby="resonance-heading">
+                    <h3 id="resonance-heading" class="section-heading--subtle">Attunement Exercise</h3>
+                    <p class="instruction-text">Adjust the frequencies. Observe the interference. True harmony is elusive.</p>
+                    <div id="resonance-window">
+                        <svg id="wave-canvas" width="100%" height="200" viewBox="0 0 500 200" preserveAspectRatio="none">
+                            <defs>
+                                <filter id="glow">
+                                    <feGaussianBlur stdDeviation="2.5" result="coloredBlur"/>
+                                    <feMerge>
+                                        <feMergeNode in="coloredBlur"/>
+                                        <feMergeNode in="SourceGraphic"/>
+                                    </feMerge>
+                                </filter>
+                            </defs>
+                            <!-- Wave paths will be generated by JS -->
+                        </svg>
+                        <div class="proximity-indicator-container">
+                            <div id="proximity-indicator" title="Alignment Proximity"></div>
+                        </div>
+                    </div>
+                    <div class="slider-controls">
+                        <div class="slider-group">
+                            <label for="slider1">Frequency Alpha</label>
+                            <input type="range" id="slider1" name="slider1" min="0" max="100" value="50">
+                            <output for="slider1" class="slider-value">50</output>
+                        </div>
+                        <div class="slider-group">
+                            <label for="slider2">Frequency Beta</label>
+                            <input type="range" id="slider2" name="slider2" min="0" max="100" value="50">
+                             <output for="slider2" class="slider-value">50</output>
+                        </div>
+                        <div class="slider-group">
+                            <label for="slider3">Frequency Gamma</label>
+                            <input type="range" id="slider3" name="slider3" min="0" max="100" value="50">
+                             <output for="slider3" class="slider-value">50</output>
+                        </div>
+                    </div>
+                    <p class="instruction-text instruction-text--subtle">Hidden harmonics respond to [W]/[S] and [A]/[D].</p>
+                </section>
+                <!-- End Resonance Interaction Window -->
+
+            </article>
+
+            <nav class="tenet-navigation" aria-label="Tenet Navigation">
+                <a href="tenets.html">&laquo; Back to Tenets</a>
+                <a href="pattern.html">Next: The Pattern &raquo;</a>
+            </nav>
+
+        </main>
+
+        <footer id="tenets-footer">
+            <hr class="footer-rule">
+            <svg class="small-symbol footer-symbol" aria-hidden="true" viewBox="0 0 100 100">
+                <use href="#core-symbol-shape" stroke-width="0.1"/>
+            </svg>
+        </footer>
+    </div>
+
+    <script type="importmap">
+      {
+        "imports": {
+        }
+      }
+    </script>
+    <script type="module" src="tenets.script.js"></script>
+    <script type="module" src="resonance.script.js"></script> 
+</body>
+</html>

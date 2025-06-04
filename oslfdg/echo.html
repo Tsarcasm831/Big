@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tenet IV: The Echo :: The Resonant Echo</title>
+    <link rel="stylesheet" href="tenets.style.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <div id="void-background"></div>
+
+    <svg style="display: none;">
+        <!-- Shared SVG Definitions -->
+        <defs>
+            <symbol id="core-symbol-shape" viewBox="0 0 100 100">
+                <title>Resonant Symbol Core</title>
+                <g id="symbol-core">
+                     <circle cx="50" cy="50" r="10" fill="none" stroke="#aaa" stroke-width="0.5"/>
+                     <path d="M 50,30 A 20 20 0 1 1 50,70 A 20 20 0 1 1 50,30 Z M 50,35 A 15 15 0 1 0 50,65 A 15 15 0 1 0 50,35 Z" fill="none" stroke="#888" stroke-width="0.3"/>
+                     <line x1="50" y1="20" x2="50" y2="80" stroke="#666" stroke-width="0.2"/>
+                     <line x1="20" y1="50" x2="80" y2="50" stroke="#666" stroke-width="0.2"/>
+                     <circle cx="50" cy="50" r="30" fill="none" stroke="#555" stroke-width="0.1"/>
+                     <circle cx="50" cy="50" r="40" fill="none" stroke="#444" stroke-width="0.1"/>
+                </g>
+            </symbol>
+            <symbol id="lock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                 <title>Locked Content</title>
+                 <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+            </symbol>
+        </defs>
+    </svg>
+
+    <!-- Restore original container ID -->
+    <div id="tenets-container">
+        <!-- Restore original header ID -->
+        <header id="tenets-header">
+            <nav class="page-tree" aria-label="Site Sections">
+                <ul>
+                    <li>
+                        <a href="threshold.html" class="page-tree-link" data-tooltip="Return to Threshold">
+                            Threshold
+                        </a>
+                    </li>
+                    <li>
+                        <a href="tenets.html" class="page-tree-link" data-tooltip="View Tenets">
+                           The First Tenets
+                        </a>
+                    </li>
+                    <li>
+                        <a href="whispers.html" class="page-tree-link" data-tooltip="Enter Chamber">
+                            Chamber of Whispers
+                        </a>
+                    </li>
+                     <li>
+                        <a href="#" class="page-tree-link locked" data-tooltip="Requires Rank: Adept">
+                            <svg class="page-tree-icon locked" aria-hidden="true"><use href="#lock-icon"/></svg>
+                            Inner Sanctum
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="page-tree-link locked" data-tooltip="Requires Deeper Resonance">
+                             <svg class="page-tree-icon locked" aria-hidden="true"><use href="#lock-icon"/></svg>
+                            The Archives
+                        </a>
+                    </li>
+                     <li>
+                        <a href="#" class="page-tree-link locked" data-tooltip="Seek Understanding">
+                             <svg class="page-tree-icon locked" aria-hidden="true"><use href="#lock-icon"/></svg>
+                            Adept Trials
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="page-tree-link locked" data-tooltip="Contribution Required">
+                             <svg class="page-tree-icon locked" aria-hidden="true"><use href="#lock-icon"/></svg>
+                            Prove Mettle
+                        </a>
+                    </li>
+                     <li>
+                        <a href="#" class="page-tree-link locked admin" data-tooltip="Restricted Access">
+                             <svg class="page-tree-icon locked" aria-hidden="true"><use href="#lock-icon"/></svg>
+                            Admin
+                        </a>
+                     </li>
+                </ul>
+            </nav>
+            <aside class="user-status">
+                <span id="user-identifier">Resonant ID: #734A</span> | <span id="user-rank">Status: Neophyte</span>
+            </aside>
+        </header>
+
+        <!-- Restore original main ID -->
+        <main id="tenets-main">
+            <h1 class="tenets-title">IV. The Echo</h1>
+            <hr class="title-rule">
+
+            <article class="tenet">
+                <p>Every signal leaves its trace. What you impart shapes the space, reverberating long after the source is still.</p>
+                <p>Your presence here, your thoughts, your interactions – they are not ephemeral. They become part of the collective resonance, influencing the patterns perceived by others. Understand the weight of this persistence. Act with intention, for your echoes define your shape within this community and contribute to its enduring form. What survives of you is the impact you leave behind.</p>
+            </article>
+
+            <nav class="tenet-navigation" aria-label="Tenet Navigation">
+                <a href="silence.html">&laquo; Prev: The Silence</a>
+                <a href="question.html">Next: The Question &raquo;</a>
+            </nav>
+
+        </main>
+
+        <!-- Restore original footer ID -->
+        <footer id="tenets-footer">
+            <hr class="footer-rule">
+            <svg class="small-symbol footer-symbol" aria-hidden="true" viewBox="0 0 100 100">
+                <use href="#core-symbol-shape" stroke-width="0.1"/>
+            </svg>
+        </footer>
+    </div>
+
+    <script type="importmap">
+      {
+        "imports": {
+        }
+      }
+    </script>
+    <script type="module" src="tenets.script.js"></script>
+</body>
+</html>

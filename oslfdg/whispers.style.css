@@ -1,0 +1,284 @@
+/* Styles specifically for the Whispers page */
+
+/* Base and Resets */
+:root {
+    --text-primary: #e0e0e5; /* Slightly brighter base text */
+    --text-secondary: #b0b0c0;
+    --text-muted: #888a99;
+    --text-locked: #707080;
+    --text-active-link: #f0f0ff;
+    --text-system: #a0b0c0; /* For UI elements */
+    --accent-color: #b0b0ff; /* Adjusted accent */
+    --accent-hover: #dadaff;
+    --background-primary: #050508; /* Deeper black */
+    --background-secondary: rgba(255, 255, 255, 0.015); /* Even subtler secondary */
+    --background-header: rgba(5, 5, 10, 0.3); /* Darker, slightly transparent header */
+    --background-footer: rgba(5, 5, 10, 0.4); /* Slightly darker footer */
+    --border-color: rgba(120, 120, 150, 0.15); /* Slightly more visible border */
+    --border-subtle: rgba(100, 100, 120, 0.1);
+    --border-strong: rgba(150, 150, 180, 0.25);
+    --symbol-stroke: #b0b0c0;
+    --symbol-stroke-muted: #666870;
+    --symbol-shadow: rgba(180, 180, 220, 0.15); /* Cooler shadow */
+    --tooltip-bg: rgba(10, 10, 15, 0.9); /* Darker tooltip */
+    --tooltip-text: #e0e0e5;
+
+    /* Whispers UI Specific */
+    --whisper-ui-bg: rgba(10, 10, 20, 0.75);
+    --whisper-ui-border: rgba(150, 150, 180, 0.8);
+    --whisper-ui-text: #e5e5f0;
+    --whisper-ui-input-bg: rgba(0, 0, 0, 0.6);
+    --whisper-ui-input-focus-bg: rgba(0, 0, 0, 0.85);
+    --whisper-ui-button-bg: rgba(80, 80, 120, 0.8);
+    --whisper-ui-button-hover-bg: rgba(100, 100, 140, 0.9);
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background-color: var(--background-primary);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-primary);
+    line-height: 1.6; /* Adjusted base line height slightly */
+}
+
+/* Background Effect (Subtler for Whispers) */
+#void-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:
+        linear-gradient(rgba(30, 30, 40, 0.05) 1px, transparent 1px), /* Fainter grid lines */
+        linear-gradient(90deg, rgba(30, 30, 40, 0.05) 1px, transparent 1px),
+        radial-gradient(ellipse at center, rgba(60, 60, 80, 0.05) 0%, rgba(5, 5, 8, 0) 70%); /* Fainter, cooler radial */
+    background-size: 60px 60px, 60px 60px, auto; /* Larger grid */
+    opacity: 0.25; /* Less visible */
+    animation: slowDrift 80s linear infinite alternate; /* Slower drift */
+    pointer-events: none;
+    z-index: -1;
+}
+
+@keyframes slowDrift {
+    0% { transform: translate(0, 0) scale(1); background-position: 0 0, 0 0, center; }
+    100% { transform: translate(-10px, 5px) scale(1.02); background-position: -20px 10px, 10px -20px, center; }
+}
+
+/* --- Page Layout --- */
+#page-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    /* Ensure background color fills everything */
+    background-color: transparent; /* Let body/html handle base */
+}
+
+/* Header */
+#whispers-header {
+    width: 100%;
+    background-color: var(--background-header);
+    border-bottom: 1px solid var(--border-subtle);
+    padding: 8px 20px; /* Slightly reduced padding */
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px 15px; /* Adjusted gap */
+    flex-shrink: 0;
+    z-index: 20; /* Ensure header is above canvas overlays */
+    position: relative;
+    backdrop-filter: blur(3px); /* Subtle blur effect */
+}
+
+.page-tree { 
+    flex-grow: 1; 
+}
+.page-tree ul { 
+    list-style: none; 
+    padding: 0; 
+    margin: 0; 
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 8px 18px; 
+} 
+.page-tree li { 
+    position: relative; 
+}
+.page-tree-link { 
+    color: var(--text-muted); 
+    text-decoration: none; 
+    font-size: 0.85em; 
+    display: flex; 
+    align-items: center; 
+    gap: 4px; 
+    transition: color 0.2s ease; 
+    cursor: pointer; 
+}
+.page-tree-link.active { 
+    color: var(--text-active-link); 
+    font-weight: 500; 
+    cursor: default; 
+}
+.page-tree-link:not(.locked):not(.active):hover { 
+    color: var(--accent-hover); 
+}
+.page-tree-link.locked { 
+    color: var(--text-locked); 
+    cursor: not-allowed; 
+}
+.page-tree-link.locked:hover { 
+    color: var(--text-locked); 
+}
+.page-tree-icon { 
+    width: 0.9em; 
+    height: 0.9em; 
+    stroke-width: 1.5; 
+} 
+.page-tree-icon.locked { 
+    stroke: var(--text-locked); 
+}
+.page-tree-link[data-tooltip]::after { 
+    content: attr(data-tooltip); 
+    position: absolute; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    bottom: 130%; 
+    background-color: var(--tooltip-bg); 
+    color: var(--tooltip-text); 
+    padding: 5px 10px; 
+    border-radius: 4px; 
+    font-size: 0.8em; 
+    white-space: nowrap; 
+    z-index: 30; 
+    opacity: 0; 
+    visibility: hidden; 
+    transition: opacity 0.2s ease, visibility 0.2s ease; 
+    pointer-events: none; 
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3); 
+}
+.page-tree-link[data-tooltip]:hover::after { 
+    opacity: 1; 
+    visibility: visible; 
+}
+.user-status { 
+    font-size: 0.85em; 
+    color: var(--text-secondary); 
+    white-space: nowrap; 
+    text-align: right; 
+}
+#user-identifier { 
+    color: var(--text-primary); 
+    font-weight: 500; 
+}
+#user-rank { 
+    color: var(--text-muted); 
+    font-style: italic; 
+}
+
+/* Canvas Container */
+#canvas-container {
+    flex-grow: 1;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: var(--background-primary); 
+}
+
+/* Canvas Styling */
+#renderCanvas {
+    position: absolute; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    outline: none;
+    touch-action: none; 
+    z-index: 1; 
+    opacity: 0; /* Start hidden, fade in via JS */
+    transition: opacity 0.5s ease-in; /* Smooth fade-in */
+}
+#renderCanvas.ready {
+    opacity: 1;
+}
+
+/* Footer */
+#whispers-footer {
+    width: 100%;
+    text-align: center;
+    padding: 8px 0 10px; 
+    box-sizing: border-box;
+    flex-shrink: 0;
+    z-index: 20; 
+    position: relative;
+    background-color: var(--background-footer); /* Use darker footer bg */
+    border-top: 1px solid var(--border-subtle);
+    backdrop-filter: blur(3px); 
+}
+.footer-rule {
+    display: none; 
+}
+.footer-symbol {
+    width: 18px; 
+    height: 18px;
+    stroke: var(--symbol-stroke-muted);
+    stroke-width: 0.15;
+    opacity: 0.5; 
+    display: block; 
+    margin: 0 auto 4px; 
+}
+.footer-text {
+    display: block;
+    font-size: 0.75em; 
+    color: var(--text-muted);
+}
+
+/* Loading / Error Indicators */
+#loading-indicator,
+#error-indicator {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--text-secondary);
+    font-size: 1.2em;
+    z-index: 5;
+    display: none; /* Hidden by default */
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 15px 25px;
+    border-radius: 5px;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 700px) {
+    #whispers-header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 15px; 
+    }
+    .page-tree ul {
+         justify-content: flex-start;
+         gap: 6px 12px; 
+    }
+    .user-status {
+        align-self: flex-end;
+        margin-top: 5px; 
+        font-size: 0.8em; 
+    }
+    .page-tree-link {
+        font-size: 0.8em; 
+    }
+    #whispers-footer {
+        padding: 6px 0 8px;
+    }
+    .footer-text {
+        font-size: 0.7em;
+    }
+}

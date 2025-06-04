@@ -1,0 +1,50 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Resonant Echo - Landing</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="void-background"></div>
+
+    <!-- Initial Landing Page Content -->
+    <div id="container">
+        <div id="symbol-container">
+            <!-- Updated logo source -->
+            <img id="resonant-logo" src="assets/OSL-logo.png" alt="Resonant Echo OSL Logo">
+        </div>
+        <div id="typed-letters-container"></div>
+    </div>
+
+    <!-- Idle Messages Container -->
+    <div id="idle-message-container" style="display: none;">
+        <span id="idle-message-text"></span>
+    </div>
+
+    <!-- Success Message -->
+    <div id="success-message" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; font-size: 2em; text-align: center; background: rgba(0,0,0,0.8); padding: 20px; border-radius: 10px; z-index: 100;">
+        Initiation Accepted. Proceeding...
+    </div>
+
+    <!-- Intruder Message Container (Initially Hidden) -->
+    <div id="intruder-message" style="display: none;">
+        <div class="intruder-overlay"></div>
+        <div class="intruder-content">
+            <p class="intruder-title">Intruder Detected</p>
+            <p class="intruder-subtitle">H.I.V.E. Patrols have been notified.</p>
+            <p class="intruder-subtitle">Please stand by for immediate arrest.</p>
+        </div>
+    </div>
+
+    <script type="importmap">
+      {
+        "imports": {
+          "./userDatabase.js": "./userDatabase.js"
+        }
+      }
+    </script>
+    <script type="module" src="userDatabase.js"></script>
+    <script type="module" src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,222 @@
+/* Popup Overlay */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 3000;
+}
+
+#marthas-pub-content {
+  background: #f5f5dc;
+  padding: 20px;
+  border-radius: 8px;
+  position: relative;
+  max-width: 90%;
+  max-height: 90%;
+  overflow: auto;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+#marthas-pub-close {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 3150;
+}
+
+/* Tavern Container */
+#tavern-container {
+  position: relative;
+  width: 800px;
+  height: 600px;
+  background: url('../assets/Marthas/tavern_background.png') no-repeat center/cover;
+  border: 2px solid #8b4513;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 850px) {
+  #tavern-container {
+    width: 100%;
+    height: 500px;
+    transform: scale(0.85);
+    transform-origin: top left;
+  }
+  
+  #marthas-pub-content {
+    padding: 10px;
+  }
+}
+
+#bar {
+  position: absolute;
+  top: 50px;
+  left: 100px;
+  width: 600px;
+  height: 100px;
+  background: #8b4513;
+  border: 2px solid #5c2d0d;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.table {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: #d2b48c;
+  border-radius: 50%;
+  border: 2px solid #a0522d;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.chair {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background: #a0522d;
+  border: 1px solid #5c2d0d;
+  cursor: pointer;
+  transition: background 0.3s;
+  border-radius: 5px;
+}
+
+.chair:hover {
+  background: #c0683f;
+  transform: scale(1.1);
+}
+
+.chair[data-position="top"] { top: -35px; left: 35px; }
+.chair[data-position="bottom"] { bottom: -35px; left: 35px; }
+.chair[data-position="left"] { left: -35px; top: 35px; }
+.chair[data-position="right"] { right: -35px; top: 35px; }
+
+.character, .patron {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  z-index: 3050;
+}
+
+.character:hover, .patron:hover {
+  transform: scale(1.1);
+  filter: brightness(1.1);
+}
+
+#martha {
+  top: 100px;
+  left: 350px;
+  background-image: url('../assets/Marthas/martha.png');
+}
+
+#player {
+  top: 300px;
+  left: 400px;
+  background-image: url('../assets/Marthas/player.png');
+  z-index: 3060; /* Player above other characters */
+}
+
+.patron {
+  background-image: url('../assets/Marthas/patron.png');
+}
+
+#patron1 { 
+  top: 250px; 
+  left: 200px; 
+  background-image: url('../assets/Marthas/patron.png');
+}
+
+#patron2 { 
+  top: 350px; 
+  left: 600px; 
+  background-image: url('../assets/Marthas/patron2.png');
+}
+
+#patron3 { 
+  top: 450px; 
+  left: 300px; 
+  background-image: url('../assets/Marthas/patron.png');
+  transform: scaleX(-1); /* Flip this patron for variety */
+}
+
+/* Interaction Popups */
+.interaction-popup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  display: none;
+  z-index: 3100;
+  width: 300px;
+  text-align: center;
+}
+
+.interaction-popup button {
+  margin: 10px;
+  padding: 8px 15px;
+  background: #8b4513;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.interaction-popup button:hover {
+  background: #a0522d;
+  transform: scale(1.05);
+}
+
+#conversation-text, #patron-text {
+  margin-bottom: 15px;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+#drink-options {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.drink-option {
+  margin: 5px;
+  padding: 8px 15px;
+  background: #8b4513;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: 80%;
+}
+
+.drink-option:hover {
+  background: #a0522d;
+}
+
+/* Animation for character movement */
+@keyframes characterStep {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-2px); }
+  100% { transform: translateY(0); }
+}

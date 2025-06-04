@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSL :: Operations Map (Colorado)</title>
+    <link rel="stylesheet" href="styles/osl_portal.css">
+    <link rel="icon" href="../../favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <div id="void-background"></div>
+
+    <!-- Re-use SVG Icons from bestiary.html -->
+    <svg style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <defs>
+            <symbol id="icon-dashboard" viewBox="0 0 24 24">
+                <title>Dashboard</title>
+                <path fill="currentColor" d="M13,3V9H21V3M13,21H21V11H13M3,21H11V15H3M3,13H11V3H3V13Z" />
+            </symbol>
+            <symbol id="icon-bestiary" viewBox="0 0 24 24">
+                 <title>Bestiary</title>
+                <path fill="currentColor" d="M19 2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h14m-4 4H9v2h6V6m0 4H9v2h6v-2m0 4H9v2h6v-2M7 6h1v10H7V6Z"/>
+            </symbol>
+            <symbol id="icon-operations" viewBox="0 0 24 24">
+                 <title>Operations</title>
+                <path fill="currentColor" d="M12 2c-4.42 0-8 3.58-8 8 0 1.85.63 3.55 1.69 4.9L2.24 18.35l1.41 1.41L7.1 16.31C8.45 17.37 10.15 18 12 18c4.42 0 8-3.58 8-8s-3.58-8-8-8zm0 14c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6zm1-11h-2v4h2V5zm0 6h-2v2h2v-2z"/>
+            </symbol>
+             <symbol id="icon-logout" viewBox="0 0 24 24">
+                <title>Logout</title>
+                <path fill="currentColor" d="M16 17v-3H9v-4h7V7l5 5-5 5M14 2a2 2 0 0 1 2 2v4h-2V4H5v16h9v-4h2v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9z"/>
+            </symbol>
+             <symbol id="icon-op-marker" viewBox="0 0 10 10">
+                 <title>Operation Marker</title>
+                 <!-- Updated marker style for better visibility -->
+                 <circle cx="5" cy="5" r="4.5" stroke-width="1" fill-opacity="0.3" />
+                 <circle cx="5" cy="5" r="2" fill="currentColor" stroke="rgba(255,255,255,0.5)" stroke-width="0.5"/>
+            </symbol>
+        </defs>
+    </svg>
+
+    <div id="portal-container">
+        <header id="portal-header">
+            <div class="system-title">
+                 <!-- Corrected logo path -->
+                <img src="../../../assets/logo.jpg" alt="OSL Logo" style="height: 28px; width: auto; filter: var(--logo-filter);">
+                <span>OSL Supernatural Threat Assessment</span>
+            </div>
+             <aside class="user-status">
+                <span id="user-identifier">Resonant ID: #LOADING...</span> | <span id="user-rank">Status: Agent</span>
+                <button id="logout-button" class="header-button" title="Logout">
+                    <svg><use xlink:href="#icon-logout"></use></svg>
+                </button>
+            </aside>
+        </header>
+
+        <nav id="portal-nav">
+            <ul>
+                <!-- Ensure correct href paths for navigation -->
+                 <li><a href="../osl.html#dashboard" class="nav-link" data-section="dashboard"><svg><use xlink:href="#icon-dashboard"></use></svg><span>Dashboard</span></a></li>
+                <li><a href="bestiary.html" class="nav-link" data-section="bestiary"><svg><use xlink:href="#icon-bestiary"></use></svg><span>Bestiary</span></a></li>
+                <!-- Mark Operations as active -->
+                <li><a href="operations.html" class="nav-link active" aria-current="page" data-section="operations"><svg><use xlink:href="#icon-operations"></use></svg><span>Operations</span></a></li>
+            </ul>
+        </nav>
+
+        <main id="portal-main">
+             <!-- Operations Section -->
+            <section id="operations-section" class="portal-section active-section">
+                <h1 class="section-title">Active Operations :: Colorado Sector</h1>
+                 <!-- Layout Container -->
+                <div class="operations-layout">
+                    <!-- Map Container -->
+                    <div id="operations-map-container">
+                         <!-- SVG Overlay for Markers -->
+                         <svg id="operations-map-svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid meet">
+                             <!-- Group for markers, targeted by JS -->
+                             <g id="operation-markers">
+                                 <!-- Markers will be added here by osl_portal.js -->
+                             </g>
+                        </svg>
+                    </div>
+                     <!-- Sidebar for Operation List -->
+                     <div id="operations-sidebar">
+                        <h2>Operations List</h2>
+                        <ul id="operations-list" class="data-list operations-list">
+                            <!-- List items will be added here by osl_portal.js -->
+                            <li class="loading-operations">Loading operations data...</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer id="portal-footer">
+             <!-- Corrected logo path -->
+             <img src="../../../assets/logo.jpg" alt="OSL Footer Logo" style="height: 28px; width: auto; filter: var(--logo-filter);">
+            <span class="footer-text">Order of St. Leopold - Secure Channel :: Dir. Ver. 3.1</span>
+        </footer>
+    </div>
+
+     <script type="importmap">
+      {
+        "imports": {
+            "../../userDatabase.js": "../../../userDatabase.js",
+            "./scripts/osl_portal.js": "./scripts/osl_portal.js"
+        }
+      }
+    </script>
+    <!-- Ensure correct script src using the absolute path key -->
+    <script type="module" src="./scripts/osl_portal.js"></script>
+</body>
+</html>

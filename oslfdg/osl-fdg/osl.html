@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="OSL Supernatural Threat Assessment Portal - monitor threats, bestiary, and operations.">
+    <link rel="preload" href="osl/styles/osl_portal.css" as="style">
+    <style>
+        .skip-link{position:absolute;top:-40px;left:0;background:#000;color:#fff;padding:8px 16px;z-index:100;transition:top 0.3s;}
+        .skip-link:focus{top:0;}
+    </style>
+    <!-- Updated Title -->
+    <title>OSL :: Supernatural Threat Assessment</title>
+    <!-- Link to new CSS -->
+    <link rel="stylesheet" href="osl/styles/osl_portal.css">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <a href="#portal-main" class="skip-link">Skip to main content</a>
+    <div id="void-background"></div>
+
+    <!-- New SVG Icons -->
+    <svg style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <defs>
+            <symbol id="icon-dashboard" viewBox="0 0 24 24">
+                <title>Dashboard</title>
+                <path fill="currentColor" d="M13,3V9H21V3M13,21H21V11H13M3,21H11V15H3M3,13H11V3H3V13Z" />
+            </symbol>
+            <symbol id="icon-bestiary" viewBox="0 0 24 24">
+                 <title>Bestiary</title>
+                <path fill="currentColor" d="M19 2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h14m-4 4H9v2h6V6m0 4H9v2h6v-2m0 4H9v2h6v-2M7 6h1v10H7V6Z"/>
+            </symbol>
+            <symbol id="icon-operations" viewBox="0 0 24 24">
+                 <title>Operations</title>
+                <path fill="currentColor" d="M12 2c-4.42 0-8 3.58-8 8 0 1.85.63 3.55 1.69 4.9L2.24 18.35l1.41 1.41L7.1 16.31C8.45 17.37 10.15 18 12 18c4.42 0 8-3.58 8-8s-3.58-8-8-8zm0 14c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6zm1-11h-2v4h2V5zm0 6h-2v2h2v-2z"/>
+            </symbol>
+             <symbol id="icon-logout" viewBox="0 0 24 24">
+                <title>Logout</title>
+                <path fill="currentColor" d="M16 17v-3H9v-4h7V7l5 5-5 5M14 2a2 2 0 0 1 2 2v4h-2V4H5v16h9v-4h2v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9z"/>
+            </symbol>
+            <symbol id="icon-skull" viewBox="0 0 24 24">
+                 <title>Threat</title>
+                 <path fill="currentColor" d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M9,9V11H15V9H9M8,13V15H16V13H8Z" />
+            </symbol>
+             <symbol id="icon-location" viewBox="0 0 24 24">
+                 <title>Location</title>
+                 <path fill="currentColor" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+            </symbol>
+        </defs>
+    </svg>
+
+    <div id="portal-container">
+        <header id="portal-header">
+            <div class="system-title">
+                <!-- Corrected logo path -->
+                <img src="../assets/logo.jpg" alt="OSL Logo" style="height: 28px; width: auto; filter: var(--logo-filter);">
+                <span>OSL Supernatural Threat Assessment</span>
+            </div>
+             <aside class="user-status">
+                <span id="user-identifier">Resonant ID: #LOADING...</span> | <span id="user-rank">Status: Agent</span>
+                <button type="button" id="logout-button" class="header-button" title="Logout" aria-label="Logout">
+                    <svg><use xlink:href="#icon-logout"></use></svg>
+                </button>
+            </aside>
+        </header>
+
+        <nav id="portal-nav">
+            <ul>
+                <!-- Updated href for Bestiary and Operations -->
+                <!-- Added active class to Dashboard link -->
+                <li><a href="osl.html#dashboard" class="nav-link active" data-section="dashboard" aria-current="page"><svg aria-hidden="true" focusable="false"><use xlink:href="#icon-dashboard"></use></svg><span>Dashboard</span></a></li>
+                <li><a href="osl/bestiary.html" class="nav-link" data-section="bestiary"><svg><use xlink:href="#icon-bestiary"></use></svg><span>Bestiary</span></a></li>
+                <li><a href="osl/operations.html" class="nav-link" data-section="operations"><svg><use xlink:href="#icon-operations"></use></svg><span>Operations</span></a></li>
+            </ul>
+        </nav>
+
+        <!-- Main content area - loads dashboard by default -->
+        <main id="portal-main">
+            <!-- Dashboard Section (Initial View) -->
+            <section id="dashboard-section" class="portal-section active-section">
+                <h1 class="section-title">Active Threats Dashboard</h1>
+                <div class="dashboard-grid">
+                    <div class="dashboard-widget">
+  <h2>Threat Level</h2>
+  <div class="threat-badge high">
+    <svg class="threat-icon"><use xlink:href="#icon-skull"></use></svg>
+    <span class="threat-text">HIGH</span>
+  </div>
+  <div class="threat-desc">Multiple Tier-3 entities active. <span class="threat-alert">Stay alert!</span></div>
+</div>
+                     <div class="dashboard-widget">
+  <h2>Recent Sightings</h2>
+  <div class="sightings-list">
+    <div class="sighting-card">
+      <span class="entity-code">[E-734]</span>
+      <span class="sighting-location"><svg class="icon-inline"><use xlink:href="#icon-location"></use></svg> Sector 4G</span>
+      <span class="sighting-time"><svg class="icon-inline"><use xlink:href="#icon-dashboard"></use></svg> 1h ago</span>
+    </div>
+    <div class="sighting-card">
+      <span class="entity-code">[E-112]</span>
+      <span class="sighting-location"><svg class="icon-inline"><use xlink:href="#icon-location"></use></svg> Old Town</span>
+      <span class="sighting-time"><svg class="icon-inline"><use xlink:href="#icon-dashboard"></use></svg> 3h ago</span>
+    </div>
+    <div class="sighting-card">
+      <span class="entity-code">[E-088]</span>
+      <span class="sighting-location"><svg class="icon-inline"><use xlink:href="#icon-location"></use></svg> Sector 4G</span>
+      <span class="sighting-time"><svg class="icon-inline"><use xlink:href="#icon-dashboard"></use></svg> 9h ago</span>
+    </div>
+  </div>
+  <a href="osl/bestiary.html" class="widget-link" style="margin-top: 10px;">View Entity Catalog</a>
+</div>
+                    <div class="dashboard-widget">
+  <h2>Active Operations</h2>
+  <div class="operations-list">
+    <div class="operation-card">
+      <span class="op-title">Operation Nightfall</span>
+      <span class="op-status ongoing">Ongoing</span>
+      <div class="op-progress-bar"><div class="op-progress" style="width: 60%"></div></div>
+    </div>
+    <div class="operation-card">
+      <span class="op-title">Operation Iron Gate</span>
+      <span class="op-status prep">Preparation</span>
+      <div class="op-progress-bar"><div class="op-progress" style="width: 20%"></div></div>
+    </div>
+    <div class="operation-card">
+      <span class="op-title">Operation Dawn Watch</span>
+      <span class="op-status critical">Critical</span>
+      <div class="op-progress-bar"><div class="op-progress" style="width: 80%"></div></div>
+    </div>
+  </div>
+  <a href="osl/operations.html" class="widget-link" data-section-link="operations">View Operations Map</a>
+</div>
+                    <div class="dashboard-widget">
+  <h2>Priority Alerts</h2>
+  <ul class="alerts-list" role="list" aria-live="polite">
+    <li class="alert-banner alert-high">
+      <span class="alert-icon"><svg width="20" height="20" aria-hidden="true" focusable="false"><use xlink:href="#icon-skull"></use></svg></span>
+      Containment breach likely <span class="entity-code">[E-734]</span>
+    </li>
+    <li class="alert-item">
+      <span class="alert-icon"><svg width="20" height="20" aria-hidden="true" focusable="false"><use xlink:href="#icon-location"></use></svg></span> Unconfirmed anomaly - Sector 9A
+    </li>
+  </ul>
+</div>
+                </div>
+            </section>
+
+            <!-- Operations Section Placeholder (Content moved to operations.html) -->
+            <section id="operations-section" class="portal-section">
+                 <h1 class="section-title">Active Operations</h1>
+                <!-- Removed table, direct users to the dedicated page -->
+                <p>Detailed operational data and map view available on the main Operations page.</p>
+                 <a href="osl/operations.html" class="widget-link">Go to Operations Map &raquo;</a>
+            </section>
+
+            <!-- Bestiary Section Placeholder (Content is on bestiary.html) -->
+             <section id="bestiary-section" class="portal-section">
+                 <h1 class="section-title">Entity Catalog</h1>
+                 <p>Detailed entity information available in the Bestiary.</p>
+                 <a href="osl/bestiary.html" class="widget-link">Go to Bestiary &raquo;</a>
+            </section>
+
+        </main>
+
+        <footer id="portal-footer">
+             <!-- Corrected logo path -->
+             <img src="../assets/logo.jpg" alt="OSL Footer Logo" style="height: 28px; width: auto; filter: var(--logo-filter);">
+            <span class="footer-text">Order of St. Leopold - Secure Channel :: Dir. Ver. 3.1</span>
+        </footer>
+    </div>
+    <!-- Modal for entity details -->
+    <div id="entity-modal" class="modal" role="dialog" aria-modal="true" aria-label="Entity Details">
+      <div class="modal-content">
+        <button type="button" id="modal-close" class="modal-close" aria-label="Close modal">&times;</button>
+        <div id="modal-content"></div>
+      </div>
+    </div>
+    <script type="importmap">
+      {
+        "imports": {
+           "../userDatabase.js": "../../userDatabase.js",
+           "./osl/scripts/osl_portal.js": "./osl/scripts/osl_portal.js"
+        }
+      }
+    </script>
+    <script src="osl/js/logout.js"></script>
+    <!-- Link to new JS -->
+    <script type="module" src="osl/scripts/osl_portal.js"></script>
+</body>
+</html>

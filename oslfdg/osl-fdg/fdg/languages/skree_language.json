@@ -1,0 +1,273 @@
+{
+    "language": "Skree",
+    "description": "The sacred glyph-language of the Shal'Rah, spoken through psionic resonance and insectoid clicks.",
+    "glyph_sets": {
+      "core_glyphs": [
+        {
+          "glyph": "氷⟁",
+          "name": "Khir",
+          "sound": "/χiɾ/",
+          "meaning": "Hive / Collective"
+        },
+        {
+          "glyph": "爬⟆",
+          "name": "Shuu",
+          "sound": "/ʃuː/",
+          "meaning": "Consume / Assimilate"
+        },
+        {
+          "glyph": "彡𓆑",
+          "name": "Naek",
+          "sound": "/neɪk/",
+          "meaning": "Mutation / Change"
+        },
+        {
+          "glyph": "亘𓊽",
+          "name": "Vorh",
+          "sound": "/voɾ/",
+          "meaning": "Caste / Structure"
+        },
+        {
+          "glyph": "𓐍灬",
+          "name": "Zaiq",
+          "sound": "/zaɪk/",
+          "meaning": "Command / Directive"
+        },
+        {
+          "glyph": "孓冂",
+          "name": "Ekk",
+          "sound": "/ɛk/",
+          "meaning": "Flesh / Tissue"
+        },
+        {
+          "glyph": "血⿻",
+          "name": "Druun",
+          "sound": "/dɾuːn/",
+          "meaning": "Blood / Bond"
+        },
+        {
+          "glyph": "牙彖",
+          "name": "Qil",
+          "sound": "/kɪl/",
+          "meaning": "Death / Sacrifice"
+        },
+        {
+          "glyph": "羽⺾",
+          "name": "Issh",
+          "sound": "/ɪʃ/",
+          "meaning": "Flight / Elevation"
+        },
+        {
+          "glyph": "囗𓂀",
+          "name": "Omn",
+          "sound": "/ɔmn/",
+          "meaning": "All / Totality"
+        },
+        {
+          "glyph": "覗𓆣",
+          "name": "Rik",
+          "sound": "/ɾɪk/",
+          "meaning": "Sight / Awareness"
+        },
+        {
+          "glyph": "彁巛",
+          "name": "N’ta",
+          "sound": "/n̩ta/",
+          "meaning": "Hunger / Despair"
+        },
+        {
+          "glyph": "凵⿴",
+          "name": "Velk",
+          "sound": "/vɛlk/",
+          "meaning": "Egg / Potential"
+        },
+        {
+          "glyph": "⿷𓊃",
+          "name": "Yis",
+          "sound": "/jiːs/",
+          "meaning": "Spirit / Thought"
+        },
+        {
+          "glyph": "幽𓏏",
+          "name": "Uzh",
+          "sound": "/uʒ/",
+          "meaning": "Silence / Stealth"
+        },
+        {
+          "glyph": "壬⻌",
+          "name": "Thaa",
+          "sound": "/θɑː/",
+          "meaning": "Expansion / Spread"
+        },
+        {
+          "glyph": "𓎆圧",
+          "name": "Haek",
+          "sound": "/hæɪk/",
+          "meaning": "Warrior / Defender"
+        },
+        {
+          "glyph": "丂⻗",
+          "name": "Grai",
+          "sound": "/gɾaɪ/",
+          "meaning": "Hive-Mind / Connection"
+        },
+        {
+          "glyph": "叱𓃠",
+          "name": "Krill",
+          "sound": "/kɾɪl/",
+          "meaning": "Swarm / Overflow"
+        },
+        {
+          "glyph": "𓇳氐",
+          "name": "Zuun",
+          "sound": "/zuːn/",
+          "meaning": "Deep / Subterranean"
+        },
+        {
+          "glyph": "禺𓍯",
+          "name": "Tsaq",
+          "sound": "/tsaʔ/",
+          "meaning": "Pain / Pressure"
+        },
+        {
+          "glyph": "𓎆虫",
+          "name": "Ilsh",
+          "sound": "/ɪlʃ/",
+          "meaning": "Parasite / Infiltrate"
+        },
+        {
+          "glyph": "吽𓈉",
+          "name": "Shae",
+          "sound": "/ʃaɪ/",
+          "meaning": "Betrayal / Break"
+        },
+        {
+          "glyph": "𓂋冖",
+          "name": "Mnok",
+          "sound": "/mnɔk/",
+          "meaning": "Ancient / Original"
+        }
+      ],
+      "modifiers": [
+        {
+          "glyph": "◥冖",
+          "name": "-ek",
+          "function": "Pluralization / Swarm"
+        },
+        {
+          "glyph": "⺄⺾",
+          "name": "-sha",
+          "function": "Makes a concept sacred"
+        },
+        {
+          "glyph": "彡𓎃",
+          "name": "ri-",
+          "function": "Reflexive / Self-targeted"
+        },
+        {
+          "glyph": "⻌𓋴",
+          "name": "zu-",
+          "function": "Future-tense / Potential"
+        },
+        {
+          "glyph": "氵𓅓",
+          "name": "in-",
+          "function": "Negative / Anti-form"
+        },
+        {
+          "glyph": "冂刃",
+          "name": "-oth",
+          "function": "Denotes tool/weapon"
+        },
+        {
+          "glyph": "𓇋巛",
+          "name": "-vul",
+          "function": "Organic suffix"
+        },
+        {
+          "glyph": "廴卩",
+          "name": "ti-",
+          "function": "Conditional or reactive"
+        },
+        {
+          "glyph": "匚彡",
+          "name": "-ar",
+          "function": "Belonging to"
+        },
+        {
+          "glyph": "冫匕",
+          "name": "ra-",
+          "function": "Urgency / now"
+        },
+        {
+          "glyph": "卍𓊝",
+          "name": "-jin",
+          "function": "Female-coded concept"
+        },
+        {
+          "glyph": "厶𓉶",
+          "name": "-tor",
+          "function": "Male-coded concept"
+        }
+      ],
+      "psychic_augmenters": [
+        {
+          "glyph": "🜁𓂩",
+          "name": "Nul",
+          "function": "Indifference / Apathy"
+        },
+        {
+          "glyph": "𓅔灬",
+          "name": "Izz",
+          "function": "Aggression / Hatred"
+        },
+        {
+          "glyph": "◯𓂆",
+          "name": "Vosh",
+          "function": "Unity / Purpose"
+        },
+        {
+          "glyph": "𓇬彖",
+          "name": "Ehl",
+          "function": "Confusion / Scrambling thought"
+        },
+        {
+          "glyph": "𓂀⺓",
+          "name": "Zir",
+          "function": "Awareness / Truth-seeking"
+        },
+        {
+          "glyph": "𓏧⺣",
+          "name": "Umth",
+          "function": "Dominance / Assertion"
+        }
+      ],
+      "high_glyphs": [
+        {
+          "glyph": "𓂀𓊊",
+          "name": "Xheln",
+          "meaning": "The Great Mind"
+        },
+        {
+          "glyph": "⺃𓎟",
+          "name": "Or’uul",
+          "meaning": "Godlike Will"
+        },
+        {
+          "glyph": "𓇳𓋹",
+          "name": "Ka’toth",
+          "meaning": "The Void Between"
+        },
+        {
+          "glyph": "⿻𓎚",
+          "name": "Shirr",
+          "meaning": "The Swarm Eternal"
+        },
+        {
+          "glyph": "𓁻⿴",
+          "name": "Z’Vek",
+          "meaning": "The Eye That Devours"
+        }
+      ]
+    }
+  }

@@ -1,0 +1,1769 @@
+{
+    "skills": [
+      {
+        "category": "Rogue",
+        "name": "Acrobatics",
+        "level": 4,
+        "primary_stat": "AGI",
+        "secondary_stat": "AGI"
+      },
+      {
+        "category": "Medical",
+        "name": "Advanced Surgery",
+        "level": 10,
+        "primary_stat": "INT",
+        "secondary_stat": "INT"
+      },
+      {
+        "category": "Science",
+        "name": "Aerodynamics",
+        "level": 5,
+        "primary_stat": "INT",
+        "secondary_stat": "INT"
+      },
+      {
+        "category": "Science",
+        "name": "Agriculture",
+        "level": 5,
+        "primary_stat": "INT",
+        "secondary_stat": "INT"
+      },
+      {
+        "category": "Technical",
+        "name": "Aircraft Repair",
+        "level": 4,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Physical",
+        "name": "Ambidextrous",
+        "level": 4,
+        "primary_stat": "AGI",
+        "secondary_stat": "AGI"
+      },
+      {
+        "category": "Weapon",
+        "name": "Ammunition Reloading",
+        "level": 2,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Computer",
+        "name": "Android/Bot Programming",
+        "level": 6,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Animal",
+        "name": "Animal Affinity",
+        "level": 1,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Animal",
+        "name": "Animal Training",
+        "level": 2,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Rogue",
+        "name": "Appraise Item",
+        "level": 3,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Military",
+        "name": "Arm-Link Communications",
+        "level": 3,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Science",
+        "name": "Artificial Intelligence",
+        "level": 7,
+        "primary_stat": "INT",
+        "secondary_stat": "INT"
+      },
+      {
+        "category": "Science",
+        "name": "Astronomy",
+        "level": 5,
+        "primary_stat": "INT",
+        "secondary_stat": "INT"
+      },
+      {
+        "category": "Science",
+        "name": "Astrophysics",
+        "level": 7,
+        "primary_stat": "INT",
+        "secondary_stat": "INT"
+      },
+      {
+        "category": "Science",
+        "name": "Atomic Theory",
+        "level": 5,
+        "primary_stat": "INT",
+        "secondary_stat": "INT"
+      },
+      {
+        "category": "Rogue",
+        "name": "Backstab",
+        "level": 3,
+        "primary_stat": "AGI",
+        "secondary_stat": "AGI"
+      },
+      {
+        "category": "Social",
+        "name": "Barter",
+        "level": 2,
+        "primary_stat": "CHA",
+        "secondary_stat": null
+      },
+      {
+        "category": "Technical",
+        "name": "Basic Construction",
+        "level": 4,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Medical",
+        "name": "Basic Surgery",
+        "level": 8,
+        "primary_stat": "INT",
+        "secondary_stat": "INT"
+      },
+      {
+        "category": "Science",
+        "name": "Biology",
+        "level": 7,
+        "primary_stat": "INT",
+        "secondary_stat": "INT"
+      },
+      {
+        "category": "Weapon",
+        "name": "Blacksmithing",
+        "level": 5,
+        "primary_stat": "INT",
+        "secondary_stat": "INT"
+      },
+      {
+        "category": "Weapon",
+        "name": "Blade Maintenance",
+        "level": 2,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Military",
+        "name": "Blind Fighting",
+        "level": 8,
+        "primary_stat": "PER",
+        "secondary_stat": "PER"
+      },
+      {
+        "category": "Physical",
+        "name": "Body Building",
+        "level": 3,
+        "primary_stat": "STR",
+        "secondary_stat": "STR"
+      },
+      {
+        "category": "Science",
+        "name": "Botany",
+        "level": 5,
+        "primary_stat": "INT",
+        "secondary_stat": "INT"
+      },
+      {
+        "category": "Rogue",
+        "name": "Breath Control",
+        "level": 3,
+        "primary_stat": "VIT",
+        "secondary_stat": "VIT"
+      },
+      {
+        "category": "Physical",
+        "name": "Breath Holding",
+        "level": 2,
+        "primary_stat": "VIT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Animal",
+        "name": "Breed Animal",
+        "level": 2,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Rogue",
+        "name": "Camouflage",
+        "level": 3,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Medical",
+        "name": "Cardiology",
+        "level": 10,
+        "primary_stat": "INT",
+        "secondary_stat": "INT"
+      },
+      {
+        "category": "Technical",
+        "name": "Carpentry",
+        "level": 3,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Science",
+        "name": "Chemistry",
+        "level": 5,
+        "primary_stat": "INT",
+        "secondary_stat": "INT"
+      },
+      {
+        "category": "Technical",
+        "name": "Circuit Board Construction",
+        "level": 7,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Survival",
+        "name": "Climb Rock/Tree",
+        "level": 2,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Physical",
+        "name": "Climbing: Advanced",
+        "level": 2,
+        "primary_stat": "STR",
+        "secondary_stat": "AGI"
+      },
+      {
+        "category": "Technical",
+        "name": "Combustion Engine Repair",
+        "level": 3,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Computer",
+        "name": "Communications",
+        "level": 3,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Computer",
+        "name": "Computer Advanced",
+        "level": 2,
+        "primary_stat": "INT",
+        "secondary_stat": "INT"
+      },
+      {
+        "category": "Computer",
+        "name": "Computer Basics",
+        "level": 1,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Computer",
+        "name": "Computer Hacking",
+        "level": 3,
+        "primary_stat": "INT",
+        "secondary_stat": "INT"
+      },
+      {
+        "category": "Computer",
+        "name": "Computer Programming",
+        "level": 2,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Computer",
+        "name": "Computer Repair",
+        "level": 3,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Social",
+        "name": "Con",
+        "level": 2,
+        "primary_stat": "CHA",
+        "secondary_stat": null
+      },
+      {
+        "category": "Survival",
+        "name": "Cooking",
+        "level": 2,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Medical",
+        "name": "Cosmetic Surgery",
+        "level": 10,
+        "primary_stat": "INT",
+        "secondary_stat": "INT"
+      },
+      {
+        "category": "Technical",
+        "name": "Counterfeiting",
+        "level": 5,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Crafting",
+        "name": "Craft Airframe",
+        "level": 8,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Crafting",
+        "name": "Craft Ammo/Reload",
+        "level": 3,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Crafting",
+        "name": "Craft Armor",
+        "level": 6,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Crafting",
+        "name": "Craft Bio-Chem",
+        "level": 3,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Crafting",
+        "name": "Craft Bio-Mechanical",
+        "level": 12,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Crafting",
+        "name": "Craft Blade",
+        "level": 3,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Crafting",
+        "name": "Craft Bot/Droid",
+        "level": 10,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Crafting",
+        "name": "Craft Bow/Arrows",
+        "level": 2,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Crafting",
+        "name": "Craft Cyber Implant",
+        "level": 12,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Crafting",
+        "name": "Craft Electronics",
+        "level": 4,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Crafting",
+        "name": "Craft Force Sword",
+        "level": 12,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Crafting",
+        "name": "Craft Grenade",
+        "level": 7,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Crafting",
+        "name": "Craft Med-Kit",
+        "level": 8,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Crafting",
+        "name": "Craft Optics/Scope",
+        "level": 8,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Crafting",
+        "name": "Craft Pneumatic",
+        "level": 3,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Crafting",
+        "name": "Craft Power Armor",
+        "level": 10,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Crafting",
+        "name": "Craft Power Cell",
+        "level": 5,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Crafting",
+        "name": "Craft Shield Generator",
+        "level": 5,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Crafting",
+        "name": "Craft Vehicle Armor",
+        "level": 8,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Crafting",
+        "name": "Craft Weapon Mod",
+        "level": 5,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Crafting",
+        "name": "Craft Wrist-Link",
+        "level": 12,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Crafting",
+        "name": "Craft/Repair Jet Engine",
+        "level": 10,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Crafting",
+        "name": "Craft/Repair Small Engine",
+        "level": 5,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Meta",
+        "name": "Create Meta-Gel",
+        "level": 5,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Medical",
+        "name": "Cybernetics",
+        "level": 12,
+        "primary_stat": "INT",
+        "secondary_stat": "INT"
+      },
+      {
+        "category": "Social",
+        "name": "Dancing",
+        "level": 2,
+        "primary_stat": "CHA",
+        "secondary_stat": "CHA"
+      },
+      {
+        "category": "Military",
+        "name": "Danger Sense",
+        "level": 5,
+        "primary_stat": "PER",
+        "secondary_stat": "PER"
+      },
+      {
+        "category": "Defensive",
+        "name": "Defense: Dodge Melee",
+        "level": 2,
+        "primary_stat": "AGI",
+        "secondary_stat": "AGI"
+      },
+      {
+        "category": "Defensive",
+        "name": "Defense: Dodge Projectile",
+        "level": 3,
+        "primary_stat": "AGI",
+        "secondary_stat": "AGI"
+      },
+      {
+        "category": "Defensive",
+        "name": "Defense: Empty Hand Parry",
+        "level": 5,
+        "primary_stat": "AGI",
+        "secondary_stat": "AGI"
+      },
+      {
+        "category": "Defensive",
+        "name": "Defense: Shield Block",
+        "level": 2,
+        "primary_stat": "STR",
+        "secondary_stat": "STR"
+      },
+      {
+        "category": "Defensive",
+        "name": "Defense: Soak Damage",
+        "level": 5,
+        "primary_stat": "VIT",
+        "secondary_stat": "VIT"
+      },
+      {
+        "category": "Defensive",
+        "name": "Defense: Weapon Parry",
+        "level": 3,
+        "primary_stat": "AGI",
+        "secondary_stat": "AGI"
+      },
+      {
+        "category": "Medical",
+        "name": "Dentistry",
+        "level": 8,
+        "primary_stat": "INT",
+        "secondary_stat": "INT"
+      },
+      {
+        "category": "Rogue",
+        "name": "Detect Trap",
+        "level": 3,
+        "primary_stat": "PER",
+        "secondary_stat": null
+      },
+      {
+        "category": "Medical",
+        "name": "Diagnostics",
+        "level": 8,
+        "primary_stat": "INT",
+        "secondary_stat": "INT"
+      },
+      {
+        "category": "Rogue",
+        "name": "Disarm Trap",
+        "level": 3,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Rogue",
+        "name": "Disguise",
+        "level": 3,
+        "primary_stat": "CHA",
+        "secondary_stat": null
+      },
+      {
+        "category": "Technical",
+        "name": "Drafting",
+        "level": 2,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Science",
+        "name": "Economics",
+        "level": 5,
+        "primary_stat": "INT",
+        "secondary_stat": "INT"
+      },
+      {
+        "category": "Technical",
+        "name": "Electrician",
+        "level": 4,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Weapon",
+        "name": "Electro-Mag Mechanics",
+        "level": 8,
+        "primary_stat": "INT",
+        "secondary_stat": "INT"
+      },
+      {
+        "category": "Medical",
+        "name": "Encology",
+        "level": 10,
+        "primary_stat": "INT",
+        "secondary_stat": "INT"
+      },
+      {
+        "category": "Weapon",
+        "name": "Energy Crystal Focus",
+        "level": 6,
+        "primary_stat": "INT",
+        "secondary_stat": "INT"
+      },
+      {
+        "category": "Science",
+        "name": "Engineering",
+        "level": 5,
+        "primary_stat": "INT",
+        "secondary_stat": "INT"
+      },
+      {
+        "category": "Technical",
+        "name": "Engraving",
+        "level": 5,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Science",
+        "name": "Environmental Science",
+        "level": 5,
+        "primary_stat": "INT",
+        "secondary_stat": "INT"
+      },
+      {
+        "category": "Social",
+        "name": "Ettiquette",
+        "level": 2,
+        "primary_stat": "CHA",
+        "secondary_stat": "CHA"
+      },
+      {
+        "category": "Armor",
+        "name": "Exotic Armor Usage",
+        "level": 3,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Social",
+        "name": "Expert Liar",
+        "level": 4,
+        "primary_stat": "CHA",
+        "secondary_stat": "CHA"
+      },
+      {
+        "category": "Animal",
+        "name": "Falconing",
+        "level": 3,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Social",
+        "name": "Fast-Talk",
+        "level": 2,
+        "primary_stat": "CHA",
+        "secondary_stat": null
+      },
+      {
+        "category": "Survival",
+        "name": "Fire Building",
+        "level": 1,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Weapon",
+        "name": "Firearm Bluing/Engraving",
+        "level": 2,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Weapon",
+        "name": "Firearm Maintenance",
+        "level": 1,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Attack",
+        "name": "Firearm: Exotic",
+        "level": 2,
+        "primary_stat": "AIM",
+        "secondary_stat": null
+      },
+      {
+        "category": "Attack",
+        "name": "Firearm: Experimental",
+        "level": 2,
+        "primary_stat": "AIM",
+        "secondary_stat": null
+      },
+      {
+        "category": "Attack",
+        "name": "Firearm: Handgun",
+        "level": 1,
+        "primary_stat": "AIM",
+        "secondary_stat": null
+      },
+      {
+        "category": "Attack",
+        "name": "Firearm: Rifle",
+        "level": 1,
+        "primary_stat": "AIM",
+        "secondary_stat": null
+      },
+      {
+        "category": "Attack",
+        "name": "Firearm: Shotgun",
+        "level": 1,
+        "primary_stat": "AIM",
+        "secondary_stat": null
+      },
+      {
+        "category": "Survival",
+        "name": "First Aid",
+        "level": 2,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Technical",
+        "name": "Forgery",
+        "level": 5,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Rogue",
+        "name": "Gambling",
+        "level": 3,
+        "primary_stat": "CHA",
+        "secondary_stat": null
+      },
+      {
+        "category": "Medical",
+        "name": "Gastro-Enterology",
+        "level": 10,
+        "primary_stat": "INT",
+        "secondary_stat": "INT"
+      },
+      {
+        "category": "Science",
+        "name": "Geography",
+        "level": 5,
+        "primary_stat": "INT",
+        "secondary_stat": "INT"
+      },
+      {
+        "category": "Science",
+        "name": "Geology",
+        "level": 5,
+        "primary_stat": "INT",
+        "secondary_stat": "INT"
+      },
+      {
+        "category": "Animal",
+        "name": "Grooming",
+        "level": 2,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Physical",
+        "name": "Gymnastics",
+        "level": 4,
+        "primary_stat": "AGI",
+        "secondary_stat": "VIT"
+      },
+      {
+        "category": "Attack",
+        "name": "Hand to Hand: Blades",
+        "level": 2,
+        "primary_stat": "AGI",
+        "secondary_stat": "AGI"
+      },
+      {
+        "category": "Attack",
+        "name": "Hand to Hand: Blunt",
+        "level": 1,
+        "primary_stat": "AGI",
+        "secondary_stat": "AGI"
+      },
+      {
+        "category": "Attack",
+        "name": "Hand to Hand: Boxing",
+        "level": 2,
+        "primary_stat": "AGI",
+        "secondary_stat": "AGI"
+      },
+      {
+        "category": "Attack",
+        "name": "Hand to Hand: Brawling",
+        "level": 1,
+        "primary_stat": "STR",
+        "secondary_stat": "AGI"
+      },
+      {
+        "category": "Attack",
+        "name": "Hand to Hand: MMA",
+        "level": 5,
+        "primary_stat": "AGI",
+        "secondary_stat": "AGI"
+      },
+      {
+        "category": "Attack",
+        "name": "Hand to Hand: Other Martial Arts",
+        "level": 6,
+        "primary_stat": "AGI",
+        "secondary_stat": "STR"
+      },
+      {
+        "category": "Attack",
+        "name": "Hand to Hand: Spear/Lance",
+        "level": 3,
+        "primary_stat": "AGI",
+        "secondary_stat": "AGI"
+      },
+      {
+        "category": "Attack",
+        "name": "Hand to Hand: Wrestling",
+        "level": 1,
+        "primary_stat": "STR",
+        "secondary_stat": "STR"
+      },
+      {
+        "category": "Computer",
+        "name": "Hardware Engineer",
+        "level": 5,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Armor",
+        "name": "Heavy Armor Usage",
+        "level": 1,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Technical",
+        "name": "Heavy Equipment Ops",
+        "level": 3,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Physical",
+        "name": "High Pain Threshold",
+        "level": 3,
+        "primary_stat": "VIT",
+        "secondary_stat": "VIT"
+      },
+      {
+        "category": "Animal",
+        "name": "Horsemanship",
+        "level": 3,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Science",
+        "name": "Horticulture",
+        "level": 5,
+        "primary_stat": "INT",
+        "secondary_stat": "INT"
+      },
+      {
+        "category": "Survival",
+        "name": "Hunting",
+        "level": 2,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Science",
+        "name": "Hydraulics",
+        "level": 5,
+        "primary_stat": "INT",
+        "secondary_stat": "INT"
+      },
+      {
+        "category": "Science",
+        "name": "Hydronics",
+        "level": 5,
+        "primary_stat": "INT",
+        "secondary_stat": "INT"
+      },
+      {
+        "category": "Military",
+        "name": "Identify Critical Zone",
+        "level": 3,
+        "primary_stat": "PER",
+        "secondary_stat": "PER"
+      },
+      {
+        "category": "Military",
+        "name": "Identify Plant/Herb",
+        "level": 3,
+        "primary_stat": "PER",
+        "secondary_stat": "PER"
+      },
+      {
+        "category": "Military",
+        "name": "Identify Track",
+        "level": 3,
+        "primary_stat": "PER",
+        "secondary_stat": "PER"
+      },
+      {
+        "category": "Survival",
+        "name": "Identify/Slow Poison",
+        "level": 3,
+        "primary_stat": "INT",
+        "secondary_stat": "INT"
+      },
+      {
+        "category": "Computer",
+        "name": "Information Technology",
+        "level": 3,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Military",
+        "name": "Innate Direction Sense",
+        "level": 3,
+        "primary_stat": "PER",
+        "secondary_stat": null
+      },
+      {
+        "category": "Social",
+        "name": "Interrogate",
+        "level": 2,
+        "primary_stat": "CHA",
+        "secondary_stat": null
+      },
+      {
+        "category": "Social",
+        "name": "Intimidate",
+        "level": 2,
+        "primary_stat": "CHA",
+        "secondary_stat": null
+      },
+      {
+        "category": "Rogue",
+        "name": "Juggling",
+        "level": 4,
+        "primary_stat": "AGI",
+        "secondary_stat": "AGI"
+      },
+      {
+        "category": "Rogue",
+        "name": "Jumping",
+        "level": 3,
+        "primary_stat": "AGI",
+        "secondary_stat": null
+      },
+      {
+        "category": "Physical",
+        "name": "Jumping: Advanced",
+        "level": 3,
+        "primary_stat": "AGI",
+        "secondary_stat": "AGI"
+      },
+      {
+        "category": "Social",
+        "name": "Lady Killer",
+        "level": 2,
+        "primary_stat": "CHA",
+        "secondary_stat": null
+      },
+      {
+        "category": "Survival",
+        "name": "Land Navigation",
+        "level": 1,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Language",
+        "name": "Language: Aboriginal",
+        "level": 4,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Language",
+        "name": "Language: Arabic",
+        "level": 4,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Language",
+        "name": "Language: Blackfoot",
+        "level": 4,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Language",
+        "name": "Language: Chinese",
+        "level": 5,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Language",
+        "name": "Language: Commanche",
+        "level": 4,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Language",
+        "name": "Language: Crow",
+        "level": 4,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Language",
+        "name": "Language: English",
+        "level": 2,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Language",
+        "name": "Language: Farsi",
+        "level": 4,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Language",
+        "name": "Language: French",
+        "level": 3,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Language",
+        "name": "Language: Gaelic",
+        "level": 4,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Language",
+        "name": "Language: German",
+        "level": 3,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Language",
+        "name": "Language: Hebrew",
+        "level": 4,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Language",
+        "name": "Language: Hindi",
+        "level": 4,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Language",
+        "name": "Language: Italian",
+        "level": 3,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Language",
+        "name": "Language: Japanese",
+        "level": 5,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Language",
+        "name": "Language: Korean",
+        "level": 5,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Language",
+        "name": "Language: Nez Perce",
+        "level": 4,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Language",
+        "name": "Language: Pawnee",
+        "level": 4,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Language",
+        "name": "Language: Russian",
+        "level": 3,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Language",
+        "name": "Language: Sioux",
+        "level": 4,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Language",
+        "name": "Language: Spanish",
+        "level": 2,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Language",
+        "name": "Language: Swahili",
+        "level": 4,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Armor",
+        "name": "Light Armor Usage",
+        "level": 1,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Military",
+        "name": "Long-Range Artillery",
+        "level": 3,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Social",
+        "name": "Maneater",
+        "level": 2,
+        "primary_stat": "CHA",
+        "secondary_stat": null
+      },
+      {
+        "category": "Science",
+        "name": "Mathematics",
+        "level": 7,
+        "primary_stat": "INT",
+        "secondary_stat": "INT"
+      },
+      {
+        "category": "Technical",
+        "name": "Matter/Antimatter",
+        "level": 8,
+        "primary_stat": "INT",
+        "secondary_stat": "INT"
+      },
+      {
+        "category": "Armor",
+        "name": "Medium Armor Usage",
+        "level": 1,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Science",
+        "name": "Metallurgy",
+        "level": 5,
+        "primary_stat": "INT",
+        "secondary_stat": "INT"
+      },
+      {
+        "category": "Science",
+        "name": "Meteorology",
+        "level": 5,
+        "primary_stat": "INT",
+        "secondary_stat": "INT"
+      },
+      {
+        "category": "Medical",
+        "name": "Molecular Biology",
+        "level": 10,
+        "primary_stat": "INT",
+        "secondary_stat": "INT"
+      },
+      {
+        "category": "Military",
+        "name": "Morse Code",
+        "level": 3,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Science",
+        "name": "Nanoscience",
+        "level": 10,
+        "primary_stat": "INT",
+        "secondary_stat": "INT"
+      },
+      {
+        "category": "Science",
+        "name": "Nautical Propulsion",
+        "level": 5,
+        "primary_stat": "INT",
+        "secondary_stat": "INT"
+      },
+      {
+        "category": "Computer",
+        "name": "Network Admin",
+        "level": 3,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Medical",
+        "name": "Neurology",
+        "level": 10,
+        "primary_stat": "INT",
+        "secondary_stat": "INT"
+      },
+      {
+        "category": "Science",
+        "name": "Nuclear Physics",
+        "level": 8,
+        "primary_stat": "INT",
+        "secondary_stat": "INT"
+      },
+      {
+        "category": "Science",
+        "name": "Oceanography",
+        "level": 5,
+        "primary_stat": "INT",
+        "secondary_stat": "INT"
+      },
+      {
+        "category": "Medical",
+        "name": "Orthopedics",
+        "level": 10,
+        "primary_stat": "INT",
+        "secondary_stat": "INT"
+      },
+      {
+        "category": "Science",
+        "name": "Parapsychology",
+        "level": 5,
+        "primary_stat": "INT",
+        "secondary_stat": "INT"
+      },
+      {
+        "category": "Physical",
+        "name": "Parkour",
+        "level": 3,
+        "primary_stat": "AGI",
+        "secondary_stat": "AGI"
+      },
+      {
+        "category": "Medical",
+        "name": "Pathology",
+        "level": 10,
+        "primary_stat": "INT",
+        "secondary_stat": "INT"
+      },
+      {
+        "category": "Medical",
+        "name": "Pharmacology",
+        "level": 10,
+        "primary_stat": "INT",
+        "secondary_stat": "INT"
+      },
+      {
+        "category": "Science",
+        "name": "Physics",
+        "level": 5,
+        "primary_stat": "INT",
+        "secondary_stat": "INT"
+      },
+      {
+        "category": "Rogue",
+        "name": "Pick Pocket",
+        "level": 3,
+        "primary_stat": "AGI",
+        "secondary_stat": "AGI"
+      },
+      {
+        "category": "Piloting",
+        "name": "Pilot: Armored Vehicle",
+        "level": 3,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Piloting",
+        "name": "Pilot: Automobile",
+        "level": 2,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Piloting",
+        "name": "Pilot: Beast",
+        "level": 2,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Piloting",
+        "name": "Pilot: Boat",
+        "level": 2,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Piloting",
+        "name": "Pilot: Capital Ship",
+        "level": 8,
+        "primary_stat": "INT",
+        "secondary_stat": "INT"
+      },
+      {
+        "category": "Piloting",
+        "name": "Pilot: FTL Vehicle",
+        "level": 10,
+        "primary_stat": "INT",
+        "secondary_stat": "INT"
+      },
+      {
+        "category": "Piloting",
+        "name": "Pilot: Helicopter",
+        "level": 2,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Piloting",
+        "name": "Pilot: Hover Vehicle",
+        "level": 5,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Piloting",
+        "name": "Pilot: Jet Aircraft",
+        "level": 5,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Piloting",
+        "name": "Pilot: Mech",
+        "level": 6,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Piloting",
+        "name": "Pilot: Power Armor",
+        "level": 6,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Piloting",
+        "name": "Pilot: Prop Aircraft",
+        "level": 2,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Piloting",
+        "name": "Pilot: Sailing Vessel",
+        "level": 5,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Piloting",
+        "name": "Pilot: Starfighter",
+        "level": 5,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Piloting",
+        "name": "Pilot: Starship",
+        "level": 7,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Piloting",
+        "name": "Pilot: Submarine",
+        "level": 6,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Weapon",
+        "name": "Plasma Induction Mechanics",
+        "level": 10,
+        "primary_stat": "INT",
+        "secondary_stat": "INT"
+      },
+      {
+        "category": "Social",
+        "name": "Poetry",
+        "level": 1,
+        "primary_stat": "CHA",
+        "secondary_stat": null
+      },
+      {
+        "category": "Rogue",
+        "name": "Poker Face",
+        "level": 2,
+        "primary_stat": "CHA",
+        "secondary_stat": null
+      },
+      {
+        "category": "Social",
+        "name": "Politics",
+        "level": 2,
+        "primary_stat": "CHA",
+        "secondary_stat": null
+      },
+      {
+        "category": "Armor",
+        "name": "Power Armor Usage",
+        "level": 3,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Rogue",
+        "name": "Precision Strike",
+        "level": 5,
+        "primary_stat": "AGI",
+        "secondary_stat": "AGI"
+      },
+      {
+        "category": "Science",
+        "name": "Psychology",
+        "level": 5,
+        "primary_stat": "INT",
+        "secondary_stat": "INT"
+      },
+      {
+        "category": "Social",
+        "name": "Public Speaking",
+        "level": 2,
+        "primary_stat": "CHA",
+        "secondary_stat": "CHA"
+      },
+      {
+        "category": "Science",
+        "name": "Quantum Physics",
+        "level": 10,
+        "primary_stat": "INT",
+        "secondary_stat": "INT"
+      },
+      {
+        "category": "Military",
+        "name": "Radio Communications",
+        "level": 2,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Medical",
+        "name": "Radiology",
+        "level": 8,
+        "primary_stat": "INT",
+        "secondary_stat": "INT"
+      },
+      {
+        "category": "Attack",
+        "name": "Ranged Attack: Magic",
+        "level": 10,
+        "primary_stat": "PSY",
+        "secondary_stat": "PSY"
+      },
+      {
+        "category": "Attack",
+        "name": "Ranged Attack: Psionics",
+        "level": 10,
+        "primary_stat": "PSY",
+        "secondary_stat": "PSY"
+      },
+      {
+        "category": "Attack",
+        "name": "Ranged Weapons: Thrown",
+        "level": 3,
+        "primary_stat": "AGI",
+        "secondary_stat": "AGI"
+      },
+      {
+        "category": "Crafting",
+        "name": "Ranged: Craft Firearm",
+        "level": 4,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Physical",
+        "name": "Rappelling",
+        "level": 2,
+        "primary_stat": "AGI",
+        "secondary_stat": "AGI"
+      },
+      {
+        "category": "Weapon",
+        "name": "Ressonation Chamber Tuning",
+        "level": 6,
+        "primary_stat": "INT",
+        "secondary_stat": "INT"
+      },
+      {
+        "category": "Physical",
+        "name": "Running: Advanced",
+        "level": 2,
+        "primary_stat": "VIT",
+        "secondary_stat": "VIT"
+      },
+      {
+        "category": "Animal",
+        "name": "Saddle Maintenance",
+        "level": 2,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Military",
+        "name": "Scent Recognition",
+        "level": 3,
+        "primary_stat": "PER",
+        "secondary_stat": "PER"
+      },
+      {
+        "category": "Rogue",
+        "name": "Security Systems",
+        "level": 3,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Rogue",
+        "name": "Seduction",
+        "level": 5,
+        "primary_stat": "CHA",
+        "secondary_stat": "CHA"
+      },
+      {
+        "category": "Survival",
+        "name": "Set Trap/Snare",
+        "level": 2,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Military",
+        "name": "Sharp Eye",
+        "level": 3,
+        "primary_stat": "PER",
+        "secondary_stat": "PER"
+      },
+      {
+        "category": "Survival",
+        "name": "Shelter Construction",
+        "level": 2,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Military",
+        "name": "Silent Kill",
+        "level": 5,
+        "primary_stat": "AGI",
+        "secondary_stat": null
+      },
+      {
+        "category": "Social",
+        "name": "Singing",
+        "level": 3,
+        "primary_stat": "CHA",
+        "secondary_stat": "CHA"
+      },
+      {
+        "category": "Science",
+        "name": "Sociology",
+        "level": 5,
+        "primary_stat": "INT",
+        "secondary_stat": "INT"
+      },
+      {
+        "category": "Computer",
+        "name": "Software Engineer",
+        "level": 5,
+        "primary_stat": "INT",
+        "secondary_stat": "INT"
+      },
+      {
+        "category": "Military",
+        "name": "Squad Tactics",
+        "level": 3,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Science",
+        "name": "Starship Construction",
+        "level": 8,
+        "primary_stat": "INT",
+        "secondary_stat": "INT"
+      },
+      {
+        "category": "Science",
+        "name": "Starship Propulsion",
+        "level": 10,
+        "primary_stat": "INT",
+        "secondary_stat": "INT"
+      },
+      {
+        "category": "Rogue",
+        "name": "Stealth",
+        "level": 2,
+        "primary_stat": "AGI",
+        "secondary_stat": "AGI"
+      },
+      {
+        "category": "Social",
+        "name": "Storyteller",
+        "level": 3,
+        "primary_stat": "CHA",
+        "secondary_stat": null
+      },
+      {
+        "category": "Physical",
+        "name": "Swimming: Advanced",
+        "level": 3,
+        "primary_stat": "VIT",
+        "secondary_stat": "VIT"
+      },
+      {
+        "category": "Animal",
+        "name": "Taxidermy",
+        "level": 2,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Science",
+        "name": "Thermodynamics",
+        "level": 5,
+        "primary_stat": "INT",
+        "secondary_stat": "INT"
+      },
+      {
+        "category": "Rogue",
+        "name": "Tightrope Walk",
+        "level": 4,
+        "primary_stat": "AGI",
+        "secondary_stat": "AGI"
+      },
+      {
+        "category": "Survival",
+        "name": "Tracking",
+        "level": 2,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Military",
+        "name": "Trained Ear",
+        "level": 3,
+        "primary_stat": "PER",
+        "secondary_stat": "PER"
+      },
+      {
+        "category": "Physical",
+        "name": "Tumbling",
+        "level": 2,
+        "primary_stat": "AGI",
+        "secondary_stat": "AGI"
+      },
+      {
+        "category": "Meta",
+        "name": "Use Meta-Tool",
+        "level": 6,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Rogue",
+        "name": "Ventriloquism",
+        "level": 3,
+        "primary_stat": "CHA",
+        "secondary_stat": null
+      },
+      {
+        "category": "Medical",
+        "name": "Veterinary Medicine",
+        "level": 10,
+        "primary_stat": "INT",
+        "secondary_stat": "INT"
+      },
+      {
+        "category": "Survival",
+        "name": "Water Purification",
+        "level": 2,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      },
+      {
+        "category": "Survival",
+        "name": "Woodland Purification",
+        "level": 2,
+        "primary_stat": "INT",
+        "secondary_stat": null
+      }
+    ]
+  }
+  

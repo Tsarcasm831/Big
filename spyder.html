@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spyder's Galactic Tech Nexus</title>
+  <!-- Core styles -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="styles/spyder.css">
+  <!-- Optional: Include your game's base styles if needed -->
+  <link rel="stylesheet" href="styles/styles.css">
+  <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+</head>
+<body>
+  <!-- Standalone Spyder Tech Nexus container -->
+  <div id="spyder-tech-nexus">
+    <!-- Header -->
+    <div class="nexus-header">
+      <div class="nexus-header-left">
+        <img src="assets/icons/nexus-logo.png" class="nexus-logo" alt="Nexus Logo">
+        <h1 class="nexus-title">SPYDER'S GALACTIC TECH NEXUS</h1>
+      </div>
+      <div class="nexus-header-right">
+        <div id="resource-display">
+          <span class="resource-item"><span>RP: 500</span></span>
+          <span class="resource-item"><span>E: 200</span></span>
+          <span class="resource-item"><span>BS: 100</span></span>
+          <span class="resource-item"><span>AA: 50</span></span>
+        </div>
+        <button id="nexus-back">EXIT</button>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="nexus-content">
+      <!-- Left Panel: Navigation -->
+      <div class="nexus-nav" id="spyder-navigation">
+        <!-- Navigation will be populated by JS -->
+      </div>
+
+      <!-- Center Panel: Research Console -->
+      <div class="nexus-console">
+        <div id="console-display">
+          <canvas id="task-visual" width="400" height="500"></canvas>
+        </div>
+        <div class="console-nav">
+          <button id="prev-task" class="nav-btn">&lt;</button>
+          <button id="next-task" class="nav-btn">&gt;</button>
+        </div>
+      </div>
+
+      <!-- Right Panel: Task Details -->
+      <div class="nexus-details">
+        <div id="task-details">
+          <!-- Task details will be populated by JS -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Return to game button (for standalone mode) -->
+  <div id="return-to-game" style="position: fixed; bottom: 20px; right: 20px; z-index: 12000; display: none;">
+    <a href="index.html" class="task-button" style="background: #e63946; color: white; text-decoration: none;">Return to Game</a>
+  </div>
+
+  <!-- Mini-game templates (will be cloned by JS when needed) -->
+  <template id="circuit-builder-template">
+    <div style="text-align: center; margin-bottom: 20px;">
+      <p>Connect the circuits to complete the research!</p>
+      <canvas id="circuit-canvas" width="500" height="400" style="border: 1px solid #00d4ff; background: #0a1a2a;"></canvas>
+      <div style="margin-top: 20px;">
+        <button id="connect-btn" class="task-button info-button">Connect Circuits</button>
+        <button id="reset-btn" class="task-button team-button">Reset</button>
+      </div>
+    </div>
+  </template>
+
+  <template id="code-puzzle-template">
+    <div style="text-align: center; margin-bottom: 20px;">
+      <p>Solve the quantum code puzzle to enable the shield technology!</p>
+      <div id="code-puzzle" style="font-family: monospace; background: #0a1a2a; padding: 20px; border: 1px solid #00d4ff; text-align: left; height: 300px; overflow-y: auto;">
+        <pre style="color: #e0e1dd; line-height: 1.5;">function enableQuantumShield(particle1, particle2) {
+    // TODO: Complete the entanglement algorithm
+    const entanglementMatrix = [
+        [?, ?, ?],
+        [?, ?, ?],
+        [?, ?, ?]
+    ];
+    
+    return calculateEntanglement(particle1, particle2, entanglementMatrix);
+}</pre>
+      </div>
+      <div style="margin-top: 20px;">
+        <button id="solve-btn" class="task-button info-button">Auto-solve</button>
+        <button id="hint-btn" class="task-button team-button">Get Hint</button>
+      </div>
+    </div>
+  </template>
+
+  <template id="symbol-matcher-template">
+    <div style="text-align: center; margin-bottom: 20px;">
+      <p>Match the alien symbols to decode the artifact!</p>
+      <div id="symbol-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 20px;"></div>
+      <div style="margin-top: 20px;">
+        <button id="shuffle-btn" class="task-button team-button">Shuffle</button>
+      </div>
+    </div>
+  </template>
+
+  <template id="dna-sequencer-template">
+    <div style="text-align: center; margin-bottom: 20px;">
+      <p>Sequence the DNA strands to complete the genetic research!</p>
+      <div id="dna-container" style="height: 300px; background: #001020; border: 1px solid #00d4ff; position: relative; overflow: hidden;"></div>
+      <div style="margin-top: 20px;">
+        <button id="sequence-a" class="task-button" style="background: #ff6b6b; color: white;">A</button>
+        <button id="sequence-t" class="task-button" style="background: #48dbfb; color: white;">T</button>
+        <button id="sequence-g" class="task-button" style="background: #1dd1a1; color: white;">G</button>
+        <button id="sequence-c" class="task-button" style="background: #feca57; color: white;">C</button>
+      </div>
+    </div>
+  </template>
+
+  <template id="dialogue-template">
+    <div style="height: 300px; overflow-y: auto; margin-bottom: 20px; background: rgba(0,20,40,0.5); padding: 15px; border: 1px solid #00d4ff;">
+      <div id="dialogue-history" style="color: white;"></div>
+    </div>
+    <div id="dialogue-options" style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+      <!-- Dialogue options will be populated by JS -->
+    </div>
+  </template>
+
+  <!-- Settings panel template -->
+  <template id="settings-panel-template">
+    <h2 class="task-title">Interface Settings</h2>
+    <div class="task-info">
+      <p>Customize the Tech Nexus interface to your preferences.</p>
+      
+      <h3>Theme Options</h3>
+      <div class="settings-group">
+        <button id="theme-default" class="task-button">Default Theme</button>
+        <button id="theme-dark" class="task-button">Dark Theme</button>
+        <button id="theme-light" class="task-button">Light Theme</button>
+      </div>
+      
+      <h3>Audio Settings</h3>
+      <div class="settings-group">
+        <label>
+          Music Volume: 
+          <input type="range" id="music-volume" min="0" max="1" step="0.1" value="0.3">
+        </label>
+        <label>
+          Sound Effects Volume: 
+          <input type="range" id="sfx-volume" min="0" max="1" step="0.1" value="1">
+        </label>
+        <button id="test-audio" class="task-button">Test Audio</button>
+      </div>
+      
+      <h3>Display Settings</h3>
+      <div class="settings-group">
+        <button id="font-smaller" class="task-button">Smaller Font</button>
+        <button id="font-default" class="task-button">Default Font</button>
+        <button id="font-larger" class="task-button">Larger Font</button>
+      </div>
+      
+      <h3>Advanced Options</h3>
+      <div class="settings-group">
+        <button id="reset-progress" class="task-button">Reset Research Progress</button>
+        <button id="tutorial-mode" class="task-button">Enable Tutorial Mode</button>
+        <button id="export-data" class="task-button">Export Research Data</button>
+        <button id="import-data" class="task-button">Import Research Data</button>
+      </div>
+    </div>
+  </template>
+
+  <!-- Module structure for extending Spyder -->
+  <template id="module-template">
+    <div class="spyder-module" data-module-id="">
+      <h2 class="module-title"></h2>
+      <div class="module-content"></div>
+    </div>
+  </template>
+
+  <!-- Load scripts -->
+  <!-- Core spyder dependencies -->
+  <script src="scripts/bgmusic.js"></script>
+  <script src="scripts/spyder.js"></script>
+
+  <!-- Custom module loading script -->
+  <script>
+    // Check if we're in standalone mode or embedded in the game
+    document.addEventListener('DOMContentLoaded', function() {
+      const isStandalone = window.location.pathname.includes('spyder.html');
+      
+      if (isStandalone) {
+        // We're running in standalone mode
+        document.getElementById('return-to-game').style.display = 'block';
+        document.getElementById('spyder-tech-nexus').style.display = 'flex';
+        
+        // Initialize Spyder Tech Hub
+        if (window.spyderTechHub) {
+          // Override the initialization to use existing DOM
+          const originalInit = window.spyderTechHub.initialize;
+          window.spyderTechHub.initialize = function() {
+            if (this.initialized) return;
+            
+            this.container = document.getElementById('spyder-tech-nexus');
+            this.loadAssets();
+            this.loadResearchData();
+            // Don't recreate layout, use existing DOM
+            this.setupTechTree();
+            this.setupEventListeners();
+            this.updateTaskDisplay();
+            
+            this.initialized = true;
+            console.log('Tech Nexus fully operational in standalone mode!');
+          };
+          
+          window.spyderTechHub.initialize();
+        } else {
+          console.error('Spyder Tech Hub not found. Make sure spyder.js is loaded properly.');
+        }
+      }
+      
+      // Load any extension modules if configured
+      loadSpyderExtensions();
+    });
+    
+    // Function to load extension modules for Spyder
+    function loadSpyderExtensions() {
+      // Example of how extensions could be loaded
+      const extensions = [
+        // { id: 'ai-assistant', name: 'AI Assistant', script: 'scripts/Spyder/ai-assistant.js' },
+        // { id: 'research-database', name: 'Research Database', script: 'scripts/Spyder/research-db.js' }
+      ];
+      
+      extensions.forEach(ext => {
+        // Create a script element for each extension
+        const script = document.createElement('script');
+        script.src = ext.script;
+        script.onload = () => console.log(`Loaded Spyder extension: ${ext.name}`);
+        script.onerror = () => console.error(`Failed to load Spyder extension: ${ext.name}`);
+        document.body.appendChild(script);
+      });
+    }
+  </script>
+</body>
+</html>

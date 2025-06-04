@@ -1,0 +1,276 @@
+{
+    "language": "Zhe'nariq",
+    "glyphs": [
+      {
+        "symbol": "⟁",
+        "name": "Azh",
+        "pronunciation": "ahzh",
+        "meaning": "Spirit / Soul",
+        "power": 94,
+        "part_of_speech": ["noun", "concept"],
+        "related": ["ᛝ", "Ӝ"],
+        "notes": "Often used to begin incantations invoking inner power."
+      },
+      {
+        "symbol": "Ͼ",
+        "name": "Khur",
+        "pronunciation": "khoor",
+        "meaning": "Fire / Energy",
+        "power": 88,
+        "part_of_speech": ["noun", "verb"],
+        "related": ["ϟ", "Ϟ"],
+        "notes": "Linked to the fire rites of the southern tribes."
+      },
+      {
+        "symbol": "ᘁ",
+        "name": "Sel",
+        "pronunciation": "sehl",
+        "meaning": "Knowledge",
+        "power": 76,
+        "part_of_speech": ["noun"],
+        "related": ["ᛝ", "𐑋"],
+        "notes": "Etched into the temples of the Memory Keepers."
+      },
+      {
+        "symbol": "Ӝ",
+        "name": "Zhen",
+        "pronunciation": "zhehn",
+        "meaning": "Silence / Void",
+        "power": 99,
+        "part_of_speech": ["noun", "adjective"],
+        "related": ["⟁", "Ϫ"],
+        "notes": "Said to represent the unspoken truth in all things."
+      },
+      {
+        "symbol": "Ѯ",
+        "name": "Thar",
+        "pronunciation": "thar",
+        "meaning": "Time",
+        "power": 85,
+        "part_of_speech": ["noun"],
+        "related": ["𖼨", "ᛝ"],
+        "notes": "Used in chronomancy and prophecy."
+      },
+      {
+        "symbol": "𐑋",
+        "name": "Mek",
+        "pronunciation": "mek",
+        "meaning": "Structure / Form",
+        "power": 67,
+        "part_of_speech": ["noun", "modifier"],
+        "related": ["ᚾ", "ᓷ"],
+        "notes": "Inscribed on architecture to bless its strength."
+      },
+      {
+        "symbol": "ᓭ",
+        "name": "Lir",
+        "pronunciation": "leer",
+        "meaning": "Water / Flow",
+        "power": 72,
+        "part_of_speech": ["noun", "verb"],
+        "related": ["Ӕ", "⟁"],
+        "notes": "Used in purification spells."
+      },
+      {
+        "symbol": "Ϫ",
+        "name": "Vek",
+        "pronunciation": "vehk",
+        "meaning": "Transformation",
+        "power": 91,
+        "part_of_speech": ["verb", "concept"],
+        "related": ["ᓭ", "Ϟ"],
+        "notes": "A primary glyph for psionic shapeshifting."
+      },
+      {
+        "symbol": "ᓷ",
+        "name": "Rul",
+        "pronunciation": "rool",
+        "meaning": "Law / Order",
+        "power": 79,
+        "part_of_speech": ["noun"],
+        "related": ["𐑋", "ᚾ"],
+        "notes": "Appears on official decrees of the Ancients."
+      },
+      {
+        "symbol": "Ϟ",
+        "name": "Drav",
+        "pronunciation": "drav",
+        "meaning": "Chaos / Change",
+        "power": 90,
+        "part_of_speech": ["verb", "adjective"],
+        "related": ["Ϫ", "ϟ"],
+        "notes": "Used as a warning in unstable zones."
+      },
+      {
+        "symbol": "ᔑ",
+        "name": "Shi",
+        "pronunciation": "shee",
+        "meaning": "Shadow / Hidden",
+        "power": 87,
+        "part_of_speech": ["noun", "adjective"],
+        "related": ["Ӝ", "Ϟ"],
+        "notes": "Carved into blades of stealth assassins."
+      },
+      {
+        "symbol": "ᚾ",
+        "name": "Nar",
+        "pronunciation": "nahr",
+        "meaning": "Earth / Stability",
+        "power": 73,
+        "part_of_speech": ["noun"],
+        "related": ["ᓷ", "𐑋"],
+        "notes": "A grounding glyph, stabilizes magical fields."
+      },
+      {
+        "symbol": "Ӕ",
+        "name": "Ael",
+        "pronunciation": "ayl",
+        "meaning": "Sky / Wind",
+        "power": 70,
+        "part_of_speech": ["noun"],
+        "related": ["ᓭ", "𖼨"],
+        "notes": "Often found in flight-related invocations."
+      },
+      {
+        "symbol": "ᛝ",
+        "name": "Yun",
+        "pronunciation": "yoon",
+        "meaning": "Life / Growth",
+        "power": 84,
+        "part_of_speech": ["noun", "concept"],
+        "related": ["⟁", "Ѯ"],
+        "notes": "Used in the language of healers."
+      },
+      {
+        "symbol": "ᚨ",
+        "name": "Ah",
+        "pronunciation": "ah",
+        "meaning": "Opening / Start",
+        "power": 65,
+        "part_of_speech": ["prefix", "noun"],
+        "related": ["Ʌ", "⟁"],
+        "notes": "First glyph taught to initiates."
+      },
+      {
+        "symbol": "Ʌ",
+        "name": "Uq",
+        "pronunciation": "ook",
+        "meaning": "Barrier / Stop",
+        "power": 68,
+        "part_of_speech": ["suffix", "verb"],
+        "related": ["ᚨ", "𐐿"],
+        "notes": "Used in protective runes."
+      },
+      {
+        "symbol": "⚶",
+        "name": "Etri",
+        "pronunciation": "EH-tree",
+        "meaning": "Emotion / Feeling",
+        "power": 83,
+        "part_of_speech": ["noun", "adjective"],
+        "related": ["⟁", "ᛝ"],
+        "notes": "Embedded into music and poetry."
+      },
+      {
+        "symbol": "ϟ",
+        "name": "Zhur",
+        "pronunciation": "zhoor",
+        "meaning": "Lightning / Force",
+        "power": 95,
+        "part_of_speech": ["noun", "verb"],
+        "related": ["Ͼ", "Ϟ"],
+        "notes": "Symbol of rebellion and war."
+      },
+      {
+        "symbol": "Ҩ",
+        "name": "Gho",
+        "pronunciation": "goh",
+        "meaning": "Mystery / Dream",
+        "power": 92,
+        "part_of_speech": ["noun", "concept"],
+        "related": ["𐊖", "Ӝ"],
+        "notes": "Invoked in deep sleep ceremonies."
+      },
+      {
+        "symbol": "ᑎ",
+        "name": "Tel",
+        "pronunciation": "tehl",
+        "meaning": "Communication",
+        "power": 75,
+        "part_of_speech": ["noun", "verb"],
+        "related": ["ᘁ", "𖼨"],
+        "notes": "Found on written scrolls and archives."
+      },
+      {
+        "symbol": "𖼨",
+        "name": "Jir",
+        "pronunciation": "jeer",
+        "meaning": "Vision / Future",
+        "power": 86,
+        "part_of_speech": ["noun"],
+        "related": ["Ѯ", "Ҩ"],
+        "notes": "Used by oracles and navigators."
+      },
+      {
+        "symbol": "Ϸ",
+        "name": "Phan",
+        "pronunciation": "fahn",
+        "meaning": "Illusion / Trickery",
+        "power": 80,
+        "part_of_speech": ["adjective", "noun"],
+        "related": ["Shi", "Zhur"],
+        "notes": "A trickster’s mark or disguise glyph."
+      },
+      {
+        "symbol": "ᘉ",
+        "name": "Quor",
+        "pronunciation": "kwohr",
+        "meaning": "Unity / Joining",
+        "power": 78,
+        "part_of_speech": ["verb", "noun"],
+        "related": ["⟁", "ᛝ"],
+        "notes": "Marriage and pact glyph."
+      },
+      {
+        "symbol": "⸸",
+        "name": "Brek",
+        "pronunciation": "brehk",
+        "meaning": "Death / End",
+        "power": 97,
+        "part_of_speech": ["noun", "suffix"],
+        "related": ["𐐿", "Ӝ"],
+        "notes": "Used to mark graves or the fallen."
+      },
+      {
+        "symbol": "ᕯ",
+        "name": "Kesh",
+        "pronunciation": "kehsh",
+        "meaning": "Memory / Past",
+        "power": 82,
+        "part_of_speech": ["noun"],
+        "related": ["ᘁ", "⸸"],
+        "notes": "Often seen in mnemonic rituals."
+      },
+      {
+        "symbol": "𐐿",
+        "name": "Vor",
+        "pronunciation": "vohr",
+        "meaning": "Hunger / Desire",
+        "power": 89,
+        "part_of_speech": ["noun", "adjective"],
+        "related": ["Ʌ", "ϟ"],
+        "notes": "Glyph of craving, both physical and emotional."
+      },
+      {
+        "symbol": "𐊖",
+        "name": "Xai",
+        "pronunciation": "zai",
+        "meaning": "Forbidden / Unknown",
+        "power": 100,
+        "part_of_speech": ["noun", "concept"],
+        "related": ["Ӝ", "Ҩ"],
+        "notes": "Never spoken aloud in ritual. The final glyph."
+      }
+    ]
+  }
+  

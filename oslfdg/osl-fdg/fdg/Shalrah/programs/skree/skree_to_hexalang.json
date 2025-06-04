@@ -1,0 +1,52 @@
+{
+    "metadata": {
+      "language": "Skree",
+      "target": "HexaLang",
+      "base": 6,
+      "description": "Mapping of sacred Skree glyphs to functional HexaLang opcodes for alien system programming."
+    },
+    "glyph_to_opcode": {
+      "氷⟁": { "name": "Khir", "meaning": "Hive", "opcode": "01", "description": "SET - assign value" },
+      "爬⟆": { "name": "Shuu", "meaning": "Assimilate", "opcode": "11", "description": "MOV - copy data between registers" },
+      "彡𓆑": { "name": "Naek", "meaning": "Mutation", "opcode": "04", "description": "MUL - multiply registers" },
+      "亘𓊽": { "name": "Vorh", "meaning": "Caste", "opcode": "12", "description": "JMP - unconditional jump" },
+      "𓐍灬": { "name": "Zaiq", "meaning": "Command", "opcode": "15", "description": "HLT - halt program" },
+      "孓冂": { "name": "Ekk", "meaning": "Flesh", "opcode": "20", "description": "PUSH - push to stack (register expected)" },
+      "血⿻": { "name": "Druun", "meaning": "Blood", "opcode": "22", "description": "PRN - print register" },
+      "牙彖": { "name": "Qil", "meaning": "Death", "opcode": "05", "description": "DIV - divide registers" },
+      "羽⺾": { "name": "Issh", "meaning": "Flight", "opcode": "00", "description": "NOP - no operation" },
+      "囗𓂀": { "name": "Omn", "meaning": "All", "opcode": "13", "description": "JEQ - jump if equal" },
+      "覗𓆣": { "name": "Rik", "meaning": "Sight", "opcode": "23", "description": "INP - input to register" },
+      "彁巛": { "name": "N'ta", "meaning": "Hunger", "opcode": "24", "description": "LD - load from memory" },
+      "凵⿴": { "name": "Velk", "meaning": "Egg", "opcode": "25", "description": "ST - store to memory" },
+      "幽𓏏": { "name": "Uzh", "meaning": "Silence", "opcode": "00", "description": "NOP - no operation" },
+      "壬⻌": { "name": "Thaa", "meaning": "Expansion", "opcode": "02", "description": "ADD - add registers" },
+      "𓎆圧": { "name": "Haek", "meaning": "Warrior", "opcode": "03", "description": "SUB - subtract registers" },
+      "丂⻗": { "name": "Grai", "meaning": "Connection", "opcode": "21", "description": "POP - pop from stack" },
+      "叱𓃠": { "name": "Krill", "meaning": "Swarm", "opcode": "10", "description": "MOD - modulo" },
+      "𓇳氐": { "name": "Zuun", "meaning": "Deep", "opcode": "14", "description": "JNE - jump if not equal" }
+    },
+    "modifiers": {
+      "◥冖": { "name": "-ek", "function": "Plural / repeat instruction once" },
+      "⺄⺾": { "name": "-sha", "function": "Sacred / priority execution" },
+      "彡𓎃": { "name": "ri-", "function": "Reflexive / self-targeted" },
+      "⻌𓋴": { "name": "zu-", "function": "Future tense / delay opcode by 1 tick" },
+      "氵𓅓": { "name": "in-", "function": "Negation / skip if condition fails" },
+      "冂刃": { "name": "-oth", "function": "Tool-form / opcode extension" },
+      "𓇋巛": { "name": "-vul", "function": "Organic flag / memory-write permitted" },
+      "廴卩": { "name": "ti-", "function": "Reactive / execute on interrupt" },
+      "匚彡": { "name": "-ar", "function": "Ownership / bind to register" },
+      "冫匕": { "name": "ra-", "function": "Urgency / run immediately" },
+      "卍𓊝": { "name": "-jin", "function": "Female-coded opcode variant" },
+      "厶𓉶": { "name": "-tor", "function": "Male-coded opcode variant" }
+    },
+    "psychic_augmenters": {
+      "🜁𓂩": { "name": "Nul", "effect": "Strip all side-effects from next opcode" },
+      "𓅔灬": { "name": "Izz", "effect": "Force opcode to repeat 3 times" },
+      "◯𓂆": { "name": "Vosh", "effect": "Chain next 2 instructions logically" },
+      "𓇬彖": { "name": "Ehl", "effect": "Randomize jump decision (JMP, JEQ, JNE only)" },
+      "𓂀⺓": { "name": "Zir", "effect": "Log all register changes for 6 ticks" },
+      "𓏧⺣": { "name": "Umth", "effect": "Boost register by 1 before execution" }
+    }
+  }
+  

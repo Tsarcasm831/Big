@@ -1,0 +1,126 @@
+[
+    {
+      "faction": "H.I.V.E.",
+      "type": "DRONE",
+      "attributes": {"STR": "70/100", "DEX": "70/60", "AGI": "60/80", "VIT": 80, "COM": "80-100", "INT": 80, "PER": "60/80", "CHA": 60, "PSY": 0},
+      "skills": {"FIREARMS": 70, "BLADES": 60, "ARMOR SOAK": 60, "DEFENSE": 15},
+      "loadout": [
+        "High Velocity plasma carbine (non-persistant)",
+        "High Velocity plasma pistol (non-persistant)",
+        "2x Funbuzzer grenades",
+        "2x Smart frag grenades",
+        "H.I.V.E. Drone power armor."
+      ],
+      "max_hp": {"Head": 80, "Shoulders": 60, "Cuirass": 100, "Legs": 60, "Arms": 60, "Hands and feet": 60},
+      "personality": "H.I.V.E. Drones are fiercely loyal to their commanders and have no qualms about the murdering, raping or pillaging of any and all considered to be hostile to their regime. They are an arrogant lot and think very highly of themselves and of all pure humans."
+    },
+    {
+      "faction": "H.I.V.E.",
+      "type": "ELITE DRONE",
+      "attributes": {"STR": 70, "DEX": 90, "AGI": 90, "VIT": 80, "COM": "80-100", "INT": 80, "PER": 80, "CHA": 60, "PSY": 0},
+      "skills": {"FIREARMS": 70, "BLADES": 80, "E.H. PARRY": 80, "DEFENSE": 20},
+      "loadout": [
+        "2x Vibro-blades",
+        "Suppressed High Velocity plasma pistol",
+        "Energy garotte",
+        "H.I.V.E. Light power armor w/shadow effects and silenced footpads"
+      ],
+      "max_hp": {"Head": 80, "Shoulders": 40, "Cuirass": 80, "Legs": 30, "Arms": 40, "Hands and feet": 30},
+      "personality": "H.I.V.E. Elite Drones are usually officers and from aristocratic families. They believe themselves superior to all other humans and that they have a God-given right and responsibility to cleanse the wasteland."
+    },
+    {
+      "faction": "H.I.V.E.",
+      "type": "PSI-HUNTER",
+      "attributes": {
+        "human": {"STR": 70, "DEX": 70, "AGI": 60, "VIT": 80, "COM": "80-100", "INT": 80, "PER": 60, "CHA": 60, "PSY": 80},
+        "canine": {"STR": 40, "DEX": 60, "AGI": 80, "VIT": 60, "COM": 60, "INT": 40, "PER": 100, "CHA": 60, "PSY": 60}
+      },
+      "skills": {"FIREARMS": 70, "BLADES": 60, "ARMOR SOAK": 60, "DEFENSE": 15},
+      "loadout": [
+        "High Velocity plasma pistol (non-persistant)",
+        "2x Funbuzzer grenades",
+        "2x Smart frag grenades",
+        "H.I.V.E. Drone power armor."
+      ],
+      "max_hp": {"Head": 80, "Shoulders": 60, "Cuirass": 100, "Legs": 60, "Arms": 60, "Hands and feet": 60},
+      "personality": "H.I.V.E. Psi-hunters are quiet and hyper-focused on murdering psions and casters wherever they are found. Most are poorly educated and are conscripts, meaning they are forced into service and brainwashed to believe the H.I.V.E. Doctrine."
+    },
+    {
+      "faction": "H.I.V.E.",
+      "type": "OFFICER",
+      "attributes": {"STR": 80, "DEX": 70, "AGI": 70, "VIT": 80, "COM": "80-100", "INT": 90, "PER": 70, "CHA": 90, "PSY": 0},
+      "skills": {"FIREARMS": 70, "BLADES": 60, "ARMOR SOAK": 60, "COMMAND": 80, "DEFENSE": 15},
+      "loadout": ["High Velocity plasma pistol (nonpersistant)", "Officer's Vibro-Sabre, or dagger"],
+      "max_hp": {},
+      "personality": "H.I.V.E. Officers are arrogant and self-centered and have no time for the poor, infirmed or other undesirables. They are usually found at high society functions and at photo ops throughout civilized areas."
+    },
+    {
+      "faction": "H.I.V.E.",
+      "type": "HORNET",
+      "attributes": {"STR": "70/100", "DEX": "70/60", "AGI": "60/80", "VIT": 80, "COM": 80, "INT": 80, "PER": "60/80", "CHA": 60, "PSY": 0},
+      "skills": {"FIREARMS": 80, "PILOT: HORNET": 80, "ARMOR SOAK": 60, "DEFENSE": 20},
+      "loadout": [
+        "30mm High Velocity plasma Repeating cannon (non-persistant)",
+        "High Velocity plasma pistol (non-persistant)",
+        "H.I.V.E. HORNET power armor."
+      ],
+      "max_hp": {"Head": 80, "Shoulders": 60, "Cuirass": 100, "Legs": 60, "Arms": 60, "Hands and feet": 60},
+      "personality": "H.I.V.E. Hornets are dedicated pilots and are usually a bit arrogant and very focused. Most pilots drink heavily and carry some regret for past actions."
+    },
+    {
+      "faction": "H.I.V.E.",
+      "type": "STINGER",
+      "attributes": {"STR": 120, "DEX": 60, "AGI": 120, "VIT": 0, "COM": 0, "INT": 100, "PER": 100, "CHA": 0, "PSY": 0},
+      "skills": {"FIREARMS": 80, "PILOT: HORNET": 80, "ARMOR SOAK": 60, "DEFENSE": 20},
+      "loadout": ["30mm High Velocity plasma Repeating cannon (non-persistant)"],
+      "max_hp": {"Head": 80, "Shoulders": 60, "Cuirass": 100, "Legs": 60, "Arms": 60, "Hands and feet": 60},
+      "personality": "NONE"
+    },
+    {
+      "faction": "FDG",
+      "type": "TROOPER",
+      "attributes": {"STR": 60, "DEX": 60, "AGI": 70, "VIT": 70, "COM": "60-80", "INT": 60, "PER": 60, "CHA": 60, "PSY": 0},
+      "skills": {"FIREARMS": 60, "ARMOR SOAK": 60, "DEFENSE": 12},
+      "loadout": ["FDG Rail carbine", "FDG Rail pistol", "FDG \"SHOGUN\" armor"],
+      "max_hp": {"Head": 80, "Shoulders": 60, "Cuirass": 100, "Legs": 60, "Arms": 60, "Hands and feet": 60},
+      "personality": "FDG troopers are proud and fearless. They are slow to anger but steadfast when on task. FDG troopers are usually under-equipped and under trained."
+    },
+    {
+      "faction": "FDG",
+      "type": "WARHAWK",
+      "attributes": {"STR": 70, "DEX": 70, "AGI": 60, "VIT": 80, "COM": "60-80", "INT": 60, "PER": 60, "CHA": 70, "PSY": 0},
+      "skills": {"FIREARMS": 60, "ARMOR SOAK": 70, "DEFENSE": 12},
+      "loadout": ["FDG Rail carbine", "FDG Rail pistol", "FDG \"MANTIS IV\" power armor"],
+      "max_hp": {"Head": 80, "Shoulders": 60, "Cuirass": 100, "Legs": 60, "Arms": 60, "Hands and feet": 60},
+      "personality": "FDG Warhawks are tough as nails and courageous in the face of the enemy. They volunteer for the ranks of the Warhawks knowing it is a likely suicidal decision."
+    },
+    {
+      "faction": "FDG",
+      "type": "VALKYRIE",
+      "attributes": {"STR": 60, "DEX": 60, "AGI": 70, "VIT": 70, "COM": "60-80", "INT": 60, "PER": 60, "CHA": 60, "PSY": 0},
+      "skills": {"FIREARMS": 70, "ARMOR SOAK": 60, "DEFENSE": 15, "PILOT: VALKYRIE": 80},
+      "loadout": ["FDG Rail carbine", "FDG Rail pistol", "FDG \"Valkyrie\" aerial power armor"],
+      "max_hp": {"Head": 60, "Shoulders": 50, "Cuirass": 80, "Legs": 50, "Arms": 50, "Hands and feet": 50},
+      "personality": "Valkyries, like all FDG troops are proud and tough. They take great pride in their ascension to their commissioned officer rank as well as their selection as a pilot."
+    },
+    {
+      "faction": "FDG",
+      "type": "ARCHANGEL MAIN BATTLE ARMOR",
+      "attributes": {"STR": "60/300", "DEX": "60/40", "AGI": "70/60", "VIT": 70, "COM": "60-80", "INT": 60, "PER": "60/100", "CHA": 60, "PSY": 0},
+      "skills": {"FIREARMS": 70, "ARMOR SOAK": 80, "DEFENSE": 15, "PILOT: ARCHANGEL": 80},
+      "loadout": ["FDG Heavy Rail Cannon (EXTERNAL)", "FDG Rail pistol (PERSONAL)", "FDG ARCHANGEL powered battle armor"],
+      "max_hp": {"Head": 100, "Shoulders": 80, "Cuirass": 250, "Legs": 80, "Arms": 80, "Hands and feet": 80},
+      "height": "12'",
+      "weight": "2,500 lbs",
+      "personality": "ARCHANGEL pilots are courageous and proud. They are natural leaders and heroes to the FDG. They are greatly admired by FDG citizens."
+    },
+    {
+      "faction": "FDG",
+      "type": "BLACK ROSES",
+      "attributes": {"STR": 60, "DEX": 90, "AGI": 90, "VIT": 80, "COM": "90-100", "INT": 80, "PER": 80, "CHA": 100, "PSY": 0},
+      "skills": {"FIREARMS": 90, "BLADES": 80, "DEFENSE": 15, "INTERROGATION": 90, "MANEATER": 100, "STEALTH": 90, "ACROBATICS": 80, "SEDUCTION": 100},
+      "loadout": ["Whatever she can conceal easily Usually a blade or small pistol"],
+      "max_hp": {},
+      "personality": "The Black Roses are sexy, sultry and deadly. They talk sexy, walk sexy and are very alluring. Their voices have been surgically altered for maximum sex appeal, and they have medically altered pheromone glands."
+    }
+  ]

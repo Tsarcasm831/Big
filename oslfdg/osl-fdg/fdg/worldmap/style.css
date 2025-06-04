@@ -1,0 +1,157 @@
+/* Extracted styles from osl-fdg/fdg/worldmap/index.html */
+
+/* Reset & full-screen map */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  font-family: Arial, sans-serif;
+  overflow: hidden; /* Prevent scrollbars on body */
+}
+#map {
+  height: 100%;
+  width: 100%;
+}
+/* Game title bar */
+#game-title {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.8);
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  font-size: 24px;
+  z-index: 1000;
+  box-sizing: border-box;
+}
+/* Factions dropdown container */
+#factions-container {
+  display: inline-block;
+  position: relative;
+  margin-left: 20px;
+}
+/* Stylish toggle button for Factions */
+#factions-button {
+  background: linear-gradient(45deg, #555, #222);
+  color: #fff;
+  border: 1px solid #444;
+  padding: 5px 15px;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 4px;
+  transition: background 0.3s;
+}
+#factions-button:hover {
+  background: linear-gradient(45deg, #666, #333);
+}
+/* Top-level dropdown */
+#factions-dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #fefefe;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  min-width: 150px;
+  max-height: 70vh; /* Limit height */
+  overflow-y: auto; /* Add scroll if needed */
+  z-index: 1200;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  padding: 5px;
+}
+#factions-dropdown > .submenu-link {
+  display: block;
+  padding: 6px 10px;
+  color: #333;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+#factions-dropdown > .submenu-link:hover {
+  background: #eee;
+}
+/* Submenu container for multi-level dropdown */
+.submenu {
+  position: relative;
+}
+.submenu-content {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 100%; /* Position to the right */
+  background: #fefefe;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  min-width: 180px;
+  max-height: 60vh; /* Limit submenu height */
+  overflow-y: auto; /* Add scroll */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  padding: 5px;
+  margin-top: -1px; /* Align borders */
+  z-index: 1210; /* Ensure submenus appear above parent */
+}
+/* Show submenu on hover */
+.submenu:hover > .submenu-content {
+  display: block;
+}
+.submenu-title {
+  display: block;
+  padding: 6px 10px;
+  color: #333;
+  text-decoration: none;
+  border-radius: 4px;
+  cursor: pointer;
+  white-space: nowrap; /* Prevent wrapping */
+}
+.submenu-title:hover {
+  background: #eee;
+}
+.submenu-item {
+  /* Removed positioning, handled by parent structure */
+  margin-left: 5px;
+  margin-right: 5px;
+  padding: 2px 0;
+}
+/* Adjust position for nested submenus (division/unit levels) */
+.submenu-item .submenu-content {
+  left: 100%;
+  top: 0;
+}
+.division-title {
+  display: block;
+  padding: 4px 10px;
+  color: #333;
+  text-decoration: none;
+  cursor: pointer;
+}
+.division-title:hover {
+  background: #eee;
+}
+.submenu-content a { /* Style for final unit items */
+  display: block;
+  padding: 4px 10px;
+  color: #555;
+  text-decoration: none;
+  font-size: 0.9em;
+}
+.submenu-content a:hover {
+  background: #f0f0f0;
+}
+
+/* Time-of-day display at bottom */
+#time-display {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.8);
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  font-size: 20px;
+  z-index: 1000;
+}

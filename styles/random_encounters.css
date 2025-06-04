@@ -1,0 +1,261 @@
+/* Random encounters styling */
+
+/* Style circleMarker encounters */
+.encounter-marker {
+  z-index: 1000 !important;
+  pointer-events: auto !important;
+}
+
+/* Animation for circle marker pulses */
+.pulse-circle {
+  animation: circle-pulse 1.5s infinite ease-out;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+@keyframes circle-pulse {
+  0% {
+    stroke-width: 2;
+    stroke-opacity: 1;
+    r: 8;
+  }
+  50% {
+    stroke-width: 3;
+    stroke-opacity: 0.7;
+    r: 10;
+  }
+  100% {
+    stroke-width: 2;
+    stroke-opacity: 1;
+    r: 8;
+  }
+}
+
+/* More intense pulse for specific encounter types */
+@keyframes danger-pulse {
+  0% {
+    stroke-width: 2;
+    stroke-opacity: 1;
+    r: 8;
+  }
+  50% {
+    stroke-width: 4;
+    stroke-opacity: 0.8;
+    r: 12;
+  }
+  100% {
+    stroke-width: 2;
+    stroke-opacity: 1;
+    r: 8;
+  }
+}
+
+/* Slow pulse for non-combat encounters */
+@keyframes slow-pulse {
+  0% {
+    stroke-width: 2;
+    stroke-opacity: 1;
+    r: 8;
+  }
+  50% {
+    stroke-width: 3;
+    stroke-opacity: 0.7;
+    r: 9;
+  }
+  100% {
+    stroke-width: 2;
+    stroke-opacity: 1;
+    r: 8;
+  }
+}
+
+/* Glowing pulse for artifact/tech encounters */
+@keyframes glow-pulse {
+  0% {
+    stroke-width: 2;
+    stroke-opacity: 1;
+    r: 8;
+    filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.7));
+  }
+  50% {
+    stroke-width: 3;
+    stroke-opacity: 0.9;
+    r: 10;
+    filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.9));
+  }
+  100% {
+    stroke-width: 2;
+    stroke-opacity: 1;
+    r: 8;
+    filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.7));
+  }
+}
+
+/* Make SVG elements always visible across zoom levels */
+.leaflet-overlay-pane svg path {
+  pointer-events: auto !important;
+}
+
+/* Combat encounter animations - more intense/threatening */
+.encounter-ambush-pulse,
+.encounter-mutant_frenzy-pulse,
+.encounter-hive_execution-pulse,
+.encounter-cross_retrieval-pulse,
+.encounter-hunted_for_sport-pulse,
+.encounter-buried_threat-pulse,
+.encounter-cannibal_feast-pulse,
+.encounter-psyker_rogue-pulse,
+.encounter-nightmare_fog-pulse,
+.encounter-red_ribbon-pulse,
+.encounter-warlord_toll-pulse,
+.encounter-nightcrawler_swarm-pulse,
+.encounter-corrupted_psion-pulse {
+  animation: danger-pulse 1.2s infinite ease-out;
+}
+
+/* Non-combat encounter animations - slower/calmer */
+.encounter-lost_traveler-pulse,
+.encounter-nomad_caravan-pulse,
+.encounter-cross_recon-pulse,
+.encounter-holographic_echo-pulse,
+.encounter-derelict_mech-pulse {
+  animation: slow-pulse 2s infinite ease-out;
+}
+
+/* Special animation for tech/artifact encounters */
+.encounter-strange_artifact-pulse,
+.encounter-distress_beacon-pulse,
+.encounter-topdown_area-pulse {
+  animation: glow-pulse 2.5s infinite ease-out;
+}
+
+/* Style the encounter tooltip */
+.encounter-tooltip {
+  background: rgba(0, 0, 0, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  color: white;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 12px;
+  padding: 4px 8px;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+/* Style the encounter popup */
+.encounter-popup-container {
+  z-index: 1001 !important; /* Higher z-index than the marker */
+}
+
+/* Override Leaflet's default popup styling to ensure proper alignment */
+.leaflet-popup-content-wrapper {
+  padding: 5px;
+  background: rgba(10, 10, 20, 0.9);
+  border: 1px solid rgba(100, 100, 150, 0.5);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+  border-radius: 6px;
+}
+
+.leaflet-popup-tip {
+  background: rgba(10, 10, 20, 0.9);
+}
+
+.leaflet-popup-tip-container {
+  left: 50%;
+  margin-left: -10px;
+}
+
+.encounter-popup {
+  font-family: 'Orbitron', sans-serif;
+  color: #eee;
+  min-width: 250px;
+  max-width: 300px;
+}
+
+.encounter-popup h3 {
+  color: #ff9900;
+  margin-top: 0;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  text-align: center;
+  font-size: 18px;
+  text-shadow: 0 0 5px rgba(255, 153, 0, 0.5);
+  border-bottom: 1px solid rgba(255, 153, 0, 0.3);
+}
+
+.encounter-popup p {
+  margin: 10px 0;
+  text-align: left;
+  font-size: 14px;
+  line-height: 1.4;
+  color: #ddd;
+}
+
+.encounter-popup .encounter-type {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #aaa;
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+/* Combat encounter text color */
+.encounter-popup .encounter-type {
+  color: #aaa;
+}
+
+.encounter-popup .encounter-type.combat-type {
+  color: #ff6666;
+}
+
+/* Non-combat encounter text color */
+.encounter-popup .encounter-type.non-combat-type {
+  color: #66ff66;
+}
+
+/* Style action buttons */
+.engage-button, .ignore-button {
+  display: inline-block;
+  width: 48%;
+  padding: 8px 0;
+  margin: 5px 0;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 14px;
+  text-align: center;
+  transition: all 0.3s;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+.engage-button {
+  background-color: #cc3300;
+  margin-right: 2%;
+}
+
+.ignore-button {
+  background-color: #336699;
+  margin-left: 2%;
+}
+
+.engage-button:hover {
+  background-color: #ff3300;
+  box-shadow: 0 0 5px rgba(255, 51, 0, 0.7);
+}
+
+.ignore-button:hover {
+  background-color: #4477aa;
+  box-shadow: 0 0 5px rgba(51, 102, 153, 0.7);
+}
+
+.engage-button:active {
+  background-color: #992200;
+}
+
+.ignore-button:active {
+  background-color: #224466;
+}

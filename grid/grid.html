@@ -1,0 +1,194 @@
+<html>
+      <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Advanced Split Screen Map with Geocoding and 3D View</title>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"/>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet-fullscreen@1.0.2/dist/leaflet.fullscreen.css"/>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/dist/L.Control.Locate.min.css" />
+        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="/css/styles.css">
+        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+        <script src="https://unpkg.com/leaflet-fullscreen@1.0.2/dist/Leaflet.fullscreen.min.js"></script>
+        <!-- load Leaflet Side-by-Side plugin -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-side-by-side/2.0.1/leaflet-side-by-side.min.js"></script>
+        <script src="https://unpkg.com/leaflet-plugins@3.3.1/control/Permalink.js"></script>
+        <script src="https://unpkg.com/leaflet-plugins@3.3.1/control/Permalink.Layer.js"></script>
+        <script src="https://unpkg.com/leaflet-plugins@3.3.1/control/Permalink.Marker.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/dist/L.Control.Locate.min.js" charset="utf-8"></script>
+        <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBv_tBwqgUHsHw-6xebzvejK3dNcQgu1gk&loading=async"></script>
+        <!-- Three.js for 3D terrain visualization -->
+        <script async src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+        <script async src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+        <script type="importmap">
+        {
+          "imports": {
+            "/js/app.js": "/js/app.js",
+            "/js/camera.js": "/js/camera.js",
+            "/js/geolocation.js": "/js/geolocation.js",
+            "/js/grid.js": "/js/grid.js",
+            "/js/gridOverlay.js": "/js/gridOverlay.js",
+            "/js/subgrid.js": "/js/subgrid.js",
+            "/js/roadMapper.js": "/js/roadMapper.js",
+            "/js/eventFinder.js": "/js/eventFinder.js",
+            "/js/gridController.js": "/js/gridController.js",
+            "/js/map.js": "/js/map.js",
+            "/js/mapBase.js": "/js/mapBase.js",
+            "/js/markerWithAddress.js": "/js/markerWithAddress.js",
+            "/js/screenRecorder.js": "/js/screenRecorder.js",
+            "/js/sidebar.js": "/js/sidebar.js",
+            "/js/streetview.js": "/js/streetview.js",
+            "/js/terraIncognita.js": "/js/terraIncognita.js",
+            "/js/ui.js": "/js/ui.js",
+            "/js/modals.js": "/js/modals.js",
+            "/js/westOverlay.js": "/js/westOverlay.js",
+            "/js/eastOverlay.js": "/js/eastOverlay.js",
+            "/js/dmzOverlay.js": "/js/dmzOverlay.js",
+            "osmtogeojson": "https://esm.sh/osmtogeojson@3.0.0-beta.5",
+            "@turf/bbox-polygon": "https://esm.sh/@turf/bbox-polygon@6.5.0",
+            "@turf/intersect": "https://esm.sh/@turf/intersect@6.5.0",
+            "@turf/helpers": "https://esm.sh/@turf/helpers@6.5.0",
+            "@turf/point-on-feature": "https://esm.sh/@turf/point-on-feature@6.5.0",
+            "@turf/line-split": "https://esm.sh/@turf/line-split@6.5.0",
+            "@turf/boolean-point-in-polygon": "https://esm.sh/@turf/boolean-point-in-polygon@6.5.0"
+          }
+        }
+        </script>
+      </head>
+      <body>
+        <div id="toolbar">
+          <img src="/remnants_of_destruction_logo.png" alt="Remnants of Destruction Logo" id="lsu-logo-img">
+          <button id="add-pin-btn">Place POI</button>
+          <button id="toggle-3d-btn">3D Terrain</button>
+          <div class="toolbar-center">
+            <a id="bestiary-btn">Bestiary</a>
+            <a id="hive-btn" class="toolbar-button-like-link">H.I.V.E.</a>
+            <a id="fdg-btn" class="toolbar-button-like-link">F.D.G.</a>
+            <button id="core-rules-btn" class="toolbar-button-like-link">Core Rules</button>
+            <button id="gdd-btn" class="toolbar-button-like-link">G.D.D.</button>
+            <button id="grid-action-btn" class="grid-action-btn">Scan</button>
+            <button id="map-roads-btn" class="map-roads-btn">Map</button>
+            <button id="find-events-btn" class="find-events-btn">Find Events</button>
+            <button id="sign-in-btn">Sign In</button>
+          </div>
+        </div>
+        <div id="map"></div>
+        <div id="right-sidebar">
+          <button id="close-right-sidebar">Close</button>
+          <button id="expand-right-sidebar">Expand</button>
+          <button id="collapse-sidebar-content">Toggle Content</button>
+          <div id="sidebar-content">
+            <div class="grid grid-cols-2 gap-4 mb-4">
+              <div class="relative group">
+                <button class="sidebar-button" data-iframe-src="/forum/topics/discussion/new">POST TO COMMUNITY</button>
+                <div class="sidebar-dropdown">
+                  <a href="#" data-iframe-src="/forum/topics/discussion/new">Forum</a>
+                  <a href="#" data-iframe-src="/post-job">Job</a>
+                  <a href="#" data-iframe-src="/points/blogpost/new">Point</a>
+                  <a href="#" data-iframe-src="/post-market">Sell Equipment</a>
+                  <a href="#" data-iframe-src="/directory">Directory</a>
+                  <a href="#" data-iframe-src="/usasurveyors">Article</a>
+                  <a href="#" data-iframe-src="/almanac/blogpost/new">Term</a>
+                  <a href="#" data-iframe-src="/events/event/new">Event</a>
+                  <a href="#" data-iframe-src="/photo">Photo</a>
+                  <a href="#" data-iframe-src="/video/video/new">Video</a>
+                </div>
+              </div>
+              <div class="relative group">
+                <button class="sidebar-button" data-iframe-src="#">MAPS & GEOTOOLS</button>
+                <div class="sidebar-dropdown">
+                  <a href="#" data-iframe-src="/worldsurveyors">World Surveyors</a>
+                  <a href="#" data-iframe-src="/usasurveyors">USA Surveyors</a>
+                  <a href="#" data-iframe-src="/points/blogpost/new">Point</a>
+                  <a href="#" data-iframe-src="/localsurveyors">Local</a>
+                  <a href="#" data-iframe-src="/worldsurveyors">World</a>
+                  <a href="#" data-iframe-src="/usasurveyors">USA</a>
+                  <a href="#" data-iframe-src="/hubsmap">Earth</a>
+                  <a href="#" data-iframe-src="/dualmap">Dual Map</a>
+                  <a href="#" data-iframe-src="/photo">Photo</a>
+                </div>
+              </div>
+              <div class="relative group">
+                <button class="sidebar-button" data-iframe-src="#">Continuing Education</button>
+                <div class="sidebar-dropdown">
+                  <a href="#" data-iframe-src="/hubs/learn=join">L.E.A.R.N HUB</a>
+                  <a href="#" data-iframe-src="/hubs/learn/forum/topics">Edu Forum</a>
+                  <a href="#" data-iframe-src="/hubs/learn/coursebuilder">BUILD COURSE</a>
+                  <a href="#" data-iframe-src="/hubs/learn/videos">Videos</a>
+                  <a href="#" data-iframe-src="/hubs/learn/build">Roadmap</a>
+                  <a href="#" data-iframe-src="/hubs/learn/events">Events</a>
+                  <a href="#" data-iframe-src="/courses">Courses</a>
+                </div>
+              </div>
+              <div class="relative group">
+                <button class="sidebar-button" data-iframe-src="#">SURVEYOR MARKETPLACE</button>
+                <div class="sidebar-dropdown">
+                  <a href="#" data-iframe-src="/post-market">SELL</a>
+                  <a href="#" data-iframe-src="/equipment">Equipment</a>
+                  <a href="#" data-iframe-src="/topics/total-stations">Total Stations</a>
+                  <a href="#" data-iframe-src="/page/survey-grade-gps-equipment">GPS</a>
+                  <a href="#" data-iframe-src="/worldsurveyors">Drones</a>
+                  <a href="#" data-iframe-src="/page/data-collectors">Data Collectors</a>
+                  <a href="#" data-iframe-src="/hubsmap">Request</a>
+                  <a href="#" data-iframe-src="/inspire">Inspiration</a>
+                  <a href="#" data-iframe-src="/vendors">Vendors</a>
+                </div>
+              </div>
+            </div>
+            <div id="sidebar-toggle-buttons" class="mt-4 mb-4">
+              <button id="close-right-sidebar">Close</button>
+              <button id="expand-right-sidebar">Expand</button>
+              <button id="collapse-sidebar-content">Toggle Content</button>
+            </div>
+            <div id="point-type-select-container">
+              <p>Choose the type of Survey Point you want to add:</p>
+              <select id="point-type-select">
+                <option value="Survey Point">Survey Point</option>
+                <option value="Marker">Marker</option>
+                <option value="Monument">Monument</option>
+                <option value="FOTD">FOTD</option>
+                <option value="I Surveyed This">I Surveyed This</option>
+                <option value="Property Corners">Property Corners</option>
+                <option value="Section Corners">Section Corners</option>
+                <option value="Quarter Section Corners">Quarter Section Corners</option>
+                <option value="Primary Control Points">Primary Control Points</option>
+                <option value="Secondary Control Points">Secondary Control Points</option>
+                <option value="Traverse Points">Traverse Points</option>
+                <option value="Benchmarks">Benchmarks (Elevation Points)</option>
+                <option value="Spot Elevation Points">Spot Elevation Points</option>
+                <option value="Contour Points">Contour Points</option>
+                <option value="Breaklines">Breaklines</option>
+                <option value="Centerline Points">Centerline Points</option>
+                <option value="Offset Points">Offset Points</option>
+                <option value="Cut/Fill Points">Cut/Fill Points</option>
+                <option value="Grading Points">Grading Points</option>
+                <option value="GPS Points">GPS Points (GNSS Control Points)</option>
+                <option value="Triangulation Points">Triangulation Points</option>
+                <option value="Datum Points">Datum Points</option>
+                <option value="Lot Corners">Lot Corners</option>
+                <option value="Subdivision Control Points">Subdivision Control Points</option>
+                <option value="Edge of Right-of-Way Points">Edge of Right-of-Way Points</option>
+                <option value="Centerline of Right-of-Way Points">Centerline of Right-of-Way Points</option>
+                <option value="Shoreline Points">Shoreline Points</option>
+                <option value="Stream/Watercourse Points">Stream/Watercourse Points</option>
+                <option value="Floodplain Points">Floodplain Points</option>
+                <option value="Utility Pole Points">Utility Pole Points</option>
+                <option value="Manhole Points">Manhole Points</option>
+                <option value="Pipeline Points">Pipeline Points</option>
+                <option value="Tree Points">Tree Points</option>
+                <option value="Building Corner Points">Building Corner Points</option>
+                <option value="Fence Line Points">Fence Line Points</option>
+                <option value="Monuments/Markers">Monuments/Markers</option>
+              </select>
+            </div>
+            <div id="geolocation-info">Geolocation: Updating...</div>
+            <div id="geometa-block"></div>
+            <button id="copy-btn">Copy to Clipboard</button>
+            <p style="color: white;">Copy and Paste This Block of Code into the Post Below</p>
+          </div>
+        </div>
+        <div id="modals-root"></div>
+        <script type="module" src="/js/app.js"></script>
+      </body>
+    </html>

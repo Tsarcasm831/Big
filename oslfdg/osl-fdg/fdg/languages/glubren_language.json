@@ -1,0 +1,221 @@
+{
+  "language": "Glub'ren",
+  "description": "A bubble-like aquatic language written from bottom to top, composed of floating glyphs and resonant flows.",
+  "direction": "bottom-to-top",
+  "glyph_sets": {
+    "core_bubbles": [
+      {
+        "glyph": "𓆉",
+        "name": "blu",
+        "sound": "/blu/",
+        "meaning": "water / life"
+      },
+      {
+        "glyph": "𓆡",
+        "name": "sho",
+        "sound": "/ʃo/",
+        "meaning": "surface / break"
+      },
+      {
+        "glyph": "𓆛",
+        "name": "dar",
+        "sound": "/dar/",
+        "meaning": "deep / old"
+      },
+      {
+        "glyph": "𓆞",
+        "name": "kem",
+        "sound": "/kɛm/",
+        "meaning": "current / movement"
+      },
+      {
+        "glyph": "𓇼",
+        "name": "nel",
+        "sound": "/nɛl/",
+        "meaning": "light / clarity"
+      },
+      {
+        "glyph": "𓈗",
+        "name": "zin",
+        "sound": "/zin/",
+        "meaning": "silence / stillness"
+      },
+      {
+        "glyph": "𓆟",
+        "name": "muu",
+        "sound": "/muː/",
+        "meaning": "breathe / speak"
+      },
+      {
+        "glyph": "𓆢",
+        "name": "yil",
+        "sound": "/jɪl/",
+        "meaning": "child / growth"
+      },
+      {
+        "glyph": "𓋹",
+        "name": "tuh",
+        "sound": "/tʊ/",
+        "meaning": "gather / bond"
+      },
+      {
+        "glyph": "𓆝",
+        "name": "vor",
+        "sound": "/voɾ/",
+        "meaning": "predator / force"
+      },
+      {
+        "glyph": "𓇢",
+        "name": "aen",
+        "sound": "/aɛn/",
+        "meaning": "sky / surface glow"
+      },
+      {
+        "glyph": "𓇷",
+        "name": "ree",
+        "sound": "/ɾiː/",
+        "meaning": "journey / path"
+      },
+      {
+        "glyph": "𓆣",
+        "name": "gha",
+        "sound": "/gɑ/",
+        "meaning": "salt / purity"
+      },
+      {
+        "glyph": "𓍯",
+        "name": "ush",
+        "sound": "/uʃ/",
+        "meaning": "hide / shadow"
+      },
+      {
+        "glyph": "𓃱",
+        "name": "kel",
+        "sound": "/kɛl/",
+        "meaning": "shell / defense"
+      },
+      {
+        "glyph": "𓆘",
+        "name": "bor",
+        "sound": "/boɾ/",
+        "meaning": "conflict / storm"
+      },
+      {
+        "glyph": "𓅪",
+        "name": "siu",
+        "sound": "/sjuː/",
+        "meaning": "unity / spiral"
+      },
+      {
+        "glyph": "𓂢",
+        "name": "fae",
+        "sound": "/faɪ/",
+        "meaning": "song / echo"
+      },
+      {
+        "glyph": "𓆚",
+        "name": "qen",
+        "sound": "/kɛn/",
+        "meaning": "school / memory"
+      },
+      {
+        "glyph": "𓆇",
+        "name": "llu",
+        "sound": "/ɬu/",
+        "meaning": "tendril / reach"
+      },
+      {
+        "glyph": "𓇀",
+        "name": "meh",
+        "sound": "/mɛh/",
+        "meaning": "neutral / pause"
+      },
+      {
+        "glyph": "𓇃",
+        "name": "noo",
+        "sound": "/nuː/",
+        "meaning": "nest / home"
+      },
+      {
+        "glyph": "𓅮",
+        "name": "ora",
+        "sound": "/ɔɾa/",
+        "meaning": "time / tide"
+      }
+    ],
+    "flow_modifiers": [
+      {
+        "glyph": "○",
+        "name": "buun",
+        "function": "rising (question/uncertainty)"
+      },
+      {
+        "glyph": "◍",
+        "name": "drenn",
+        "function": "sinking (finality/death)"
+      },
+      {
+        "glyph": "◎",
+        "name": "zol",
+        "function": "whirlpool (emphasis/focus)"
+      },
+      {
+        "glyph": "◉",
+        "name": "shiir",
+        "function": "breath marker / soft stop"
+      },
+      {
+        "glyph": "◐",
+        "name": "glon",
+        "function": "repetition / echo"
+      },
+      {
+        "glyph": "◓",
+        "name": "elth",
+        "function": "directional change / reversal"
+      },
+      {
+        "glyph": "◑",
+        "name": "mur",
+        "function": "compression / whisper"
+      }
+    ],
+    "sacred_pearls": [
+      {
+        "glyph": "𓇣",
+        "name": "Lu’tha",
+        "meaning": "Origin Bubble"
+      },
+      {
+        "glyph": "𓇌",
+        "name": "Vel’mi",
+        "meaning": "The All Current"
+      },
+      {
+        "glyph": "𓆡𓆡",
+        "name": "Duul’za",
+        "meaning": "Forbidden Sound"
+      },
+      {
+        "glyph": "𓇤",
+        "name": "Seon",
+        "meaning": "Moon-Drift (Ebb Blessing)"
+      },
+      {
+        "glyph": "𓆱",
+        "name": "Nirru",
+        "meaning": "Depth Below Light"
+      },
+      {
+        "glyph": "𓇌𓇌",
+        "name": "Rek’sho",
+        "meaning": "Memory of the Elders"
+      },
+      {
+        "glyph": "𓍑",
+        "name": "Glim",
+        "meaning": "Glow beneath the veil"
+      }
+    ]
+  }
+}
