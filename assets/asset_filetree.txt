@@ -1,0 +1,363 @@
+C:.
+|   alex.png
+|   anthromorph.glb
+|   anthromorph2_nobg.png
+|   anthromorph3_nobg.png
+|   anthromorphs_nobg.png
+|   avianos.glb
+|   avianos_nobg.png
+|   behemoth.glb
+|   Behemoth_nobg.png
+|   blue_horse_nobg.png
+|   button-click.wav
+|   chiropteran.glb
+|   Chiropteran_nobg.png
+|   combat.png
+|   customize.png
+|   Dengar.glb
+|   dengar_charger.glb
+|   dengar_charger_nobg.png
+|   earth_texture.jpg
+|   equipment.png
+|   favicon.ico
+|   FDG_outpost_nobg.png
+|   grenade.png
+|   haywire.png
+|   jace.png
+|   katia.glb
+|   kilrathi.glb
+|   kilrathi.png
+|   light-em-up.png
+|   metal-clank.mp3
+|   missions.png
+|   nexus-logo.png
+|   noah.png
+|   no_bg_250303_122034.png
+|   no_bg_250303_122112.png
+|   overview.png
+|   player.png
+|   prometheus_outpost_nobg.png
+|   prosperity_nobg.png
+|   raider_outpost_nobg.png
+|   rank.png
+|   research-complete.wav
+|   scanning.png
+|   sci-fi-bg.png
+|   shalrah dengar_nobg.png
+|   shalrah prime_nobg.png
+|   shalrah_prime.glb
+|   shredder.png
+|   skillsandabilities.png
+|   talehn.glb
+|   talehn.png
+|   talorian.glb
+|   talorian.png
+|   tanarhe.png
+|   tech-nexus-ambient.mp3
+|   training.png
+|   t_ana_rhe.glb
+|   vyraxus.glb
+|   vyraxus_nobg.png
+|   white_horse_nobg.png
+|   xithrian.glb
+|   xithrian.png
+|
++---Allies
+|       alex.png
+|       Billy.png
+|       DALL·E 2025-03-17 07.56.14 - A full-body pixel art sprite of a former high-ranking officer from a strict military faction in a post-apocalyptic world. He is a hardened and imposin (2).png.png
+|       DALL·E 2025-03-17 07.56.14 - A full-body pixel art sprite of a former high-ranking officer from a strict military faction in a post-apocalyptic world. He is a hardened and imposin (3).png.png
+|       DALL·E 2025-03-17 08.15.00 - A full-body pixel art sprite of Spyder, a post-apocalyptic tech whiz. He has a wiry frame and an eccentric look, wearing a rugged, patched-up jacket w (1).png.png
+|       engineer.webp
+|       female_doctor1.webp
+|       Ivey.png
+|       Jace.png
+|       JohnReilly.png
+|       Kaanan.png
+|       male_doctor1.webp
+|       militia.webp
+|       Noah.png
+|       scout.webp
+|       settler.webp
+|       spyder.png
+|       t'ana'rhe.png
+|       t'ana'rhe2.png
+|       talehn.png
+|       xithrian.png
+|
++---Factions
+|   |   anthromorph2_nobg.png
+|   |   anthromorph3_nobg.png
+|   |   anthromorphs_nobg.png
+|   |   avianos_nobg.png
+|   |   Behemoth_nobg.png
+|   |   Chiropteran_nobg.png
+|   |   dengar_charger_nobg.png
+|   |   fdgarchangel.webp
+|   |   fdgblackrose.webp
+|   |   fdgtrooper.webp
+|   |   fdgvalkyrie.webp
+|   |   fdgwarhawk.webp
+|   |   kilrathi.png
+|   |   no_bg_250303_122112.png
+|   |   shalrah dengar_nobg.png
+|   |   shalrah prime_nobg.png
+|   |   talorian.png
+|   |   tanarhe.png
+|   |   vyraxus_nobg.png
+|   |   xithrian.png
+|   |
+|   +---Aliens
+|   +---FDG
+|   |       archangel.webp
+|   |       black_rose.webp
+|   |       black_rose2.webp
+|   |       elite_trooper.webp
+|   |       officer.webp
+|   |       seraphim.webp
+|   |       trooper.webp
+|   |       trooper1.webp
+|   |       valkyrie.webp
+|   |       warhawk.webp
+|   |
+|   +---HIVE
+|   |   |   drone.webp
+|   |   |   infiltrator.webp
+|   |   |   queen.webp
+|   |   |   scout.webp
+|   |   |   technician.webp
+|   |   |   warrior.webp
+|   |   |
+|   |   \---Recon_scout
+|   |       \---biped
+|   |               Animation_Alert_withSkin.glb
+|   |               Animation_Casual_Walk_withSkin.glb
+|   |               Animation_Formal_Bow_withSkin.glb
+|   |               Animation_Idle_03_withSkin.glb
+|   |               Animation_Running_withSkin.glb
+|   |               Animation_Run_02_withSkin.glb
+|   |               Animation_Walking_withSkin.glb
+|   |
+|   \---Mutants
+|           acid_spitter.webp
+|           alpha.webp
+|           berserker1.webp
+|           Brute.webp
+|           fleshwalker.webp
+|           mutant_engineer.webp
+|           stalker.webp
+|
++---icons
+|       blue_horse_nobg.png
+|       combat.png
+|       combat.webp
+|       customize.png
+|       customize.webp
+|       equipment.png
+|       equipment.webp
+|       favicon.ico
+|       FDG_outpost_nobg.png
+|       grenade.png
+|       grenade.webp
+|       haywire.png
+|       haywire.webp
+|       light-em-up.png
+|       light-em-up.webp
+|       missions.png
+|       missions.webp
+|       nexus-logo.png
+|       no_bg_250303_122034.png
+|       overview.png
+|       overview.webp
+|       prometheus_outpost_nobg.png
+|       prosperity_nobg.png
+|       raider_outpost_nobg.png
+|       rank.png
+|       rank.webp
+|       scanning.png
+|       scanning.webp
+|       sci-fi-bg.png
+|       sci-fi-bg.webp
+|       shredder.png
+|       shredder.webp
+|       skillsandabilities.png
+|       skillsandabilities.webp
+|       training.png
+|       training.webp
+|       white_horse_nobg.png
+|
++---Marthas
+|       martha.png
+|       patron.png
+|       patron2.png
+|       player.png
+|       tavern_background.png
+|
++---New
+|       bill.webp
+|       Ivey.webp
+|       noah.webp
+|       spyder.webp
+|       waterworks-mechanic.webp
+|
++---Sent
+|       anthromorph.png
+|       anthromorph2.png
+|       anthromorph3.png
+|       anthromorphs.webp
+|       anthromorph_nobg.png
+|       area51.png
+|       avianos.webp
+|       Behemoth.webp
+|       blue_horse.png
+|       Chiropteran.webp
+|       dengar_charger.webp
+|       FDG_outpost.png
+|       hive.webp
+|       house.png
+|       kilrathi_warrior.webp
+|       new_cheyenne.png
+|       prometheus_outpost.png
+|       prosperity.png
+|       raider_outpost.png
+|       shal'rah dengar.webp
+|       shalrah prime.jpg
+|       silvercity.png
+|       Tal Ehn.webp
+|       Talorian.webp
+|       vyraxus.webp
+|       white_horse.png
+|       worldmapmusic.mp3
+|       Xith.webp
+|       xithrian.webp
+|
++---Sounds
+|   |   ambient-background-horror.mp3
+|   |   button-click.wav
+|   |   door-creaking-sound.mp3
+|   |   fire-flare.mp3
+|   |   jump.mp3
+|   |   land.mp3
+|   |   loud-fire-crackling (1).mp3
+|   |   loud-fire-crackling.mp3
+|   |   loud-footsteps.mp3
+|   |   metal-clank.mp3
+|   |   quill.mp3
+|   |   tavern-ambience.mp3
+|   |
+|   +---generated
+|   +---generated2
+|   |       ahyesmorefire.mp3
+|   |       autobiography.mp3
+|   |       enlightenment.mp3
+|   |       masterpiece.mp3
+|   |       quill.mp3
+|   |       sleep.mp3
+|   |
+|   +---New
+|   |       Code Blue.mp3
+|   |       Door Creaking Sound.mp3
+|   |       fire-crackling.mp3
+|   |       hospital.mp3
+|   |       Quill Writing Movement Sound Effect  No Copyright & Free for Editing.mp3
+|   |       tense-ambient-gunstore.mp3
+|   |
+|   \---voices
+|           anton.mp3
+|           bill.mp3
+|           John.mp3
+|           Julia.mp3
+|           Kaanan (2).mp3
+|           kaanan.mp3
+|           robot.mp3
+|           samantha.mp3
+|           spyder.mp3
+|           z4n3.mp3
+|           zane.mp3
+|
++---static
+|   \---diamond_dancers
+|       +---dancer1
+|       |   \---biped
+|       |           Animation_Idle_02_withSkin.glb
+|       |           Animation_Love_You_Pop_Dance_withSkin.glb
+|       |           Animation_Magic_Genie_withSkin.glb
+|       |           Animation_OMG_Groove_withSkin.glb
+|       |           Animation_Running_withSkin.glb
+|       |           Animation_Superlove_Pop_Dance_withSkin.glb
+|       |           Animation_Walking_withSkin.glb
+|       |           Animation_Walking_Woman_withSkin.glb
+|       |           Animation_You_Groove_withSkin.glb
+|       |
+|       +---dancer2
+|       |   \---biped
+|       |           Animation_Boom_Dance_withSkin.glb
+|       |           Animation_Crystal_Beads_withSkin.glb
+|       |           Animation_Dont_You_Dare_withSkin.glb
+|       |           Animation_Gentlemans_Bow_withSkin.glb
+|       |           Animation_Idle_02_withSkin.glb
+|       |           Animation_Love_You_Pop_Dance_withSkin.glb
+|       |           Animation_Magic_Genie_withSkin.glb
+|       |           Animation_Pop_Dance_LSA2_withSkin.glb
+|       |           Animation_Running_withSkin.glb
+|       |           Animation_Squat_Stance_withSkin.glb
+|       |           Animation_Superlove_Pop_Dance_withSkin.glb
+|       |           Animation_Walking_withSkin.glb
+|       |           Animation_Walking_Woman_withSkin.glb
+|       |
+|       +---dancer3
+|       |   \---biped
+|       |           Animation_Boom_Dance_withSkin.glb
+|       |           Animation_Bubble_Dance_withSkin.glb
+|       |           Animation_Chair_Sit_Idle_F_withSkin.glb
+|       |           Animation_Confused_Scratch_withSkin.glb
+|       |           Animation_Dead_withSkin.glb
+|       |           Animation_Denim_Pop_Dance_withSkin.glb
+|       |           Animation_Formal_Bow_withSkin.glb
+|       |           Animation_Happy_jump_f_withSkin.glb
+|       |           Animation_Idle_withSkin.glb
+|       |           Animation_Running_withSkin.glb
+|       |           Animation_Skip_Forward_withSkin.glb
+|       |           Animation_Superlove_Pop_Dance_withSkin.glb
+|       |           Animation_Walking_withSkin.glb
+|       |           Animation_Walking_Woman_withSkin.glb
+|       |
+|       \---dancer4
+|           \---biped
+|                   Animation_All_Night_Dance_withSkin.glb
+|                   Animation_Arm_Circle_Shuffle_withSkin.glb
+|                   Animation_Bass_Beats_withSkin.glb
+|                   Animation_Boom_Dance_withSkin.glb
+|                   Animation_Bubble_Dance_withSkin.glb
+|                   Animation_Cardio_Dance_withSkin.glb
+|                   Animation_Cherish_Pop_Dance_withSkin.glb
+|                   Animation_Crystal_Beads_withSkin.glb
+|                   Animation_Denim_Pop_Dance_withSkin.glb
+|                   Animation_FunnyDancing_01_withSkin.glb
+|                   Animation_Running_withSkin.glb
+|                   Animation_Walking_withSkin.glb
+|
++---Textures
+|       blue_metal.webp
+|       fire.png
+|       fire.webp
+|       green_metal.webp
+|       metal_green.png
+|       metal_red.png
+|       red_metal.webp
+|       smoke.png
+|       smoke.webp
+|       yellow_metal.webp
+|
+\---What If
+        Intro.png
+        Intro.webp
+        intro2.png
+        intro2.webp
+        intro3.png
+        intro3.webp
+        Out of Sync (Cover).wav
+        Out of Sync (Radio).wav
+        scene1.png
+        scene1.webp
+
