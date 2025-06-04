@@ -495,6 +495,7 @@ export default function applyRendering(instance) {
                 return i;
               }
               function playNext() {
+                mixer.removeEventListener('finished', playNext);
                 const idx = getRandomIdx();
                 const clip = gltf.animations[idx];
                 const action = mixer.clipAction(clip);
@@ -503,10 +504,7 @@ export default function applyRendering(instance) {
                 action.setLoop(THREE.LoopOnce, 1);
                 action.clampWhenFinished = true;
                 action.play();
-                mixer.addEventListener('finished', () => {
-                  mixer.removeEventListener('finished', playNext);
-                  playNext();
-                });
+                mixer.addEventListener('finished', playNext);
               }
               playNext();
               instance.mixers.push(mixer);

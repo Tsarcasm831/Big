@@ -86,3 +86,15 @@ cd home/scripts/dialogue_backend
 python app.py
 ```
 
+## Manual testing - Diamond Dancers
+
+To verify that the Diamond Club dancers cycle through their moves:
+
+1. Run the static server from the `home` directory:
+   ```sh
+   cd home
+   python static_server.py
+   ```
+2. Open [http://localhost:3057/pages/diamonds_club/diamonds.html](http://localhost:3057/pages/diamonds_club/diamonds.html) in a browser.
+   Four dancers should continually play random animations without piling up event listeners.
+
