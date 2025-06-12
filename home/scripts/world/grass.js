@@ -16,6 +16,25 @@ function isInExclusionZone(x, z, exclusionConfig) {
     /* @tweakable Buffer zone around buildings/objects where grass won't grow */
     const objectBuffer = 0.05;
 
+    // Exclude area around player spawn
+    if (exclusionConfig.player && exclusionConfig.player.gridPosition) {
+        const { gridPosition, spawnExclusionRadius = 0 } = exclusionConfig.player;
+        if (spawnExclusionRadius > 0) {
+            const { chunkSize, numChunks } = exclusionConfig.world;
+            const divisions = exclusionConfig.grid.divisions;
+            const cellSizeX = chunkSize.x / divisions;
+            const cellSizeZ = chunkSize.z / divisions;
+            const halfTotalX = (chunkSize.x * numChunks.x) / 2;
+            const halfTotalZ = (chunkSize.z * numChunks.z) / 2;
+            const spawnX = -halfTotalX + (gridPosition.x + 0.5) * cellSizeX;
+            const spawnZ = -halfTotalZ + (gridPosition.z + 0.5) * cellSizeZ;
+            const rad = spawnExclusionRadius * Math.max(cellSizeX, cellSizeZ);
+            if (Math.abs(x - spawnX) <= rad && Math.abs(z - spawnZ) <= rad) {
+                return true;
+            }
+        }
+    }
+
     // Helper function to check a single road segment (handles rotation)
     const checkRoadSegment = (segmentConfig) => {
         if (!segmentConfig || !segmentConfig.position || !segmentConfig.size) return false;
