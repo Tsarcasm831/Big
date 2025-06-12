@@ -49,7 +49,7 @@ export function createWalls(scene, worldConfig, wallConfig) {
     });
 
     const wallMeshes = [];
-    const commonUserData = { collidable: true }; // Mark walls as collidable
+    const commonUserData = { collidable: true, type: 'wall' }; // Mark walls as collidable
 
     // Function to set texture repeat based on wall segment dimensions
     const setTextureRepeat = (geometry, mesh) => {
@@ -86,7 +86,10 @@ export function createWalls(scene, worldConfig, wallConfig) {
     setTextureRepeat(northWallGeometry, northWall); // Set texture repeat
     northWall.position.set(0, wallHeight / 2, -halfChunkZ - wallThickness / 2);
     northWall.name = "Wall_North";
-    northWall.userData = commonUserData;
+    northWall.userData = {
+        ...commonUserData,
+        boundingBoxSize: { x: northSouthBaseGeometryWidth, y: wallHeight, z: wallThickness }
+    };
     northWall.castShadow = true;
     northWall.receiveShadow = true;
     scene.add(northWall);
@@ -108,7 +111,10 @@ export function createWalls(scene, worldConfig, wallConfig) {
         setTextureRepeat(leftGeometry, southWallLeft);
         southWallLeft.position.set(startX + leftSegmentLength / 2, wallHeight / 2, southWallZ);
         southWallLeft.name = "Wall_South_Left";
-        southWallLeft.userData = commonUserData;
+        southWallLeft.userData = {
+            ...commonUserData,
+            boundingBoxSize: { x: leftSegmentLength, y: wallHeight, z: wallThickness }
+        };
         southWallLeft.castShadow = true;
         southWallLeft.receiveShadow = true;
         scene.add(southWallLeft);
@@ -123,7 +129,10 @@ export function createWalls(scene, worldConfig, wallConfig) {
         setTextureRepeat(rightGeometry, southWallRight);
         southWallRight.position.set(gapEndX + rightSegmentLength / 2, wallHeight / 2, southWallZ);
         southWallRight.name = "Wall_South_Right";
-        southWallRight.userData = commonUserData;
+        southWallRight.userData = {
+            ...commonUserData,
+            boundingBoxSize: { x: rightSegmentLength, y: wallHeight, z: wallThickness }
+        };
         southWallRight.castShadow = true;
         southWallRight.receiveShadow = true;
         scene.add(southWallRight);
@@ -137,7 +146,10 @@ export function createWalls(scene, worldConfig, wallConfig) {
     setTextureRepeat(westWallGeometry, westWall); // Set texture repeat (using depth here)
     westWall.position.set(-halfChunkX - wallThickness / 2, wallHeight / 2, 0);
     westWall.name = "Wall_West";
-    westWall.userData = commonUserData;
+    westWall.userData = {
+        ...commonUserData,
+        boundingBoxSize: { x: wallThickness, y: wallHeight, z: eastWestBaseGeometryDepth }
+    };
     westWall.castShadow = true;
     westWall.receiveShadow = true;
     scene.add(westWall);
@@ -149,7 +161,10 @@ export function createWalls(scene, worldConfig, wallConfig) {
     setTextureRepeat(eastWallGeometry, eastWall); // Set texture repeat
     eastWall.position.set(halfChunkX + wallThickness / 2, wallHeight / 2, 0);
     eastWall.name = "Wall_East";
-    eastWall.userData = commonUserData;
+    eastWall.userData = {
+        ...commonUserData,
+        boundingBoxSize: { x: wallThickness, y: wallHeight, z: eastWestBaseGeometryDepth }
+    };
     eastWall.castShadow = true;
     eastWall.receiveShadow = true;
     scene.add(eastWall);

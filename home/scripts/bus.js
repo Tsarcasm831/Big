@@ -12,7 +12,11 @@ export function createBus(scene, busConfig) {
     console.log('createBus config:', busConfig);
     const busGroup = new THREE.Group();
     busGroup.name = "BusGroup";
-    busGroup.userData = { collidable: true };
+    busGroup.userData = {
+        collidable: true,
+        type: 'bus',
+        boundingBoxSize: busConfig.size || { x: 4, y: 2, z: 2 }
+    };
 
     // Determine model URL
     const defaultUrl = 'assets/static/bus.glb';
@@ -33,7 +37,7 @@ export function createBus(scene, busConfig) {
                 if (child.isMesh) {
                     child.castShadow = true;
                     child.receiveShadow = true;
-                    child.userData = { collidable: true };
+                    child.userData = { collidable: true, type: 'bus' };
                 }
             });
             busGroup.add(model);

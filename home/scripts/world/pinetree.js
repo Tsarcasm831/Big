@@ -30,8 +30,9 @@ export function createPineTree(scene, gridX = 77, gridZ = 96, collidableObjects 
         if (!obj) continue;
         
         // Skip if it's not a wall or the bus
-        const isWall = obj.userData && (obj.userData.type === 'wall' || obj.name === 'Wall');
-        const isBus = obj.userData && obj.userData.type === 'bus' || obj.name === 'Bus';
+        const name = obj.name || '';
+        const isWall = obj.userData?.type === 'wall' || name.startsWith('Wall');
+        const isBus = obj.userData?.type === 'bus' || name.includes('Bus');
         
         if (!isWall && !isBus) continue;
         
