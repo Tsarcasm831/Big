@@ -239,6 +239,11 @@ async function init() {
         const { numChunks } = config.world;
         const fullDivX = divisions * numChunks.x;
         const fullDivZ = divisions * numChunks.z;
+        const spawnPos = config.player.gridPosition;
+        const spawnRad = config.player.spawnExclusionRadius || 0;
+        const nearSpawn = (gx, gz) => {
+            return Math.abs(gx - spawnPos.x) <= spawnRad && Math.abs(gz - spawnPos.z) <= spawnRad;
+        };
         const centralXStart = Math.floor(numChunks.x / 2) * divisions;
         const centralXEnd = centralXStart + divisions;
         const centralZStart = Math.floor(numChunks.z / 2) * divisions;
@@ -249,8 +254,9 @@ async function init() {
                 x = Math.floor(Math.random() * fullDivX);
                 z = Math.floor(Math.random() * fullDivZ);
             } while (
-                x >= centralXStart && x < centralXEnd &&
-                z >= centralZStart && z < centralZEnd
+                (x >= centralXStart && x < centralXEnd &&
+                z >= centralZStart && z < centralZEnd) ||
+                nearSpawn(x, z)
             );
             createPineTree(scene, x, z, collidableObjects);
         }
@@ -261,8 +267,9 @@ async function init() {
                 gx = Math.floor(Math.random() * fullDivX);
                 gz = Math.floor(Math.random() * fullDivZ);
             } while (
-                gx >= centralXStart && gx < centralXEnd &&
-                gz >= centralZStart && gz < centralZEnd
+                (gx >= centralXStart && gx < centralXEnd &&
+                gz >= centralZStart && gz < centralZEnd) ||
+                nearSpawn(gx, gz)
             );
             createPineGrove(scene, gx, gz, collidableObjects);
         }
@@ -275,6 +282,11 @@ async function init() {
         const { numChunks } = config.world;
         const fullDivX = divisions * numChunks.x;
         const fullDivZ = divisions * numChunks.z;
+        const spawnPos = config.player.gridPosition;
+        const spawnRad = config.player.spawnExclusionRadius || 0;
+        const nearSpawn = (gx, gz) => {
+            return Math.abs(gx - spawnPos.x) <= spawnRad && Math.abs(gz - spawnPos.z) <= spawnRad;
+        };
         const centralXStart = Math.floor(numChunks.x / 2) * divisions;
         const centralXEnd = centralXStart + divisions;
         const centralZStart = Math.floor(numChunks.z / 2) * divisions;
@@ -299,8 +311,9 @@ async function init() {
                     x = Math.floor(Math.random() * fullDivX);
                     z = Math.floor(Math.random() * fullDivZ);
                 } while (
-                    x >= centralXStart && x < centralXEnd &&
-                    z >= centralZStart && z < centralZEnd
+                    (x >= centralXStart && x < centralXEnd &&
+                    z >= centralZStart && z < centralZEnd) ||
+                    nearSpawn(x, z)
                 );
                 try {
                     // Pass collidableObjects to flora creation functions to prevent spawning on walls or bus

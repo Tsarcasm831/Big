@@ -3,6 +3,8 @@ export const playerCameraConfig = {
     player: {
         /* @tweakable Grid spawn position override (grid units) */
         gridPosition: { x: 69, z: 117 },
+        /* @tweakable Radius around spawn where flora is excluded (grid units) */
+        spawnExclusionRadius: 3,
         /* @tweakable Path to the idle animation GLB */
         idleGltfPath: 'assets/player/Animation_Idle_02_withSkin.glb',
         /* @tweakable Path to the walking animation GLB */
